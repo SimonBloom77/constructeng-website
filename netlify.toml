@@ -21,3 +21,8 @@
   from = "/for-recruiters"
   to = "/employers"
   status = 301
+
+[[redirects]]
+  from = "/process"
+  to = "/employers"
+  status = 301
