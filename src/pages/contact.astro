@@ -1,0 +1,175 @@
+---
+import Layout from '../layouts/Layout.astro';
+import settings from '../data/settings.json';
+---
+
+<Layout title="Contact Us" description="Contact Simon Bloom at ConstructEng Australia — submit your CV or brief us on a role.">
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Contact</span>
+      <h1>Let's talk.</h1>
+      <div class="contact-card">
+        <div>
+          <span class="c-label">ConstructEng Australia Pty Ltd</span>
+          <span class="c-name">{settings.founderName}</span>
+        </div>
+        <div class="c-links">
+          <a href={`tel:${settings.phone}`}>{settings.phoneDisplay}</a>
+          <a href={`mailto:${settings.email}`}>{settings.email}</a>
+          <a href={settings.linkedinUrl} target="_blank" rel="noopener">LinkedIn ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="cv" class="section section-paper">
+    <div class="wrap form-wrap">
+      <span class="eyebrow">Job Seekers</span>
+      <h2>Send us your CV.</h2>
+      <p class="lead">Tell us a bit about yourself and attach your CV — we'll be in touch when a role matching your experience comes up, in confidence.</p>
+
+      <form name="cv-submission" method="POST" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" action="/thank-you" class="form">
+        <input type="hidden" name="form-name" value="cv-submission" />
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="cv-name">Full name</label>
+            <input id="cv-name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="cv-email">Email</label>
+            <input id="cv-email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="cv-phone">Phone</label>
+            <input id="cv-phone" name="phone" type="tel" />
+          </div>
+          <div class="field">
+            <label for="cv-discipline">Discipline</label>
+            <input id="cv-discipline" name="discipline" type="text" placeholder="e.g. Structural Engineering" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="cv-message">A little about you</label>
+          <textarea id="cv-message" name="message" rows="4"></textarea>
+        </div>
+        <div class="field">
+          <label for="cv-file">Attach your CV</label>
+          <input id="cv-file" name="cv" type="file" accept=".pdf,.doc,.docx" required />
+        </div>
+        <button type="submit" class="btn">Send Your CV</button>
+      </form>
+    </div>
+  </section>
+
+  <section id="brief" class="section">
+    <div class="wrap form-wrap">
+      <span class="eyebrow">Employers</span>
+      <h2>Brief us on a role.</h2>
+      <p class="lead">Tell us what you're looking to fill and we'll be in touch to discuss how we can help.</p>
+
+      <form name="employer-brief" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/thank-you" class="form">
+        <input type="hidden" name="form-name" value="employer-brief" />
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="br-name">Full name</label>
+            <input id="br-name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="br-company">Company</label>
+            <input id="br-company" name="company" type="text" required />
+          </div>
+          <div class="field">
+            <label for="br-email">Email</label>
+            <input id="br-email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="br-phone">Phone</label>
+            <input id="br-phone" name="phone" type="tel" />
+          </div>
+        </div>
+        <div class="field">
+          <label for="br-role">Role you're looking to fill</label>
+          <input id="br-role" name="role" type="text" />
+        </div>
+        <div class="field">
+          <label for="br-message">Tell us about the role</label>
+          <textarea id="br-message" name="message" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-outline">Brief Us on a Role</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(28px, 4vw, 34px);
+    margin-top: 12px;
+  }
+  .contact-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-top: 32px;
+    padding: 28px;
+    border: 1px solid var(--line);
+    background: var(--paper);
+  }
+  .c-label {
+    display: block;
+    font-size: 13px;
+    color: var(--steel);
+  }
+  .c-name {
+    display: block;
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 18px;
+    margin-top: 4px;
+  }
+  .c-links {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .c-links a {
+    font-size: 14px;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .c-links a:hover {
+    color: var(--accent-dark);
+  }
+  h2 {
+    font-size: clamp(24px, 3.5vw, 30px);
+    margin-top: 10px;
+  }
+  .lead {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 560px;
+    margin-top: 12px;
+  }
+  .form-wrap {
+    max-width: 640px;
+  }
+  .form {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .hidden-field {
+    display: none;
+  }
+</style>

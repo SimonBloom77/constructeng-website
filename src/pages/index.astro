@@ -1,0 +1,412 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+import settings from '../data/settings.json';
+
+const allVacancies = (await getCollection('vacancies', ({ data }) => data.active))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 5);
+
+const featuredTestimonials = (await getCollection('testimonials', ({ data }) => data.featured))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 4);
+---
+
+<Layout title="Home">
+  <!-- Hero -->
+  <section class="section section-paper hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <div class="kicker">
+          <span class="kicker-line"></span>
+          <span class="eyebrow">Construction &amp; Engineering Recruitment</span>
+        </div>
+        <h1>{settings.heroHeading}</h1>
+        <p class="hero-sub">{settings.heroSub}</p>
+        <div class="hero-ctas">
+          <a href="/job-seekers" class="btn">Browse Current Vacancies</a>
+          <a href="/employers" class="btn btn-outline">Hire Through Us</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-row">
+          <span>Years in technical &amp; executive recruitment</span>
+          <strong>{settings.statYears}</strong>
+        </div>
+        <div class="stat-row">
+          <span>Candidate-submission to offer</span>
+          <strong>{settings.statOfferRatio}</strong>
+        </div>
+        <div class="stat-row">
+          <span>Focused shortlist per role</span>
+          <strong>{settings.statShortlist}</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trusted by -->
+  <section class="trusted">
+    <div class="wrap trusted-inner">
+      <span class="eyebrow small">Trusted by</span>
+      <div class="trusted-logos">
+        <span>Sydney Metro</span>
+        <span>Transport for NSW</span>
+        <span>Jacobs</span>
+        <span>John Holland</span>
+        <span>SKM</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About teaser -->
+  <section class="section">
+    <div class="wrap about-teaser">
+      <div class="about-copy">
+        <span class="eyebrow">About Us</span>
+        <h2>25+ years of placing the people who build Australia.</h2>
+        <p>{settings.aboutBio}</p>
+        <a href="/about" class="link-underline">Read more about ConstructEng →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Vacancies -->
+  <section class="section section-paper">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <span class="eyebrow">Current Vacancies</span>
+          <h2>Roles we're recruiting for right now.</h2>
+        </div>
+        <a href="/job-seekers" class="link-underline">View all vacancies →</a>
+      </div>
+      <div class="vacancy-list">
+        {allVacancies.map((v) => (
+          <a href={`/job-seekers/${v.id}`} class="vacancy-row">
+            <span class="vacancy-title">{v.data.title}</span>
+            <span class="vacancy-link">View role →</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Employers -->
+  <section class="section section-ink">
+    <div class="wrap">
+      <span class="eyebrow accent">For Employers</span>
+      <h2 class="on-dark">A shortlist, not a stack of CVs.</h2>
+      <p class="on-dark-muted lead">Where other agencies send through numerous CVs and leave you to shortlist, we act as a recruitment consultant — managing the full hiring process so you only see candidates who genuinely fit.</p>
+      <div class="employer-stats">
+        <div class="employer-stat">
+          <strong>{settings.statOfferRatio}</strong>
+          <span class="stat-label">Submission-to-offer ratio</span>
+        </div>
+        <div class="employer-stat">
+          <strong>{settings.statYears}</strong>
+          <span class="stat-label">Relationship-led network</span>
+        </div>
+        <div class="employer-stat">
+          <strong>Ethical</strong>
+          <span class="stat-label">No re-approach guarantee</span>
+        </div>
+      </div>
+      <a href="/contact#brief" class="btn btn-accent">Start a Conversation With Simon</a>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section section-paper">
+    <div class="wrap">
+      <span class="eyebrow">Testimonials</span>
+      <h2>What clients say.</h2>
+      <div class="testimonial-grid">
+        {featuredTestimonials.map((t) => (
+          <div class="testimonial-card">
+            <p>&ldquo;{t.data.quote}&rdquo;</p>
+            <div class="testimonial-attr">
+              <span class="t-name">{t.data.role}</span>
+              <span class="t-company">{t.data.company}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Split CTA -->
+  <section class="section split-cta">
+    <div class="wrap split-grid">
+      <div class="split-card">
+        <span class="eyebrow">Job Seekers</span>
+        <h3>Looking for your next role?</h3>
+        <p>Send your CV and we'll be in touch when a role matching your experience comes up — in confidence, always.</p>
+        <a href="/contact#cv" class="btn">Send Us Your CV</a>
+      </div>
+      <div class="split-card">
+        <span class="eyebrow">Employers</span>
+        <h3>Need to fill a hard-to-fill role?</h3>
+        <p>Tell us the brief and we'll bring you a focused shortlist of vetted, reference-checked candidates.</p>
+        <a href="/contact#brief" class="btn btn-outline">Brief Us on a Role</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-inner {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-copy {
+    flex: 1 1 480px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .kicker {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .kicker-line {
+    width: 28px;
+    height: 2px;
+    background: var(--accent);
+  }
+  .eyebrow.small {
+    white-space: nowrap;
+  }
+  .eyebrow.accent {
+    color: var(--accent);
+  }
+  h1 {
+    font-size: clamp(32px, 4.5vw, 48px);
+  }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 540px;
+  }
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .hero-stats {
+    flex: 1 1 360px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+  }
+  .stat-row {
+    background: var(--paper);
+    padding: 26px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .stat-row span {
+    font-size: 15px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .stat-row strong {
+    font-family: 'Archivo', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+
+  .trusted {
+    border-bottom: 1px solid var(--line);
+  }
+  .trusted-inner {
+    padding: 26px 24px;
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .trusted-logos {
+    display: flex;
+    gap: 36px;
+    flex-wrap: wrap;
+  }
+  .trusted-logos span {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--navy);
+  }
+
+  .about-teaser {
+    display: flex;
+  }
+  .about-copy {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 720px;
+  }
+  .about-copy h2 {
+    font-size: clamp(26px, 3.5vw, 34px);
+  }
+  .about-copy p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--navy);
+  }
+  .link-underline {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 2px solid var(--accent);
+    padding-bottom: 2px;
+    width: fit-content;
+  }
+
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 36px;
+  }
+  .section-head h2 {
+    font-size: clamp(26px, 3.5vw, 34px);
+    margin-top: 12px;
+  }
+
+  .vacancy-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+  }
+  .vacancy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 4px;
+    border-bottom: 1px solid var(--line);
+    gap: 16px;
+    text-decoration: none;
+  }
+  .vacancy-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .vacancy-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-dark);
+    white-space: nowrap;
+  }
+
+  .on-dark {
+    color: #fff;
+    font-size: clamp(26px, 3.5vw, 34px);
+    margin-top: 14px;
+    max-width: 620px;
+  }
+  .on-dark-muted {
+    color: var(--muted-on-dark);
+  }
+  .lead {
+    font-size: 16px;
+    line-height: 1.7;
+    max-width: 620px;
+    margin-top: 18px;
+  }
+  .employer-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 32px;
+    margin: 40px 0;
+  }
+  .employer-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-top: 18px;
+    border-top: 2px solid var(--accent);
+  }
+  .employer-stat strong {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 28px;
+    color: #fff;
+  }
+  .stat-label {
+    font-size: 14px;
+    color: var(--muted-on-dark);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    margin-top: 36px;
+  }
+  .testimonial-card {
+    background: var(--white);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .testimonial-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+  .testimonial-attr {
+    display: flex;
+    flex-direction: column;
+  }
+  .t-name {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .t-company {
+    font-size: 13px;
+    color: var(--steel);
+  }
+
+  .split-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .split-card {
+    background: var(--white);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .split-card h3 {
+    font-size: 24px;
+  }
+  .split-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+</style>

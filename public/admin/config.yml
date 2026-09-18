@@ -1,0 +1,79 @@
+backend:
+  name: git-gateway
+  branch: main
+
+site_url: https://constructeng.com.au
+display_url: https://constructeng.com.au
+logo_url: /images/logo.png
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "vacancies"
+    label: "Vacancies"
+    label_singular: "Vacancy"
+    folder: "src/content/vacancies"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{title}} — {{location}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Location", name: "location", widget: "string", default: "Sydney, NSW" }
+      - label: "Discipline"
+        name: "discipline"
+        widget: "select"
+        options:
+          - "Structural Engineering"
+          - "Civil Engineering"
+          - "Rail & Transport Infrastructure"
+          - "Water & Environmental"
+          - "Drafting & BIM"
+          - "Project & Program Management"
+      - label: "Employment Type"
+        name: "type"
+        widget: "select"
+        options: ["Permanent", "Contract", "Permanent / Contract"]
+        default: "Permanent"
+      - { label: "Active (shown on the site)", name: "active", widget: "boolean", default: true }
+      - { label: "Display order", name: "order", widget: "number", default: 1, hint: "Lower numbers show first" }
+      - { label: "Role description", name: "body", widget: "markdown" }
+
+  - name: "testimonials"
+    label: "Testimonials"
+    label_singular: "Testimonial"
+    folder: "src/content/testimonials"
+    create: true
+    slug: "{{slug}}"
+    summary: "{{company}} — {{role}}"
+    fields:
+      - { label: "Quote", name: "quote", widget: "text" }
+      - { label: "Attributed name (optional, can be a title only)", name: "name", widget: "string" }
+      - { label: "Role / Title", name: "role", widget: "string" }
+      - { label: "Company", name: "company", widget: "string" }
+      - { label: "Featured on homepage", name: "featured", widget: "boolean", default: false }
+      - { label: "Display order", name: "order", widget: "number", default: 1 }
+
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "src/data/settings.json"
+        label: "General Settings"
+        name: "general"
+        fields:
+          - { label: "Company Name", name: "companyName", widget: "string" }
+          - { label: "Phone (digits only, for tel: links)", name: "phone", widget: "string" }
+          - { label: "Phone (display)", name: "phoneDisplay", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "LinkedIn URL", name: "linkedinUrl", widget: "string" }
+          - { label: "Founder Name", name: "founderName", widget: "string" }
+          - { label: "Founder Title", name: "founderTitle", widget: "string" }
+          - { label: "Homepage Hero Heading", name: "heroHeading", widget: "text" }
+          - { label: "Homepage Hero Subheading", name: "heroSub", widget: "text" }
+          - { label: "About Page Bio", name: "aboutBio", widget: "text" }
+          - { label: "Stat — Years Experience", name: "statYears", widget: "string" }
+          - { label: "Stat — Offer Ratio", name: "statOfferRatio", widget: "string" }
+          - { label: "Stat — Shortlist Size", name: "statShortlist", widget: "string" }
+          - { label: "Stat — Consultants", name: "statConsultants", widget: "string" }
+          - { label: "Stat — LinkedIn Followers", name: "statLinkedIn", widget: "string" }
+          - { label: "Stat — Year Founded", name: "statFounded", widget: "string" }

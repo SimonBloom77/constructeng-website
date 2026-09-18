@@ -1,0 +1,105 @@
+---
+import Layout from '../layouts/Layout.astro';
+import settings from '../data/settings.json';
+---
+
+<Layout title="For Employers" description="ConstructEng Australia's recruitment philosophy: a focused shortlist, a 90% submission-to-offer ratio, and an ethical no re-approach guarantee.">
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">For Employers</span>
+      <h1>A shortlist, not a stack of CVs.</h1>
+      <p class="lead">Are you looking to recruit a new team member? We're here to help.</p>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap two-col">
+      <div>
+        <h2>Recruitment Philosophy</h2>
+        <p>ConstructEng Australia has a track record of successfully filling difficult assignments. We understand that there is a shortage of high quality candidates. Often it is not possible to shortlist more than one or two suitable applicants. Where other companies will send through numerous CVs, we will often only send one. We have a {settings.statOfferRatio} ratio of candidate submission to employment offer.</p>
+        <p>Often recruiters will send multiple CVs and expect their client to qualify and select suitable applicants. At ConstructEng Australia we put service above everything else. By acting as a recruitment consultant, we are able to properly manage the hiring process. In the first instance we will often take references and include these on submission of the applicant's CV. This ensures that the skills and experience meet the standards and quality required for an advertised position.</p>
+        <p>In many instances candidates we work with have been known to us for many years. ConstructEng Australia operates a relationship management approach to ensure regular contact is made with the people on our system.</p>
+      </div>
+      <div>
+        <h2>Ethical Recruitment</h2>
+        <p>We believe in honesty and enjoy finding outstanding candidates for our clients. There are many instances of people we have placed six or seven years ago still employed by the same company today. ConstructEng Australia promises not to approach people that have been placed by our company about new positions they may be suitable for.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-ink">
+    <div class="wrap">
+      <div class="stats-grid">
+        <div class="stat">
+          <strong>{settings.statOfferRatio}</strong>
+          <span>Submission-to-offer ratio</span>
+        </div>
+        <div class="stat">
+          <strong>{settings.statYears}</strong>
+          <span>Relationship-led network</span>
+        </div>
+        <div class="stat">
+          <strong>{settings.statConsultants}</strong>
+          <span>Consultants at peak</span>
+        </div>
+        <div class="stat">
+          <strong>Ethical</strong>
+          <span>No re-approach guarantee</span>
+        </div>
+      </div>
+      <a href="/contact#brief" class="btn btn-accent">Brief Us on a Role</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(28px, 4vw, 34px);
+    margin-top: 12px;
+  }
+  .lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 640px;
+    margin-top: 14px;
+  }
+  .two-col {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 48px;
+  }
+  .two-col h2 {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+  .two-col p {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin-bottom: 16px;
+  }
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 28px;
+    margin-bottom: 44px;
+  }
+  .stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding-top: 16px;
+    border-top: 2px solid var(--accent);
+  }
+  .stat strong {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: #fff;
+  }
+  .stat span {
+    font-size: 14px;
+    color: var(--muted-on-dark);
+  }
+</style>

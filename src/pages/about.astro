@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+import settings from '../data/settings.json';
+---
+
+<Layout title="About Us" description="ConstructEng Australia was founded by Simon Bloom in 2009 — 25+ years placing technical and executive talent across construction and engineering.">
+  <section class="section">
+    <div class="wrap about-grid">
+      <div class="photo-col">
+        <div class="photo-frame">
+          <img src="/images/simon-bloom.jpg" alt={settings.founderName} onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',textContent:'Photo — Simon Bloom'}))" />
+        </div>
+        <div class="photo-caption">
+          <span class="p-name">{settings.founderName}</span>
+          <span class="p-title">{settings.founderTitle}</span>
+        </div>
+      </div>
+      <div class="copy-col">
+        <span class="eyebrow">About Us</span>
+        <h1>25+ years of placing the people who build Australia.</h1>
+        <p>ConstructEng Australia specialises in the recruitment of technical staff within construction and engineering, offering notable roles on Australia's largest building and civil developments — for both permanent and contract positions.</p>
+        <p>We are preferred suppliers to a selection of prominent international and local Australian companies, partnering with these firms to recruit their strategic, hard-to-fill positions.</p>
+        <p>{settings.aboutBio}</p>
+        <div class="stat-strip">
+          <div>
+            <strong>{settings.statConsultants}</strong>
+            <span>Consultants at peak</span>
+          </div>
+          <div>
+            <strong>{settings.statLinkedIn}</strong>
+            <span>LinkedIn network</span>
+          </div>
+          <div>
+            <strong>{settings.statFounded}</strong>
+            <span>Founded</span>
+          </div>
+        </div>
+        <a href="/contact" class="btn">Get in Touch With Simon</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .about-grid {
+    display: flex;
+    gap: 64px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .photo-col {
+    flex: 1 1 280px;
+    min-width: 240px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .photo-frame {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    overflow: hidden;
+  }
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  :global(.photo-placeholder) {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 24px;
+    font-family: 'Archivo', sans-serif;
+    font-size: 14px;
+    color: var(--steel);
+  }
+  .photo-caption {
+    display: flex;
+    flex-direction: column;
+  }
+  .p-name {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .p-title {
+    font-size: 14px;
+    color: var(--steel);
+  }
+  .copy-col {
+    flex: 1.6 1 480px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  .copy-col h1 {
+    font-size: clamp(28px, 4vw, 34px);
+  }
+  .copy-col p {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--navy);
+  }
+  .stat-strip {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  .stat-strip div {
+    display: flex;
+    flex-direction: column;
+  }
+  .stat-strip strong {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 800;
+    font-size: 22px;
+  }
+  .stat-strip span {
+    font-size: 13px;
+    color: var(--steel);
+  }
+</style>

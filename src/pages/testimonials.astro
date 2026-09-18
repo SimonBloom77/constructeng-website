@@ -1,0 +1,73 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<Layout title="Testimonials" description="What clients say about working with Simon Bloom and ConstructEng Australia.">
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Testimonials</span>
+      <h1>We are proud of the work we have done.</h1>
+      <p class="lead">Here's what a few clients have had to say.</p>
+
+      <div class="grid">
+        {testimonials.map((t) => (
+          <div class="card">
+            <p>&ldquo;{t.data.quote}&rdquo;</p>
+            <div class="attr">
+              <span class="t-role">{t.data.role}</span>
+              <span class="t-company">{t.data.company}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(28px, 4vw, 34px);
+    margin-top: 12px;
+  }
+  .lead {
+    font-size: 16px;
+    color: var(--navy);
+    margin-top: 14px;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    margin-top: 44px;
+    border: 1px solid var(--line);
+  }
+  .card {
+    background: var(--white);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+  .attr {
+    display: flex;
+    flex-direction: column;
+  }
+  .t-role {
+    font-weight: 700;
+    font-size: 14px;
+    color: var(--ink);
+  }
+  .t-company {
+    font-size: 13px;
+    color: var(--steel);
+  }
+</style>

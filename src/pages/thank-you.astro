@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Thank You">
+  <section class="section thanks">
+    <div class="wrap">
+      <span class="eyebrow">Thank you</span>
+      <h1>We've received your message.</h1>
+      <p>Thanks for getting in touch with ConstructEng Australia — we'll be back in contact shortly.</p>
+      <a href="/" class="btn">Back to Home</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .thanks {
+    text-align: center;
+    padding: 120px 0;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin: 14px 0 18px;
+  }
+  p {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 32px;
+  }
+</style>

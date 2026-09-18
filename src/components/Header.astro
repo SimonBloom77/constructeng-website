@@ -1,0 +1,166 @@
+---
+import settings from '../data/settings.json';
+
+const nav = [
+  { href: '/about', label: 'About' },
+  { href: '/disciplines', label: 'Disciplines' },
+  { href: '/job-seekers', label: 'Vacancies' },
+  { href: '/employers', label: 'Employers' },
+  { href: '/testimonials', label: 'Testimonials' },
+  { href: '/contact', label: 'Contact' },
+];
+---
+
+<div class="utility">
+  <div class="wrap utility-inner">
+    <span class="utility-text">Construction &amp; Engineering Recruitment · Australia-wide</span>
+    <div class="utility-links">
+      <a href={`tel:${settings.phone}`} class="utility-phone">{settings.phoneDisplay}</a>
+      <a href={`mailto:${settings.email}`} class="utility-email">{settings.email}</a>
+    </div>
+  </div>
+</div>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <a href="/" class="brand">
+      <img src="/images/logo.png" alt={settings.companyName} width="120" />
+    </a>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="site-nav" id="site-nav">
+      {nav.map((item) => (
+        <a href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+    <a href="/contact#cv" class="btn cta-desktop">Submit Your CV</a>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle');
+  const nav = document.getElementById('site-nav');
+  toggle?.addEventListener('click', () => {
+    const open = nav?.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>
+
+<style>
+  .utility {
+    background: var(--ink);
+  }
+  .utility-inner {
+    padding: 10px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .utility-text {
+    font-size: 13px;
+    color: var(--muted-on-dark);
+  }
+  .utility-links {
+    display: flex;
+    gap: 24px;
+    align-items: center;
+  }
+  .utility-phone {
+    font-size: 13px;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .utility-email {
+    font-size: 13px;
+    color: var(--muted-on-dark);
+    text-decoration: none;
+  }
+  .site-header {
+    border-bottom: 1px solid var(--line);
+    position: sticky;
+    top: 0;
+    background: var(--white);
+    z-index: 20;
+  }
+  .header-inner {
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  .brand img {
+    height: 40px;
+    width: auto;
+  }
+  .nav-toggle {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+  .nav-toggle span {
+    width: 22px;
+    height: 2px;
+    background: var(--ink);
+  }
+  .site-nav {
+    display: none;
+    gap: 28px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .site-nav a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    text-decoration: none;
+  }
+  .site-nav a:hover {
+    color: var(--accent-dark);
+  }
+  .cta-desktop {
+    display: none;
+    white-space: nowrap;
+  }
+
+  @media (min-width: 960px) {
+    .nav-toggle {
+      display: none;
+    }
+    .site-nav {
+      display: flex;
+    }
+    .cta-desktop {
+      display: inline-flex;
+    }
+  }
+
+  @media (max-width: 959px) {
+    .site-nav {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--line);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 8px 24px 20px;
+      gap: 14px;
+    }
+    .site-nav.open {
+      display: flex;
+    }
+    .site-header {
+      position: sticky;
+    }
+  }
+</style>

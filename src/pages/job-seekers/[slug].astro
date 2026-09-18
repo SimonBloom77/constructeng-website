@@ -1,0 +1,71 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const vacancies = await getCollection('vacancies');
+  return vacancies.map((v) => ({
+    params: { slug: v.id },
+    props: { vacancy: v },
+  }));
+}
+
+const { vacancy } = Astro.props;
+const { Content } = await render(vacancy);
+---
+
+<Layout title={vacancy.data.title} description={`${vacancy.data.title} — ${vacancy.data.location}. A current vacancy from ConstructEng Australia.`}>
+  <section class="section">
+    <div class="wrap detail">
+      <a href="/job-seekers" class="back-link">← All vacancies</a>
+      <span class="eyebrow">{vacancy.data.discipline}</span>
+      <h1>{vacancy.data.title}</h1>
+      <div class="tags">
+        <span class="tag">{vacancy.data.location}</span>
+        <span class="tag">{vacancy.data.type}</span>
+      </div>
+      <div class="body">
+        <Content />
+      </div>
+      <a href="/contact#cv" class="btn">Apply — Send Your CV</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .detail {
+    max-width: 720px;
+  }
+  .back-link {
+    display: inline-block;
+    font-size: 14px;
+    color: var(--steel);
+    text-decoration: none;
+    margin-bottom: 24px;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin-top: 10px;
+  }
+  .tags {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--steel);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+  }
+  .body {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--navy);
+    margin: 32px 0 40px;
+  }
+  .body :global(p) {
+    margin-bottom: 16px;
+  }
+</style>

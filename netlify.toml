@@ -1,0 +1,23 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[[redirects]]
+  from = "/index.php"
+  to = "/"
+  status = 301
+
+[[redirects]]
+  from = "/about-us"
+  to = "/about"
+  status = 301
+
+[[redirects]]
+  from = "/candidates"
+  to = "/job-seekers"
+  status = 301
+
+[[redirects]]
+  from = "/for-recruiters"
+  to = "/employers"
+  status = 301

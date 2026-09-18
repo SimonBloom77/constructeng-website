@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
+const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).sort(
+  (a, b) => a.data.order - b.data.order
+);
+---
+
+<Layout title="Current Vacancies" description="Current construction and engineering vacancies ConstructEng Australia is recruiting for.">
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Job Seekers</span>
+      <h1>Current vacancies.</h1>
+      <p class="lead">Welcome — here are the roles we're actively recruiting for. Don't see the right fit? Send us your CV anyway; many of our best placements come from candidates already known to us.</p>
+
+      <div class="vacancy-list">
+        {vacancies.map((v) => (
+          <a href={`/job-seekers/${v.id}`} class="vacancy-row">
+            <div class="vacancy-main">
+              <span class="vacancy-title">{v.data.title}</span>
+              <div class="vacancy-tags">
+                <span class="tag">{v.data.location}</span>
+                <span class="tag">{v.data.type}</span>
+              </div>
+            </div>
+            <span class="vacancy-link">View role →</span>
+          </a>
+        ))}
+      </div>
+
+      {vacancies.length === 0 && (
+        <p class="lead">No advertised roles right now — send through your CV and we'll be in touch when a suitable role comes up.</p>
+      )}
+
+      <div class="cta-row">
+        <a href="/contact#cv" class="btn">Send Us Your CV</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  h1 {
+    font-size: clamp(28px, 4vw, 34px);
+    margin-top: 12px;
+  }
+  .lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 640px;
+    margin-top: 14px;
+  }
+  .vacancy-list {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--line);
+    margin-top: 44px;
+  }
+  .vacancy-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 4px;
+    border-bottom: 1px solid var(--line);
+    gap: 16px;
+    text-decoration: none;
+    flex-wrap: wrap;
+  }
+  .vacancy-main {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .vacancy-title {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    color: var(--ink);
+  }
+  .vacancy-tags {
+    display: flex;
+    gap: 8px;
+  }
+  .tag {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--steel);
+    border: 1px solid var(--line);
+    padding: 3px 10px;
+  }
+  .vacancy-link {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--accent-dark);
+    white-space: nowrap;
+  }
+  .cta-row {
+    margin-top: 48px;
+  }
+</style>
