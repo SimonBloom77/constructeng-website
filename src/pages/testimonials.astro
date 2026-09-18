@@ -53,15 +53,33 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
   }
   .card {
     background: var(--white);
-    padding: 32px;
+    padding: 36px 32px 32px;
     display: flex;
     flex-direction: column;
     gap: 18px;
+    position: relative;
+    transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+  .card::before {
+    content: "\201C";
+    font-family: 'Fraunces', serif;
+    font-size: 64px;
+    line-height: 1;
+    color: var(--accent-soft);
+    position: absolute;
+    top: 6px;
+    left: 24px;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    z-index: 1;
   }
   .card p {
     font-size: 15px;
     line-height: 1.6;
     color: var(--navy);
+    position: relative;
   }
   .attr {
     display: flex;

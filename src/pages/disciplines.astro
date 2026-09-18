@@ -93,12 +93,24 @@ const disciplines = [
     display: flex;
     flex-direction: column;
     gap: 14px;
+    position: relative;
+    transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+  }
+  .card:hover {
+    background: var(--white);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    z-index: 1;
   }
   .card svg {
     color: var(--accent-dark);
+    transition: transform 0.35s var(--ease);
+  }
+  .card:hover svg {
+    transform: scale(1.1) translateY(-2px);
   }
   .card h3 {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 17px;
   }

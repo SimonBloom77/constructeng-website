@@ -4,6 +4,7 @@
   --steel: #55707f;
   --accent: #c8712f;
   --accent-dark: #a85a22;
+  --accent-soft: #f0ddc9;
   --paper: #f6f3ec;
   --paper-2: #efeae0;
   --white: #ffffff;
@@ -11,6 +12,10 @@
   --line-dark: #3a4451;
   --muted-on-dark: #aebac4;
   --max: 1200px;
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --shadow-sm: 0 1px 2px rgba(20, 24, 29, 0.06);
+  --shadow-md: 0 12px 32px -12px rgba(20, 24, 29, 0.18);
+  --shadow-lg: 0 24px 60px -20px rgba(20, 24, 29, 0.28);
 }
 
 * {
@@ -23,21 +28,35 @@ body {
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "Public Sans", sans-serif;
+  font-size: 16.5px;
+  line-height: 1.5;
   color: var(--ink);
   background: var(--white);
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 h1,
 h2,
 h3,
 h4 {
-  font-family: "Archivo", sans-serif;
+  font-family: "Fraunces", serif;
+  font-optical-sizing: auto;
+  font-weight: 560;
   margin: 0;
-  letter-spacing: -0.01em;
-  line-height: 1.15;
+  letter-spacing: -0.02em;
+  line-height: 1.08;
+}
+
+h3,
+h4 {
+  font-weight: 600;
 }
 
 p {
@@ -71,11 +90,23 @@ img {
 }
 
 .eyebrow {
-  font-size: 13px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Public Sans", sans-serif;
+  font-size: 12.5px;
   font-weight: 700;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.14em;
   color: var(--accent-dark);
   text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: "";
+  width: 22px;
+  height: 1.5px;
+  background: var(--accent);
+  flex-shrink: 0;
 }
 
 .btn {
@@ -83,23 +114,34 @@ img {
   align-items: center;
   gap: 8px;
   font-size: 15px;
-  font-weight: 700;
-  padding: 14px 24px;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  padding: 15px 26px;
   border: 1.5px solid var(--ink);
   background: var(--ink);
   color: #fff;
   text-decoration: none;
   cursor: pointer;
-  font-family: inherit;
+  font-family: "Public Sans", sans-serif;
+  transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+  will-change: transform;
 }
 
 .btn:hover {
   background: #000;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: none;
 }
 
 .btn-outline {
   background: transparent;
   color: var(--ink);
+  box-shadow: none;
 }
 
 .btn-outline:hover {
@@ -113,13 +155,19 @@ img {
   border-color: var(--accent);
 }
 
+.btn-accent:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent-dark);
+  color: #fff;
+}
+
 .section {
-  padding: 72px 0;
+  padding: 84px 0;
 }
 
 @media (min-width: 900px) {
   .section {
-    padding: 96px 0;
+    padding: 128px 0;
   }
 }
 
@@ -153,11 +201,47 @@ img {
   border: 1px solid var(--line);
   background: #fff;
   color: var(--ink);
+  transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.field input:hover,
+.field select:hover,
+.field textarea:hover {
+  border-color: var(--steel);
 }
 
 .field input:focus,
 .field select:focus,
 .field textarea:focus {
-  outline: 2px solid var(--accent);
-  outline-offset: 1px;
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+/* Scroll-reveal, progressively enhanced — wired up in Layout.astro.
+   Only takes effect once JS adds .js to <html>, so content is always
+   visible without JS. */
+.js main .section > .wrap > * {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+}
+
+.js main .section > .wrap > *.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .js main .section > .wrap > * {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+  .btn {
+    transition: none;
+  }
 }

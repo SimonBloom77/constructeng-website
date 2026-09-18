@@ -83,7 +83,9 @@ const nav = [
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
-    background: var(--white);
+    background: rgba(255, 255, 255, 0.86);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
     z-index: 20;
   }
   .header-inner {
@@ -110,6 +112,17 @@ const nav = [
     width: 22px;
     height: 2px;
     background: var(--ink);
+    transition: transform 0.3s var(--ease), opacity 0.3s var(--ease);
+    transform-origin: center;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
   }
   .site-nav {
     display: none;
@@ -118,13 +131,30 @@ const nav = [
     flex-wrap: wrap;
   }
   .site-nav a {
+    position: relative;
     font-size: 14px;
     font-weight: 600;
+    letter-spacing: -0.01em;
     color: var(--navy);
     text-decoration: none;
+    padding-bottom: 3px;
+    transition: color 0.25s var(--ease);
+  }
+  .site-nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 100%;
+    bottom: 0;
+    height: 1.5px;
+    background: var(--accent);
+    transition: right 0.3s var(--ease);
   }
   .site-nav a:hover {
     color: var(--accent-dark);
+  }
+  .site-nav a:hover::after {
+    right: 0;
   }
   .cta-desktop {
     display: none;
@@ -145,6 +175,7 @@ const nav = [
 
   @media (max-width: 959px) {
     .site-nav {
+      display: flex;
       position: absolute;
       top: 100%;
       left: 0;
@@ -153,11 +184,17 @@ const nav = [
       border-bottom: 1px solid var(--line);
       flex-direction: column;
       align-items: flex-start;
-      padding: 8px 24px 20px;
+      padding: 0 24px;
       gap: 14px;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.4s var(--ease), opacity 0.3s var(--ease), padding 0.4s var(--ease);
     }
     .site-nav.open {
-      display: flex;
+      max-height: 420px;
+      opacity: 1;
+      padding: 8px 24px 20px;
     }
     .site-header {
       position: sticky;

@@ -62,11 +62,21 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 4px;
+    padding: 24px 20px;
+    margin: 0 -20px;
     border-bottom: 1px solid var(--line);
     gap: 16px;
     text-decoration: none;
     flex-wrap: wrap;
+    transition: background 0.3s var(--ease), padding 0.3s var(--ease);
+  }
+  .vacancy-row:hover {
+    background: var(--paper);
+    padding-left: 28px;
+  }
+  .vacancy-row:hover .tag {
+    border-color: var(--accent);
+    color: var(--accent-dark);
   }
   .vacancy-main {
     display: flex;
@@ -74,7 +84,7 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     gap: 8px;
   }
   .vacancy-title {
-    font-family: 'Archivo', sans-serif;
+    font-family: 'Fraunces', serif;
     font-weight: 700;
     font-size: 17px;
     color: var(--ink);
@@ -89,6 +99,7 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     color: var(--steel);
     border: 1px solid var(--line);
     padding: 3px 10px;
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
   }
   .vacancy-link {
     font-size: 14px;
