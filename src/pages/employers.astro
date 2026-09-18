@@ -71,6 +71,24 @@ const shortlistSteps = [
   },
 ];
 
+const aiSteps = [
+  {
+    n: '01',
+    title: 'AI-powered market mapping',
+    desc: 'AI tools integrated with LinkedIn Recruiter help us map the market and build talent pools faster, surfacing candidates a manual search could miss.',
+  },
+  {
+    n: '02',
+    title: 'AI-assisted shortlisting',
+    desc: 'AI helps us triage and prioritise applications at volume, so more of our time goes to the candidates genuinely worth a conversation.',
+  },
+  {
+    n: '03',
+    title: 'Tailored outreach, not templates',
+    desc: 'AI speeds up drafting — every message is still reviewed and personalised before it goes out, never a mass template.',
+  },
+];
+
 const discretionPoints = [
   'No employer name disclosed upfront',
   'NDA-protected once a candidate opts in',
@@ -201,6 +219,25 @@ const discretionPoints = [
             </div>
           ))}
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">How We Use AI</span>
+      <h2>AI-assisted, still evidence-led.</h2>
+      <p class="intro">We use AI to work faster — never to replace judgement. Every AI-assisted step still feeds into the same structured, evidence-based process described throughout this page.</p>
+      <div class="stack">
+        {aiSteps.map((s) => (
+          <div class="stack-item">
+            <span class="stack-num">{s.n}</span>
+            <div>
+              <h4>{s.title}</h4>
+              <p>{s.desc}</p>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   </section>
