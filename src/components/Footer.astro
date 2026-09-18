@@ -8,7 +8,7 @@ const year = new Date().getFullYear();
     <div class="footer-grid">
       <div class="footer-about">
         <div class="footer-brand">
-          <img src="/images/logo.png" alt={settings.companyName} width="100" />
+          <img src="/images/logo.png" alt={settings.companyName} width="120" />
         </div>
         <p>ConstructEng Australia Pty Ltd. Strategic recruitment in construction and engineering, Australia-wide.</p>
       </div>
@@ -54,8 +54,11 @@ const year = new Date().getFullYear();
     flex-direction: column;
     gap: 14px;
   }
-  .footer-brand img {
-    filter: brightness(0) invert(1);
+  .footer-brand {
+    background: var(--paper);
+    padding: 14px 18px;
+    display: inline-flex;
+    width: fit-content;
   }
   .footer-about p {
     font-size: 14px;
