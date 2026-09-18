@@ -3,7 +3,7 @@ title: "Structural Engineer — Protective Structures"
 location: "Sydney, NSW"
 discipline: "Structural Engineering"
 type: "Permanent"
-active: true
+active: false
 order: 1
 ---
 

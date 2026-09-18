@@ -3,7 +3,7 @@ title: "Director Structural Engineer — Sydney CBD"
 location: "Sydney CBD, NSW"
 discipline: "Structural Engineering"
 type: "Permanent"
-active: true
+active: false
 order: 5
 ---
 

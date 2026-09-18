@@ -72,21 +72,32 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   <!-- Vacancies -->
   <section class="section section-paper">
     <div class="wrap">
-      <div class="section-head">
-        <div>
+      {allVacancies.length > 0 ? (
+        <>
+          <div class="section-head">
+            <div>
+              <span class="eyebrow">Current Vacancies</span>
+              <h2>Roles we're recruiting for right now.</h2>
+            </div>
+            <a href="/job-seekers" class="link-underline">View all vacancies →</a>
+          </div>
+          <div class="vacancy-list">
+            {allVacancies.map((v) => (
+              <a href={`/job-seekers/${v.id}`} class="vacancy-row">
+                <span class="vacancy-title">{v.data.title}</span>
+                <span class="vacancy-link">View role →</span>
+              </a>
+            ))}
+          </div>
+        </>
+      ) : (
+        <div class="no-vacancies">
           <span class="eyebrow">Current Vacancies</span>
-          <h2>Roles we're recruiting for right now.</h2>
+          <h2>No roles advertised right now.</h2>
+          <p class="lead">We're always working on searches we haven't advertised yet. Send through your CV and we'll be in touch when a role matching your experience comes up.</p>
+          <a href="/contact#cv" class="btn">Send Us Your CV</a>
         </div>
-        <a href="/job-seekers" class="link-underline">View all vacancies →</a>
-      </div>
-      <div class="vacancy-list">
-        {allVacancies.map((v) => (
-          <a href={`/job-seekers/${v.id}`} class="vacancy-row">
-            <span class="vacancy-title">{v.data.title}</span>
-            <span class="vacancy-link">View role →</span>
-          </a>
-        ))}
-      </div>
+      )}
     </div>
   </section>
 
@@ -282,6 +293,17 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     gap: 20px;
     flex-wrap: wrap;
     margin-bottom: 36px;
+  }
+  .no-vacancies {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    max-width: 560px;
+  }
+  .no-vacancies h2 {
+    font-size: clamp(26px, 3.5vw, 34px);
+    margin-top: 8px;
   }
   .section-head h2 {
     font-size: clamp(26px, 3.5vw, 34px);

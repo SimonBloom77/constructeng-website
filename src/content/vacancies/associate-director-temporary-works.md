@@ -3,7 +3,7 @@ title: "Associate Director — Temporary Works"
 location: "Sydney, NSW"
 discipline: "Structural Engineering"
 type: "Permanent"
-active: true
+active: false
 order: 3
 ---
 

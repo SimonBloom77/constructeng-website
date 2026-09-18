@@ -3,7 +3,7 @@ title: "REVIT Structural Drafters"
 location: "Sydney, NSW"
 discipline: "Drafting & BIM"
 type: "Permanent / Contract"
-active: true
+active: false
 order: 2
 ---
 
