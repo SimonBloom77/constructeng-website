@@ -12,14 +12,17 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .slice(0, 4);
 ---
 
-<Layout title="Home">
+<Layout
+  title="Construction, Engineering & Insurance Recruitment"
+  description="ConstructEng Australia specialises in the recruitment of technical staff within construction, engineering and insurance, across Australia's largest building, civil and insurance sectors."
+>
   <!-- Hero -->
   <section class="section section-paper hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <div class="kicker">
           <span class="kicker-line"></span>
-          <span class="eyebrow">Construction &amp; Engineering Recruitment</span>
+          <span class="eyebrow">Construction, Engineering &amp; Insurance Recruitment</span>
         </div>
         <h1>{settings.heroHeading}</h1>
         <p class="hero-sub">{settings.heroSub}</p>
@@ -124,8 +127,14 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
           <div class="testimonial-card">
             <p>&ldquo;{t.data.quote}&rdquo;</p>
             <div class="testimonial-attr">
-              <span class="t-name">{t.data.role}</span>
-              <span class="t-company">{t.data.company}</span>
+              {t.data.name !== t.data.role ? (
+                <>
+                  <span class="t-name">{t.data.name}</span>
+                  <span class="t-company">{t.data.role}, {t.data.company}</span>
+                </>
+              ) : (
+                <span class="t-name">{t.data.role}, {t.data.company}</span>
+              )}
             </div>
           </div>
         ))}

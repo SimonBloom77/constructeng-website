@@ -17,8 +17,14 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
           <div class="card">
             <p>&ldquo;{t.data.quote}&rdquo;</p>
             <div class="attr">
-              <span class="t-role">{t.data.role}</span>
-              <span class="t-company">{t.data.company}</span>
+              {t.data.name !== t.data.role ? (
+                <>
+                  <span class="t-role">{t.data.name}</span>
+                  <span class="t-company">{t.data.role}, {t.data.company}</span>
+                </>
+              ) : (
+                <span class="t-role">{t.data.role}, {t.data.company}</span>
+              )}
             </div>
           </div>
         ))}
