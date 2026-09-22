@@ -1,0 +1,99 @@
+---
+---
+
+<div class="app-banner" id="app-banner">
+  <div class="wrap app-banner-inner">
+    <p>
+      <span class="app-banner-tag">New</span>
+      <span class="app-banner-copy"><strong>HireStar</strong> — turn any CV and role description into structured STAR interview questions in seconds.</span>
+    </p>
+    <div class="app-banner-actions">
+      <a href="/hirestar/" target="_blank" rel="noopener">Try it free →</a>
+      <button type="button" id="app-banner-close" aria-label="Dismiss">&times;</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const KEY = 'hirestar-banner-dismissed';
+  const banner = document.getElementById('app-banner');
+  if (banner) {
+    if (localStorage.getItem(KEY)) {
+      banner.remove();
+    } else {
+      document.getElementById('app-banner-close')?.addEventListener('click', () => {
+        try {
+          localStorage.setItem(KEY, '1');
+        } catch {}
+        banner.remove();
+      });
+    }
+  }
+</script>
+
+<style>
+  .app-banner {
+    background: var(--accent);
+  }
+  .app-banner-inner {
+    padding: 11px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .app-banner-inner p {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 0;
+  }
+  .app-banner-tag {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--ink);
+    padding: 3px 8px;
+    flex-shrink: 0;
+  }
+  .app-banner-copy {
+    font-size: 13.5px;
+    color: var(--ink);
+  }
+  .app-banner-actions {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    flex-shrink: 0;
+  }
+  .app-banner-actions a {
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1.5px solid var(--ink);
+    padding-bottom: 1px;
+    white-space: nowrap;
+  }
+  .app-banner-actions a:hover {
+    color: #fff;
+    border-color: #fff;
+  }
+  #app-banner-close {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 20px;
+    line-height: 1;
+    color: var(--ink);
+    padding: 0;
+    opacity: 0.7;
+  }
+  #app-banner-close:hover {
+    opacity: 1;
+  }
+</style>

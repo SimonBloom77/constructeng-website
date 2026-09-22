@@ -45,6 +45,34 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     </div>
   </section>
 
+  <!-- HireStar app promo -->
+  <section class="section section-paper app-promo">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Introducing HireStar</span>
+        <h2>AI-powered interview questions, straight from the CV and the brief.</h2>
+        <p class="hero-sub">Built in-house by ConstructEng Australia, HireStar reads a candidate's CV alongside the role description and writes structured, evidence-based STAR interview questions in seconds — ready to interview, score and print.</p>
+        <div class="hero-ctas">
+          <a href="/hirestar/" class="btn btn-accent" target="_blank" rel="noopener">Try HireStar Free →</a>
+        </div>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-row">
+          <span>From CV and brief to</span>
+          <strong>Questions</strong>
+        </div>
+        <div class="stat-row">
+          <span>Interview method</span>
+          <strong>STAR</strong>
+        </div>
+        <div class="stat-row">
+          <span>Getting started</span>
+          <strong>Free</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Trusted by -->
   <section class="trusted">
     <div class="wrap trusted-inner">
@@ -235,6 +263,10 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     font-size: 32px;
     font-weight: 800;
     color: var(--ink);
+  }
+
+  .app-promo h2 {
+    font-size: clamp(26px, 3.5vw, 34px);
   }
 
   .trusted {
