@@ -1,0 +1,145 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout
+  title="StarSelect — Free Interview Question App"
+  description="StarSelect turns any CV and role description into structured, evidence-based STAR interview questions in seconds. Register for free access — built in-house by ConstructEng Australia."
+>
+  <section class="section hero">
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Introducing StarSelect</span>
+        <h1>AI-powered interview questions, straight from the CV and the brief.</h1>
+        <p class="hero-sub">Built in-house by ConstructEng Australia, StarSelect reads a candidate's CV alongside the role description and writes structured, evidence-based STAR interview questions in seconds — ready to interview, score and print. Register below for a free licence and we'll send you straight through.</p>
+      </div>
+      <div class="hero-stats">
+        <div class="stat-row">
+          <span>From CV and brief to</span>
+          <strong>Questions</strong>
+        </div>
+        <div class="stat-row">
+          <span>Interview method</span>
+          <strong>STAR</strong>
+        </div>
+        <div class="stat-row">
+          <span>Getting started</span>
+          <strong>Free</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap form-wrap">
+      <span class="eyebrow">Free Licence</span>
+      <h2>Get your free access.</h2>
+      <p class="lead">Tell us a little about yourself and we'll set you up with a free StarSelect licence.</p>
+
+      <form name="starselect-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/get-starselect-access" class="form">
+        <input type="hidden" name="form-name" value="starselect-access" />
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <div class="form-grid">
+          <div class="field">
+            <label for="ss-name">Full name</label>
+            <input id="ss-name" name="name" type="text" required />
+          </div>
+          <div class="field">
+            <label for="ss-email">Email</label>
+            <input id="ss-email" name="email" type="email" required />
+          </div>
+          <div class="field">
+            <label for="ss-company">Company</label>
+            <input id="ss-company" name="company" type="text" required />
+          </div>
+          <div class="field">
+            <label for="ss-role">Your role</label>
+            <input id="ss-role" name="role" type="text" placeholder="e.g. Talent Acquisition Manager" />
+          </div>
+        </div>
+        <button type="submit" class="btn btn-accent">Get Free Access →</button>
+      </form>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .hero-inner {
+    display: flex;
+    gap: 56px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .hero-copy {
+    flex: 1 1 480px;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+  }
+  h1 {
+    font-size: clamp(30px, 4.5vw, 48px);
+  }
+  .hero-sub {
+    font-size: 17px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 540px;
+  }
+  .hero-stats {
+    flex: 1 1 360px;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    background: var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+  .stat-row {
+    background: var(--white);
+    padding: 26px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+  }
+  .stat-row span {
+    font-size: 15px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .stat-row strong {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  h2 {
+    font-size: clamp(24px, 3.5vw, 30px);
+    margin-top: 10px;
+  }
+  .lead {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    max-width: 560px;
+    margin-top: 12px;
+  }
+  .form-wrap {
+    max-width: 640px;
+  }
+  .form {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+  .hidden-field {
+    display: none;
+  }
+</style>

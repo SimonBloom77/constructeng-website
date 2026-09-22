@@ -1,0 +1,44 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Your StarSelect Access" description="You're all set — launch StarSelect.">
+  <section class="section access">
+    <div class="wrap">
+      <span class="eyebrow">You're in</span>
+      <h1>Your free licence is ready.</h1>
+      <p>Thanks for registering — launch StarSelect below and install it on your device. We'll also be in touch by email from ConstructEng Australia.</p>
+      <a href="/starselect/" target="_blank" rel="noopener" class="btn btn-accent">Launch StarSelect →</a>
+      <a href="/" class="link-back">Back to Home</a>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .access {
+    text-align: center;
+    padding: 120px 0;
+  }
+  h1 {
+    font-size: clamp(28px, 4vw, 36px);
+    margin: 14px 0 18px;
+  }
+  p {
+    font-size: 16px;
+    color: var(--navy);
+    margin-bottom: 32px;
+    max-width: 520px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .link-back {
+    display: block;
+    margin-top: 22px;
+    font-size: 14px;
+    color: var(--steel);
+    text-decoration: none;
+  }
+  .link-back:hover {
+    color: var(--accent-dark);
+  }
+</style>

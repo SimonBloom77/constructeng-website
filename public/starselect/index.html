@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>HireStar</title>
+<title>StarSelect</title>
 <meta name="description" content="Turn any CV and role description into structured, evidence-based STAR interview questions — choose or tailor, interview, score and print. By ConstructEng Australia.">
 <link rel="manifest" href="manifest.webmanifest">
 <meta name="theme-color" content="#1E3461">
@@ -12,7 +12,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="HireStar">
+<meta name="apple-mobile-web-app-title" content="StarSelect">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
@@ -522,7 +522,7 @@ function briefFields(r){let f=[];BRIEF_A.forEach(s=>s[1].forEach(x=>f.push(x[0])
 function completeness(r){const f=briefFields(r);const done=f.filter(k=>String((r.brief||{})[k]||"").trim()).length;return Math.round(done/f.length*100);}
 
 /* ---------- Storage ---------- */
-const LKEY="hirestar-v1";
+const LKEY="starselect-v1";
 const Store={kind:"local",db:null,root:"",t:{},busy:{},again:{},pending:0,
  async init(){
   const sv=await serverInit();if(sv==="ok"){this.kind="server";return;}if(sv==="auth"||sv==="offline"){this.kind=sv;return;}
@@ -619,12 +619,12 @@ function authScreen(view){
   const p=new URLSearchParams(location.search);view=view||(p.get("invite")?"invite":p.get("reset")?"reset":"login");UI.auth=view;
   const f=(id,label,type,ph,ac)=>`<label class="f"><span>${label}</span><input id="${id}" type="${type||"text"}"${ph?` placeholder="${esc(ph)}"`:""}${ac?` autocomplete="${ac}"`:""}></label>`;
   let body="";
-  if(view==="login")body=`<h1>Log in</h1><p class="muted">Tailored STAR interview guides from a job description and CV.</p><form data-auth="login" class="authform">${f("a_email","Email","email","","email")}${f("a_pass","Password","password","","current-password")}<button class="btn pri" type="submit">Log in</button></form><p class="small"><a href="#" data-act="authView" data-v="forgot">Forgot your password?</a></p><p class="small">New to HireStar? <a href="#" data-act="authView" data-v="signup"><b>Create a free account</b></a></p>`;
+  if(view==="login")body=`<h1>Log in</h1><p class="muted">Tailored STAR interview guides from a job description and CV.</p><form data-auth="login" class="authform">${f("a_email","Email","email","","email")}${f("a_pass","Password","password","","current-password")}<button class="btn pri" type="submit">Log in</button></form><p class="small"><a href="#" data-act="authView" data-v="forgot">Forgot your password?</a></p><p class="small">New to StarSelect? <a href="#" data-act="authView" data-v="signup"><b>Create a free account</b></a></p>`;
   if(view==="signup")body=`<h1>Create your account</h1><p class="muted">Free to start. No card needed.</p><form data-auth="signup" class="authform">${f("a_name","Your name","text","","name")}${f("a_email","Work email","email","","email")}${f("a_pass","Password (at least 10 characters)","password","","new-password")}${f("a_org","Organisation name","text","e.g. your agency or company","organization")}<label class="f"><span>How will you use it?</span><select id="a_mode"><option value="agency">Recruitment agency</option><option value="employer">Employer</option></select></label><label class="chk small"><input type="checkbox" id="a_terms"><span>I agree to the <a href="/terms.html" target="_blank">Terms of Service</a> and <a href="/privacy.html" target="_blank">Privacy Policy</a></span></label><button class="btn pri" type="submit">Create account</button></form><p class="small">Already have an account? <a href="#" data-act="authView" data-v="login"><b>Log in</b></a></p>`;
   if(view==="forgot")body=`<h1>Reset your password</h1><form data-auth="forgot" class="authform">${f("a_email","Email","email","","email")}<button class="btn pri" type="submit">Send reset link</button></form><p class="small"><a href="#" data-act="authView" data-v="login">Back to log in</a></p>`;
   if(view==="reset")body=`<h1>Choose a new password</h1><form data-auth="reset" class="authform">${f("a_pass","New password (at least 10 characters)","password","","new-password")}<button class="btn pri" type="submit">Save password</button></form>`;
   if(view==="invite")body=`<h1>Join your team</h1><div id="inviteInfo" class="muted">Checking your invitation...</div>`;
-  $("#root").innerHTML=`<div class="authwrap"><div class="authcard"><div class="authbrand">HireStar</div>${body}<div id="authMsg" class="small" role="alert" style="margin-top:10px;color:var(--bad)"></div></div><p class="small muted" style="text-align:center">HireStar &copy; 2026 ConstructEng Australia</p></div>`;
+  $("#root").innerHTML=`<div class="authwrap"><div class="authcard"><div class="authbrand">StarSelect</div>${body}<div id="authMsg" class="small" role="alert" style="margin-top:10px;color:var(--bad)"></div></div><p class="small muted" style="text-align:center">StarSelect &copy; 2026 ConstructEng Australia</p></div>`;
   if(view==="invite")loadInvite(p.get("invite"));
   const first=$("#root input");if(first)first.focus();
 }
@@ -643,7 +643,7 @@ document.addEventListener("submit",async e=>{const fm=e.target.closest("[data-au
     if(kind==="invite"){const t=$("#a_terms");if(t&&!t.checked)throw new Error("Please agree to the Terms of Service and Privacy Policy.");await api("/api/invite/accept",{token:UI.invite,name:v("a_name"),password:$("#a_pass").value});location.replace("/");return;}
   }catch(err){msg.textContent=err.message;}
   btn.disabled=false;});
-function offlineScreen(){$("#root").innerHTML=`<div class="authwrap"><div class="authcard"><div class="authbrand">HireStar</div><h1>You're offline</h1><p class="muted">Connect to the internet to open your workspace.</p><button class="btn pri" data-act="reloadApp">Try again</button></div></div>`;}
+function offlineScreen(){$("#root").innerHTML=`<div class="authwrap"><div class="authcard"><div class="authbrand">StarSelect</div><h1>You're offline</h1><p class="muted">Connect to the internet to open your workspace.</p><button class="btn pri" data-act="reloadApp">Try again</button></div></div>`;}
 
 /* Settings panels for server mode */
 function serverSettings(){
@@ -701,12 +701,12 @@ function navItems(){return[["interviews","Interviews"],["templates","Templates"]
 function curNav(){const m={role:"roles",cand:"candidates",client:"clients",guide:"interviews",choose:"interviews"};return m[R.v]||R.v;}
 function render(){
   const cur=curNav();
-  const org=S.settings.org||"HireStar";
+  const org=S.settings.org||"StarSelect";
   $("#root").innerHTML=`<div class="shell">
    <aside class="side"><div class="brand"><strong>${esc(org)}</strong><span>${isAg()?"Agency recruitment workspace":"In-house recruitment workspace"}</span></div>
     ${modeBtn()}
     <nav class="navl" aria-label="Main">${navItems().map(([k,l])=>`<button data-act="nav" data-v="${k}" class="${cur===k?"on":""}"${cur===k?' aria-current="page"':""}>${icon(k)}${l}</button>`).join("")}</nav>
-    <div class="sidefoot"><span data-dot class="dot"></span><span data-dottxt></span><div style="margin-top:6px;opacity:.8">HireStar &copy; 2026 ConstructEng Australia</div></div></aside>
+    <div class="sidefoot"><span data-dot class="dot"></span><span data-dottxt></span><div style="margin-top:6px;opacity:.8">StarSelect &copy; 2026 ConstructEng Australia</div></div></aside>
    <div style="min-width:0"><div class="mhead"><div><strong>${esc(org)}</strong><br><span><span data-dot class="dot"></span><span data-dottxt></span></span></div>${modeBtn()}</div>
    <main id="main">${SV.on&&(SV.role==="viewer"||SV.role==="interviewer")?`<div class="note small">${SV.role==="viewer"?"You have read only access.":"You have interviewer access: you can open, complete and score interview guides."}</div>`:""}${view()}</main></div>
    <nav class="bnav" aria-label="Main">${[["interviews","Interviews"],["templates","Templates"],["roles","Roles"],["candidates","Candidates"],["more","More"]].map(([k,l])=>{const on=k==="more"?["more","library","settings","clients","today","reports"].includes(cur):cur===k;return`<button data-act="nav" data-v="${k}" class="${on?"on":""}">${icon(k)}${l}</button>`;}).join("")}</nav></div>`;
@@ -1052,7 +1052,7 @@ function vSettings(){
    <div class="panel"><h3>House style for drafts</h3><p class="muted small">Claude follows this when drafting outreach and adverts.</p>${fld("settings","main","style","Style instructions",{type:"area",rows:4})}</div></div>
   <div><div class="panel"><h3>Your data</h3><p class="small"><span data-dot class="dot"></span><span data-dottxt></span>.</p><p class="muted small">${Store.kind==="server"?"Your records are saved to your organisation's secure account. Everyone in your organisation works from the same records, according to their role.":Store.kind==="db"?"Your records are private to you: other people who open this app see only their own workspace.":"Records are kept in this browser only. Export a backup regularly."}</p>
    <div class="btns" style="margin-top:12px"><button class="btn" data-act="exportJSON">Export backup</button><span class="btn upl">Import backup<input type="file" id="importFile" accept=".json,application/json" aria-label="Import backup"></span><button class="btn" data-act="csvCands">Export candidates (CSV)</button></div>
-   <div class="hr"></div><p class="small muted">HireStar &copy; 2026 ConstructEng Australia. All rights reserved.</p><div class="btns"><button class="btn" data-act="showTips">Show the help tip again</button><button class="btn" data-act="example">Add example data</button><button class="btn danger" data-act="wipe" data-confirm>Delete all records</button></div></div></div></div>`;
+   <div class="hr"></div><p class="small muted">StarSelect &copy; 2026 ConstructEng Australia. All rights reserved.</p><div class="btns"><button class="btn" data-act="showTips">Show the help tip again</button><button class="btn" data-act="example">Add example data</button><button class="btn danger" data-act="wipe" data-confirm>Delete all records</button></div></div></div></div>`;
 }
 
 /* ---------- Actions ---------- */
@@ -1431,7 +1431,7 @@ td.c{text-align:center;width:9mm}.lbl{font-weight:bold;font-size:9.5pt;margin-to
 const circles=(v)=>[1,2,3,4,5].map(n=>`<span class="o${v===n?" on":""}">${n}</span>`).join("");
 const tick=(on,l)=>`<span class="ck">${on?"&#9746;":"&#9744;"} ${esc(l)}</span>`;
 const box=(v,cls)=>`<div class="box ${cls||""}">${esc(v||"")}</div>`;
-function pdoc(title,body){const org=S.settings.org||"HireStar";return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><style>${PCSS}</style></head><body><div class="brand">${esc(org)}</div>${body}<p class="small" style="margin-top:10mm;border-top:1px solid #C3CAD6;padding-top:2mm">${SV.on&&SV.org&&SV.org.plan==="free"?"Created with the free plan of HireStar. ":""}HireStar &copy; 2026 ConstructEng Australia. All rights reserved.</p></body></html>`;}
+function pdoc(title,body){const org=S.settings.org||"StarSelect";return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>${esc(title)}</title><style>${PCSS}</style></head><body><div class="brand">${esc(org)}</div>${body}<p class="small" style="margin-top:10mm;border-top:1px solid #C3CAD6;padding-top:2mm">${SV.on&&SV.org&&SV.org.plan==="free"?"Created with the free plan of StarSelect. ":""}StarSelect &copy; 2026 ConstructEng Australia. All rights reserved.</p></body></html>`;}
 function scaleTable(){return`<table><tr><th style="width:14mm">Score</th><th>Definition</th></tr>${SCALE.map(([n,t])=>`<tr><td class="c"><b>${n}</b></td><td>${esc(t)}</td></tr>`).join("")}</table>`;}
 function guidePrint(g,mode){
   const blank=mode==="template";const filled=mode==="completed";const ord=blank?[1,2,3,4,5]:(g.order||[]);
@@ -1492,7 +1492,7 @@ function printHTML(html,name){
 /* ---------- Scan and save paper guides ---------- */
 const SCANS={};
 const gRef=g=>g&&g.id?g.id.slice(-6).toUpperCase():"";
-const IDB={db:null,async open(){if(this.db)return this.db;return this.db=await new Promise((res,rej)=>{const r=indexedDB.open("hirestar-scans",1);r.onupgradeneeded=()=>r.result.createObjectStore("scans");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});},
+const IDB={db:null,async open(){if(this.db)return this.db;return this.db=await new Promise((res,rej)=>{const r=indexedDB.open("starselect-scans",1);r.onupgradeneeded=()=>r.result.createObjectStore("scans");r.onsuccess=()=>res(r.result);r.onerror=()=>rej(r.error);});},
   async tx(mode,fn){const db=await this.open();return new Promise((res,rej)=>{const t=db.transaction("scans",mode);const st=t.objectStore("scans");const out=fn(st);t.oncomplete=()=>res(out&&out.result!==undefined?out.result:out);t.onerror=()=>rej(t.error);});}};
 const ScanStore={
   col(gid){return Store.db.doc(Store.root+"/ws").collection("guides").doc(gid).collection("scans");},
@@ -1797,13 +1797,13 @@ function apiSample(){const key=keyGet();if(!key)return null;
   return f;}
 const isStandalone=()=>window.matchMedia&&window.matchMedia("(display-mode: standalone)").matches||navigator.standalone===true;
 window.addEventListener("beforeinstallprompt",e=>{e.preventDefault();window.__bip=e;if(R.v==="settings")render();});
-window.addEventListener("appinstalled",()=>{window.__bip=null;toast("HireStar is installed");if(R.v==="settings")render();});
+window.addEventListener("appinstalled",()=>{window.__bip=null;toast("StarSelect is installed");if(R.v==="settings")render();});
 function pwaSettings(){const has=!!keyGet();
   return`<div class="cols"><div class="panel"><h3 data-help="pwa-ai">Claude question writing</h3><p class="small muted">To have Claude write tailored questions from a CV and job description, draft outreach and adverts, and read handwritten interview guides, add an Anthropic API key. The key is stored only on this device and is sent only to Anthropic. Usage is charged to the account the key belongs to. You can create a key at console.anthropic.com.</p>
    <div class="grid2" style="margin-top:10px"><label class="f"><span>API key</span><input id="apiKey" type="password" autocomplete="off" placeholder="${has?"Saved on this device":"sk-ant-..."}"></label><label class="f"><span>Model</span><input id="apiModel" value="${esc(modelGet())}"></label></div>
    <div class="btns" style="margin-top:12px"><button class="btn pri" data-act="keySave">Save</button>${has?`<button class="btn" data-act="keyTest">Test connection</button><button class="btn ghost danger" data-act="keyDel" data-confirm>Remove key</button>`:""}</div>
    <p class="small" id="keyStatus" style="margin-top:10px;${has?"color:var(--good)":""}">${has?"Claude is turned on for this device.":"Claude is off. Everything else works, and questions are matched from the question bank instead."}</p></div>
-  <div class="panel"><h3 data-help="pwa-install">Install on this device</h3>${isStandalone()?`<p class="small" style="color:var(--good)">Installed and running as an app.</p>`:window.__bip?`<button class="btn pri" data-act="pwaInstall">Install HireStar</button>`:""}
+  <div class="panel"><h3 data-help="pwa-install">Install on this device</h3>${isStandalone()?`<p class="small" style="color:var(--good)">Installed and running as an app.</p>`:window.__bip?`<button class="btn pri" data-act="pwaInstall">Install StarSelect</button>`:""}
    <p class="small muted" style="margin-top:10px"><b>iPhone or iPad:</b> open this page in Safari, tap Share, then Add to Home Screen.<br><b>Android:</b> open in Chrome, tap the menu, then Install app.<br><b>Windows or Mac:</b> in Chrome or Edge, click the install icon at the right of the address bar.</p>
    <p class="small muted">Records are saved on each device. Use Export backup below to keep a copy or move records to another device.</p></div></div>`;}
 Object.assign(ACT,{
@@ -1812,7 +1812,7 @@ Object.assign(ACT,{
  keyTest:async el=>{el.disabled=true;const st=$("#keyStatus");st.textContent="Testing...";try{const r=await CAP.sample("Reply with the single word OK.");st.textContent="Connected. Claude replied: "+r.text.trim().slice(0,40);st.style.color="var(--good)";}catch(e){st.textContent=e.message;st.style.color="var(--bad)";}el.disabled=false;},
  pwaInstall:async()=>{const p=window.__bip;if(!p)return;p.prompt();try{await p.userChoice;}catch(e){}window.__bip=null;render();}
 });
-Object.assign(HELP,{"pwa-ai":["Claude question writing","Add an Anthropic API key to turn on tailored questions, drafting and handwriting reading on this device. Without a key, the app still works and matches questions from the question bank."],"pwa-install":["Install on this device","Installs HireStar like an ordinary app, with its own icon, and it keeps working without an internet connection."]});
+Object.assign(HELP,{"pwa-ai":["Claude question writing","Add an Anthropic API key to turn on tailored questions, drafting and handwriting reading on this device. Without a key, the app still works and matches questions from the question bank."],"pwa-install":["Install on this device","Installs StarSelect like an ordinary app, with its own icon, and it keeps working without an internet connection."]});
 
 /* ---------- Events ---------- */
 document.addEventListener("click",e=>{
@@ -1824,7 +1824,7 @@ document.addEventListener("input",e=>{
   const el=e.target;
   if(el.dataset.b&&el.type!=="checkbox"&&el.tagName!=="SELECT"){const[c,id,p]=el.dataset.b.split("|");const o=obj(c,id);if(!o)return;let v=el.value;if(el.hasAttribute("data-num"))v=v===""?"":Number(v);setP(o,p,v);save(c,id);
     if(c==="roles"&&p==="brief.title"){const h=$("main h1");if(h)h.textContent=roleTitle(o);}
-    if(c==="settings"&&p==="org")document.querySelectorAll(".brand strong,.mhead strong").forEach(x=>x.textContent=el.value||"HireStar");
+    if(c==="settings"&&p==="org")document.querySelectorAll(".brand strong,.mhead strong").forEach(x=>x.textContent=el.value||"StarSelect");
     refreshCalc();}
   const lv=el.dataset.live;
   if(lv==="out"){const p=$("#outPrev");if(p)p.textContent=outreachText(S.roles[R.id]);}

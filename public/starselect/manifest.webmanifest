@@ -1,6 +1,6 @@
 {
-  "name": "HireStar by ConstructEng Australia",
-  "short_name": "HireStar",
+  "name": "StarSelect by ConstructEng Australia",
+  "short_name": "StarSelect",
   "description": "Turn any CV and role description into structured, evidence-based STAR interview questions — choose or tailor, interview, score and print.",
   "start_url": "./index.html",
   "scope": "./",
