@@ -2,15 +2,23 @@
   --ink: #14181d;
   --navy: #232c36;
   --steel: #55707f;
-  --accent: #c8712f;
-  --accent-dark: #a85a22;
-  --accent-soft: #f0ddc9;
+  /* One accent across the site: leather brown, from the khaki-and-leather palette. Orange stays in the logo only. */
+  --accent: #8b5a2b;
+  --accent-dark: #6e4520;
+  --accent-soft: #eadfcb;
   --paper: #f6f3ec;
   --paper-2: #efeae0;
-  --white: #ffffff;
+  --ivory: #fbf8f1;
+  --card: #fffdf9;
   --line: #e1dccf;
   --line-dark: #3a4451;
   --muted-on-dark: #aebac4;
+  /* Khaki for the header bars, footer and feature sections, with the (dark) text colours that read on it. */
+  --band: #d5c1a2;
+  --on-band: #14181d;
+  --on-band-muted: #3f3222;
+  --line-band: rgba(20, 24, 29, 0.09);
+  --on-band-accent: #5c2e0e;
   --max: 1200px;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
   --shadow-sm: 0 1px 2px rgba(20, 24, 29, 0.06);
@@ -37,7 +45,7 @@ body {
   font-size: 16.5px;
   line-height: 1.5;
   color: var(--ink);
-  background: var(--white);
+  background: var(--ivory);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -175,10 +183,13 @@ img {
   background: var(--paper);
 }
 
+/* The full-width feature sections, in camel with dark text. */
 .section-ink {
-  background: var(--ink);
-  color: #fff;
+  background: var(--band);
+  color: var(--on-band);
+  --muted-on-dark: var(--on-band-muted);
 }
+
 
 .field {
   display: flex;
@@ -199,7 +210,7 @@ img {
   font-size: 15px;
   padding: 12px 14px;
   border: 1px solid var(--line);
-  background: #fff;
+  background: var(--card);
   color: var(--ink);
   transition: border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
 }
@@ -244,4 +255,67 @@ img {
   .btn {
     transition: none;
   }
+}
+
+/* STARselect's star: every few seconds it turns half a turn (landing on the
+   same shape, as opposite points share a colour), swells a little and glows. */
+@keyframes ss-twinkle {
+  0%, 62% { transform: rotate(0deg) scale(1); filter: drop-shadow(0 0 0 rgba(210, 176, 98, 0)); }
+  78% { transform: rotate(90deg) scale(1.14); filter: drop-shadow(0 0 6px rgba(210, 176, 98, 0.85)); }
+  94%, 100% { transform: rotate(180deg) scale(1); filter: drop-shadow(0 0 0 rgba(210, 176, 98, 0)); }
+}
+.ss-twinkle {
+  transform-origin: 50% 50%;
+  animation: ss-twinkle 4.5s ease-in-out infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .ss-twinkle { animation: none; }
+}
+
+/* The STARselect wordmark in running text: bold, "STAR" in navy and "select"
+   in gold, as on the logo; on dark backgrounds "STAR" is white. */
+.ss-wm {
+  font-weight: 700;
+  white-space: nowrap;
+  text-transform: none;
+  color: #1e3461;
+}
+.ss-wm i {
+  font-style: normal;
+  color: #b8913b;
+}
+.section-ink .ss-wm {
+  color: #1e3461;
+}
+.section-ink .ss-wm i {
+  color: #fbf8f1;
+}
+/* On orange buttons navy and gold wouldn't show, so it matches the button text. */
+.btn-accent .ss-wm,
+.btn-accent .ss-wm i {
+  color: inherit;
+}
+
+/* STARselect's trial buttons, everywhere on the site: ivory, so the wordmark
+   keeps its navy STAR and gold select, with a fine navy outline and a gentle
+   gold pulse. */
+.ss-btn {
+  background: #fbf8f1;
+  border: 1.5px solid rgba(30, 52, 97, 0.45);
+  color: #1e3461;
+  box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12);
+  animation: ss-pulse 2.4s ease-in-out infinite;
+}
+.ss-btn:hover { background: #ffffff; border-color: #1e3461; color: #1e3461; }
+.ss-btn .ss-wm { color: #1e3461; }
+.ss-btn .ss-wm i { color: #b8913b; }
+.ss-btn:hover,
+.ss-btn:focus-visible { animation-play-state: paused; }
+@keyframes ss-pulse {
+  0% { transform: scale(1); box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12), 0 0 0 0 rgba(184, 145, 59, 0.45); }
+  50% { transform: scale(1.035); box-shadow: 0 4px 10px rgba(30, 52, 97, 0.16), 0 0 0 10px rgba(184, 145, 59, 0); }
+  100% { transform: scale(1); box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12), 0 0 0 0 rgba(184, 145, 59, 0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ss-btn { animation: none; }
 }

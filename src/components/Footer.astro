@@ -36,8 +36,8 @@ const year = new Date().getFullYear();
 
 <style>
   .site-footer {
-    background: var(--ink);
-    color: #fff;
+    background: var(--band);
+    color: var(--on-band);
   }
   .footer-inner {
     padding: 64px 24px 32px;
@@ -63,7 +63,7 @@ const year = new Date().getFullYear();
   .footer-about p {
     font-size: 14px;
     line-height: 1.6;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
   }
   .footer-col {
     display: flex;
@@ -74,22 +74,23 @@ const year = new Date().getFullYear();
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
     text-transform: uppercase;
     margin-bottom: 4px;
   }
   .footer-name {
     font-size: 14px;
-    color: #fff;
+    color: var(--on-band);
     font-weight: 600;
   }
   .footer-col a {
     font-size: 14px;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
     text-decoration: none;
   }
   .footer-col a:hover {
-    color: #fff;
+    color: var(--on-band);
+    text-decoration: underline;
   }
   .footer-bottom {
     display: flex;
@@ -99,12 +100,12 @@ const year = new Date().getFullYear();
     flex-wrap: wrap;
     padding-top: 24px;
     margin-top: 48px;
-    border-top: 1px solid var(--line-dark);
+    border-top: 1px solid var(--line-band);
   }
   .footer-bottom span,
   .footer-bottom a {
     font-size: 13px;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
     text-decoration: none;
   }
 </style>

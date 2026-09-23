@@ -18,7 +18,36 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
 >
   <!-- Hero -->
   <section class="section section-paper hero">
-    <div class="wrap hero-inner">
+    <div class="wrap hero-grid">
+      <!-- STARselect first, front and centre, in its own navy and gold -->
+      <aside class="ss-card" id="starselect" aria-label="STARselect">
+        <div class="ss-logo">
+          <svg class="ss-twinkle" viewBox="-32 -32 64 64" width="44" height="44" aria-hidden="true"><path d="M0,-32 L7,-7 L0,0 L-7,-7 Z" fill="#1E3461"/><path d="M32,0 L7,7 L0,0 L7,-7 Z" fill="#B8913B"/><path d="M0,32 L-7,7 L0,0 L7,7 Z" fill="#1E3461"/><path d="M-32,0 L-7,-7 L0,0 L-7,7 Z" fill="#B8913B"/></svg>
+          <span><b>STAR</b><em>select</em></span>
+        </div>
+        <span class="ss-kicker">New from ConstructEng</span>
+        <h2>Hire on evidence, not instinct.</h2>
+        <p>Recruitment software built in-house by ConstructEng Australia. Everything for a search, in one place.</p>
+        <div class="ss-offer">
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg>
+            <div><h3>Applicant tracking</h3><span>Vacancies, pipeline and candidate records, from first contact to offer.</span></div>
+          </div>
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z"/></svg>
+            <div><h3>Tailored interview guides</h3><span>Scans the CV and your role description, then writes the questions worth asking: STAR questions that test each claim against the role, with follow-up prompts and a scorecard.</span></div>
+          </div>
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
+            <div><h3>LinkedIn market mapping</h3><span>Searches run on your own LinkedIn, with everyone graded against the brief and messaged when you're ready.</span></div>
+          </div>
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h4V9H4zM10 18h4V5h-4zM16 18h4v-6h-4z"/></svg>
+            <div><h3>Import and rank CVs</h3><span>Import the CVs from your job board applications and see every one ranked against the role description, with the reason for each rating. Then generate interview questions for your shortlist.</span></div>
+          </div>
+        </div>
+        <a href="/get-starselect" class="btn ss-btn">Try STARselect free →</a>
+      </aside>
       <div class="hero-copy">
         <span class="eyebrow">Construction, Engineering &amp; Insurance Recruitment</span>
         <h1>{settings.heroHeading}</h1>
@@ -40,34 +69,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
         <div class="stat-row">
           <span>Focused shortlist per role</span>
           <strong>{settings.statShortlist}</strong>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- StarSelect app promo -->
-  <section class="section section-paper app-promo">
-    <div class="wrap hero-inner">
-      <div class="hero-copy">
-        <span class="eyebrow">Introducing StarSelect</span>
-        <h2>AI-powered interview questions, straight from the CV and the brief.</h2>
-        <p class="hero-sub">Built in-house by ConstructEng Australia, StarSelect reads a candidate's CV alongside the role description and writes structured, evidence-based STAR interview questions in seconds — ready to interview, score and print.</p>
-        <div class="hero-ctas">
-          <a href="/get-starselect" class="btn btn-accent">Get Free Access →</a>
-        </div>
-      </div>
-      <div class="hero-stats">
-        <div class="stat-row">
-          <span>From CV and brief to</span>
-          <strong>Questions</strong>
-        </div>
-        <div class="stat-row">
-          <span>Interview method</span>
-          <strong>STAR</strong>
-        </div>
-        <div class="stat-row">
-          <span>Getting started</span>
-          <strong>Free</strong>
         </div>
       </div>
     </div>
@@ -133,7 +134,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   <section class="section section-ink">
     <div class="wrap">
       <span class="eyebrow accent">For Employers</span>
-      <h2 class="on-dark">A shortlist, not a stack of CVs.</h2>
+      <h2 class="on-dark">Hire on evidence, not instinct.</h2>
       <p class="on-dark-muted lead">Where other agencies send through numerous CVs and leave you to shortlist, we act as a recruitment consultant — managing the full hiring process so you only see candidates who genuinely fit.</p>
       <div class="employer-stats">
         <div class="employer-stat">
@@ -149,7 +150,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
           <span class="stat-label">No re-approach guarantee</span>
         </div>
       </div>
-      <a href="/contact#brief" class="btn btn-accent">Start a Conversation With Simon</a>
+      <a href="/contact#brief" class="btn">Start a Conversation With Simon</a>
     </div>
   </section>
 
@@ -215,10 +216,13 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     white-space: nowrap;
   }
   .eyebrow.accent {
-    color: var(--accent);
+    color: var(--on-band-accent);
+  }
+  .eyebrow.accent::before {
+    background: var(--on-band-accent);
   }
   h1 {
-    font-size: clamp(34px, 5vw, 56px);
+    font-size: clamp(28px, 3.6vw, 42px);
   }
   .hero-sub {
     font-size: 17px;
@@ -241,7 +245,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     box-shadow: var(--shadow-lg);
   }
   .stat-row {
-    background: var(--white);
+    background: var(--card);
     padding: 26px 28px;
     display: flex;
     justify-content: space-between;
@@ -265,8 +269,127 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     color: var(--ink);
   }
 
-  .app-promo h2 {
-    font-size: clamp(26px, 3.5vw, 34px);
+  /* Hero: STARselect on the left, the ConstructEng introduction beside it at
+     the same height, and the three stats in a row underneath. */
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: stretch;
+  }
+  /* Less space above so both columns, STARselect's button included, fit on a laptop screen. */
+  .section.hero {
+    padding-top: 44px;
+  }
+  .hero-grid .hero-copy {
+    justify-content: center;
+    min-width: 0;
+  }
+  .hero-grid .hero-stats {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    min-width: 0;
+  }
+  .hero-grid .stat-row {
+    flex: 1;
+  }
+  /* STARselect keeps its own navy and gold so it reads as a product, not
+     another ConstructEng service. */
+  /* A light card in STARselect's navy and gold. */
+  .ss-card {
+    background: #fffdf9;
+    color: #1e3461;
+    padding: 22px 26px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    border: 1px solid var(--line);
+    border-top: 4px solid #b8913b;
+    box-shadow: var(--shadow-md);
+  }
+  .ss-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 30px;
+    letter-spacing: -0.01em;
+  }
+  .ss-logo b { font-weight: 700; color: #1e3461; }
+  .ss-logo em { font-style: normal; font-weight: 700; color: #b8913b; }
+  .ss-kicker {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #b8913b;
+  }
+  .ss-card h2 {
+    color: #1e3461;
+    font-size: clamp(26px, 2.5vw, 32px);
+    line-height: 1.1;
+    margin: 0;
+  }
+  .ss-card p {
+    font-size: 15px;
+    line-height: 1.58;
+    color: #3a4659;
+    margin: 0;
+  }
+  /* The four things STARselect does, as boxes. */
+  .ss-offer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 2px 0 6px;
+  }
+  .ss-box {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    background: #fbf8f1;
+    border: 1px solid rgba(30, 52, 97, 0.14);
+    border-radius: 10px;
+    padding: 11px 12px;
+    transition: border-color 0.3s var(--ease), transform 0.3s var(--ease), box-shadow 0.3s var(--ease);
+  }
+  .ss-box:hover {
+    border-color: rgba(184, 145, 59, 0.7);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px -14px rgba(30, 52, 97, 0.35);
+  }
+  .ss-box svg {
+    width: 22px;
+    height: 22px;
+    flex: none;
+    margin-top: 1px;
+    fill: none;
+    stroke: #b8913b;
+    stroke-width: 1.6;
+  }
+  .ss-box h3 {
+    font-family: "Public Sans", sans-serif;
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #1e3461;
+    margin: 0 0 3px;
+    line-height: 1.3;
+  }
+  .ss-box span {
+    display: block;
+    font-size: 12px;
+    line-height: 1.45;
+    color: #3a4659;
+  }
+  /* The trial button's look is shared site-wide (.ss-btn in global.css). */
+  .ss-card .ss-btn {
+    align-self: flex-start;
+    margin-top: auto;
+  }
+  @media (max-width: 900px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-grid .hero-stats { flex-direction: column; }
+    .ss-card { padding: 28px 24px; }
+    .ss-offer { grid-template-columns: 1fr; }
   }
 
   .trusted {
@@ -384,7 +507,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
 
   .on-dark {
-    color: #fff;
+    color: var(--on-band);
     font-size: clamp(26px, 3.5vw, 34px);
     margin-top: 14px;
     max-width: 620px;
@@ -409,13 +532,13 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     flex-direction: column;
     gap: 10px;
     padding-top: 18px;
-    border-top: 2px solid var(--accent);
+    border-top: 2px solid var(--on-band-accent);
   }
   .employer-stat strong {
     font-family: 'Fraunces', serif;
     font-weight: 800;
     font-size: 28px;
-    color: #fff;
+    color: var(--on-band);
   }
   .stat-label {
     font-size: 14px;
@@ -430,7 +553,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     margin-top: 36px;
   }
   .testimonial-card {
-    background: var(--white);
+    background: var(--card);
     padding: 36px 32px 32px;
     display: flex;
     flex-direction: column;
@@ -481,7 +604,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     border: 1px solid var(--line);
   }
   .split-card {
-    background: var(--white);
+    background: var(--card);
     padding: 40px;
     display: flex;
     flex-direction: column;

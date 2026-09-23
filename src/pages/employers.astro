@@ -101,7 +101,7 @@ const discretionPoints = [
   <section class="section">
     <div class="wrap">
       <span class="eyebrow">For Employers</span>
-      <h1>A shortlist, not a stack of CVs.</h1>
+      <h1>Hire on evidence, not instinct.</h1>
       <p class="lead">Are you looking to recruit a new team member? We're here to help.</p>
     </div>
   </section>
@@ -275,7 +275,7 @@ const discretionPoints = [
           <span>No re-approach guarantee</span>
         </div>
       </div>
-      <a href="/contact#brief" class="btn btn-accent">Brief Us on a Role</a>
+      <a href="/contact#brief" class="btn">Brief Us on a Role</a>
     </div>
   </section>
 </Layout>
@@ -340,7 +340,7 @@ const discretionPoints = [
   }
 
   .card {
-    background: var(--white);
+    background: var(--card);
     padding: 28px;
     display: flex;
     flex-direction: column;
@@ -371,7 +371,7 @@ const discretionPoints = [
   }
 
   .tile {
-    background: var(--white);
+    background: var(--card);
     padding: 22px 24px;
     font-size: 15px;
     color: var(--navy);
@@ -387,16 +387,16 @@ const discretionPoints = [
     padding-left: 30px;
   }
   .section-paper .tile:hover {
-    background: var(--white);
+    background: var(--card);
   }
   .tile-dark {
-    background: var(--navy);
-    color: #fff;
+    background: rgba(251, 248, 241, 0.5);
+    color: var(--on-band);
     font-weight: 600;
     font-size: 14px;
   }
   .tile-dark:hover {
-    background: #2c3947;
+    background: rgba(251, 248, 241, 0.8);
   }
 
   .path-grid {
@@ -406,7 +406,7 @@ const discretionPoints = [
     margin-top: 40px;
   }
   .path-card {
-    background: var(--white);
+    background: var(--card);
     padding: 36px;
     display: flex;
     flex-direction: column;
@@ -418,20 +418,21 @@ const discretionPoints = [
     box-shadow: var(--shadow-md);
   }
   .path-dark {
-    background: var(--ink);
-    color: #fff;
+    background: var(--band);
+    color: var(--on-band);
+    --muted-on-dark: var(--on-band-muted);
   }
   .accent-on-dark {
-    color: var(--accent);
+    color: var(--on-band-accent);
   }
   .accent-on-dark::before {
-    background: var(--accent);
+    background: var(--on-band-accent);
   }
   .path-card h3 {
     font-size: 22px;
   }
   .on-dark {
-    color: #fff;
+    color: var(--on-band);
   }
   .path-card ul {
     margin: 0;
@@ -453,7 +454,7 @@ const discretionPoints = [
     margin-top: 28px;
     font-size: 15px;
     font-style: italic;
-    color: var(--accent);
+    color: var(--on-band-accent);
   }
 
   .two-col-wide {
@@ -523,7 +524,7 @@ const discretionPoints = [
     position: relative;
     padding-left: 26px;
     font-size: 15px;
-    color: #fff;
+    color: var(--on-band);
   }
   .check-list li::before {
     content: "";
@@ -532,7 +533,7 @@ const discretionPoints = [
     top: 6px;
     width: 10px;
     height: 10px;
-    background: var(--accent);
+    background: var(--on-band-accent);
   }
 
   .stats-grid {
@@ -546,13 +547,13 @@ const discretionPoints = [
     flex-direction: column;
     gap: 8px;
     padding-top: 16px;
-    border-top: 2px solid var(--accent);
+    border-top: 2px solid var(--on-band-accent);
   }
   .stat strong {
     font-family: 'Fraunces', serif;
     font-weight: 800;
     font-size: 26px;
-    color: #fff;
+    color: var(--on-band);
   }
   .stat span {
     font-size: 14px;

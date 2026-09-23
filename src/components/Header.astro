@@ -49,7 +49,7 @@ const nav = [
 
 <style>
   .utility {
-    background: var(--ink);
+    background: var(--band);
   }
   .utility-inner {
     padding: 10px 24px;
@@ -61,7 +61,7 @@ const nav = [
   }
   .utility-text {
     font-size: 13px;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
   }
   .utility-links {
     display: flex;
@@ -70,34 +70,41 @@ const nav = [
   }
   .utility-phone {
     font-size: 13px;
-    color: #fff;
+    color: var(--on-band);
     font-weight: 600;
     text-decoration: none;
   }
   .utility-email {
     font-size: 13px;
-    color: var(--muted-on-dark);
+    color: var(--on-band-muted);
     text-decoration: none;
   }
   .site-header {
     border-bottom: 1px solid var(--line);
     position: sticky;
     top: 0;
-    background: rgba(255, 255, 255, 0.86);
+    background: rgba(251, 248, 241, 0.88);
     backdrop-filter: blur(10px) saturate(140%);
     -webkit-backdrop-filter: blur(10px) saturate(140%);
     z-index: 20;
   }
   .header-inner {
-    padding: 16px 24px;
+    padding: 10px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 20px;
   }
   .brand img {
-    height: 40px;
+    height: 80px;
     width: auto;
+    display: block;
+  }
+  /* A little smaller on phones, so the sticky header doesn't take up too much of the screen. */
+  @media (max-width: 600px) {
+    .brand img {
+      height: 64px;
+    }
   }
   .nav-toggle {
     display: flex;
@@ -180,7 +187,7 @@ const nav = [
       top: 100%;
       left: 0;
       right: 0;
-      background: var(--white);
+      background: var(--card);
       border-bottom: 1px solid var(--line);
       flex-direction: column;
       align-items: flex-start;

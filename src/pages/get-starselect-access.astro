@@ -1,14 +1,20 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// The STARselect app runs on its own address. Set PUBLIC_STARSELECT_URL to
+// it when the site is deployed (for example https://app.starselect.com.au);
+// locally it's the app's development server.
+const appUrl = (import.meta.env.PUBLIC_STARSELECT_URL || 'http://localhost:3000').replace(/\/+$/, '');
+const signUp = `${appUrl}/starselect/index.html?signup=1`;
 ---
 
-<Layout title="Your StarSelect Access" description="You're all set — launch StarSelect.">
+<Layout title="Your STARselect Trial" description="Create your STARselect account to start your free 30-day trial.">
   <section class="section access">
     <div class="wrap">
       <span class="eyebrow">You're in</span>
-      <h1>Your free licence is ready.</h1>
-      <p>Thanks for registering — launch StarSelect below and install it on your device. We'll also be in touch by email from ConstructEng Australia.</p>
-      <a href="/starselect/" target="_blank" rel="noopener" class="btn btn-accent">Launch StarSelect →</a>
+      <h1>Your free trial is ready.</h1>
+      <p>Thanks for registering. Create your STARselect account below to start your 30-day free trial. It takes a minute: your name, email, a password and your company name. We'll also be in touch by email from ConstructEng Australia.</p>
+      <a href={signUp} target="_blank" rel="noopener" class="btn ss-btn">Create my STARselect account →</a>
       <a href="/" class="link-back">Back to Home</a>
     </div>
   </section>

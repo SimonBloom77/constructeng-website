@@ -1,17 +1,31 @@
 ---
 import Layout from '../layouts/Layout.astro';
+
+// Sign-up happens in the STARselect app itself, so details are entered once.
+// Set PUBLIC_STARSELECT_URL to the app's address when the site is deployed.
+const appUrl = (import.meta.env.PUBLIC_STARSELECT_URL || 'http://localhost:3000').replace(/\/+$/, '');
+const signUp = `${appUrl}/starselect/index.html?signup=1`;
 ---
 
 <Layout
-  title="StarSelect — Free Interview Question App"
-  description="StarSelect turns any CV and role description into structured, evidence-based STAR interview questions in seconds. Register for free access — built in-house by ConstructEng Australia."
+  title="STARselect — STAR Interview Questions, Market Maps and CV Ranking"
+  description="STARselect writes structured STAR interview questions from any CV and role description, builds ranked market maps from LinkedIn, ranks every applicant against the brief and handles the outreach. Register for free access — built in-house by ConstructEng Australia."
 >
   <section class="section hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">Introducing StarSelect</span>
-        <h1>AI-powered interview questions, straight from the CV and the brief.</h1>
-        <p class="hero-sub">Built in-house by ConstructEng Australia, StarSelect reads a candidate's CV alongside the role description and writes structured, evidence-based STAR interview questions in seconds — ready to interview, score and print. Register below for a free licence and we'll send you straight through.</p>
+        <img src="/starselect-logo.svg" alt="STARselect" width="250" height="64" style="display:block;height:56px;width:auto;margin:0 0 18px;align-self:flex-start" />
+        <span class="eyebrow">Introducing STARselect</span>
+        <h1>Tailored STAR interview questions, straight from the CV and the brief.</h1>
+        <p class="hero-sub">One workspace for the whole search. Here's how STARselect takes a role from brief to interview:</p>
+        <ol class="ss-steps">
+          <li><strong>Upload the role description.</strong> STARselect sets up the brief from it.</li>
+          <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map. Or drop in the CVs your job ads have brought in.</li>
+          <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
+          <li><strong>STARselect makes contact.</strong> Personalised messages by LinkedIn or from your own email, follow-ups if there's no reply, a polite “no” for those who aren't a fit, and interview times candidates can book themselves.</li>
+          <li class="key"><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
+        </ol>
+        <p class="hero-sub">Built in-house by ConstructEng Australia. Try it free for 30 days: see what the trial includes below.</p>
       </div>
       <div class="hero-stats">
         <div class="stat-row">
@@ -20,45 +34,56 @@ import Layout from '../layouts/Layout.astro';
         </div>
         <div class="stat-row">
           <span>Interview method</span>
-          <strong>STAR</strong>
+          <strong>STAR<small>Situation, Task, Action, Result</small></strong>
         </div>
         <div class="stat-row">
-          <span>Getting started</span>
-          <strong>Free</strong>
+          <span>Market maps from</span>
+          <strong>LinkedIn</strong>
+        </div>
+        <div class="stat-row">
+          <span>Free trial</span>
+          <strong>30 days</strong>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section section-paper">
-    <div class="wrap form-wrap">
-      <span class="eyebrow">Free Licence</span>
-      <h2>Get your free access.</h2>
-      <p class="lead">Tell us a little about yourself and we'll set you up with a free StarSelect licence.</p>
+    <div class="wrap trial-wrap">
+      <span class="eyebrow">Free Trial</span>
+      <h2>Try STARselect free for 30 days.</h2>
+      <p class="lead">Create your STARselect account below and your trial starts straight away. There's nothing to pay and you don't need to enter any card details. Here's exactly what your trial includes, and what comes with a paid plan.</p>
 
-      <form name="starselect-access" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/get-starselect-access" class="form">
-        <input type="hidden" name="form-name" value="starselect-access" />
-        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
-        <div class="form-grid">
-          <div class="field">
-            <label for="ss-name">Full name</label>
-            <input id="ss-name" name="name" type="text" required />
-          </div>
-          <div class="field">
-            <label for="ss-email">Email</label>
-            <input id="ss-email" name="email" type="email" required />
-          </div>
-          <div class="field">
-            <label for="ss-company">Company</label>
-            <input id="ss-company" name="company" type="text" required />
-          </div>
-          <div class="field">
-            <label for="ss-role">Your role</label>
-            <input id="ss-role" name="role" type="text" placeholder="e.g. Talent Acquisition Manager" />
-          </div>
+      <div class="trial-grid">
+        <div>
+          <h3>Included in your free trial</h3>
+          <ul class="trial-list">
+            <li><strong>30 days, for one person.</strong> Your trial starts when your account is set up and runs for 30 days. It's for your own use; you can add colleagues when you move to a paid plan.</li>
+            <li><strong>5 tailored interview guides.</strong> Upload a candidate's CV and the role description, and STARselect writes a complete interview guide for that person: STAR questions (Situation, Task, Action, Result) based on what their CV claims, follow-up prompts for each question, and a scorecard your interview panel can print or fill in on screen.</li>
+            <li><strong>50 CVs ranked against your brief.</strong> Drop in the CVs you've received, for example downloaded from a job board or your applicant tracking system, and STARselect ranks each one against the role's must-haves and nice-to-haves, showing the reason for every rating.</li>
+            <li><strong>LinkedIn market maps, up to 250 people.</strong> Connect your own LinkedIn or LinkedIn Recruiter account and STARselect searches LinkedIn for you, grades everyone it finds against the role and builds a ranked market map you can download to Excel. Your trial covers up to 250 people found and graded in total, across as many searches as you like.</li>
+            <li><strong>Messaging candidates.</strong> Personalised messages sent on your behalf by LinkedIn, or by email from your own mailbox, with automatic follow-ups when someone hasn't replied and a polite “no” for unsuccessful applicants. STARselect marks people as Replied when they answer.</li>
+            <li><strong>The rest of the app.</strong> The question library, ready-made interview templates, and your vacancies, pipeline and candidate records, with no limits.</li>
+          </ul>
         </div>
-        <button type="submit" class="btn btn-accent">Get Free Access →</button>
-      </form>
+        <div>
+          <h3>Available on paid plans</h3>
+          <ul class="trial-list paid">
+            <li><strong>Interview invitations.</strong> Invitations sent from your own mailbox with a calendar file attached, including a choice of times candidates can book themselves.</li>
+            <li><strong>Your whole team.</strong> Add colleagues and share vacancies, candidates and interview guides.</li>
+            <li><strong>Larger allowances.</strong> Monthly allowances for interview guides, CV ranking and LinkedIn market maps.</li>
+          </ul>
+          <h3>When your trial ends</h3>
+          <p class="trial-note">Everything you've saved stays in your account. STARselect's AI features, including writing interview guides, ranking CVs and searching LinkedIn, and messaging candidates, pause until you choose a plan. If you connected your LinkedIn or email during the trial, STARselect disconnects them when the trial ends, unless you've already chosen a plan. The accounts themselves aren't affected, and you can connect them again at any time on a paid plan.</p>
+          <h3>Your data</h3>
+          <p class="trial-note">Your data belongs to your organisation. STARselect is operated by ConstructEng Australia Pty Ltd. What you enter is stored on servers provided by a third-party host in Australia, on our behalf, and is used only to run STARselect for you. Text you send to STARselect's AI features is processed by Anthropic, and connected LinkedIn and email accounts run through Unipile; both are based overseas. We don't sell your data, and we don't use it for any other purpose, including ConstructEng Australia's own recruitment business. See the <a href={`${appUrl}/privacy.html`} target="_blank" rel="noopener">Privacy Policy</a> for details.</p>
+        </div>
+      </div>
+    </div>
+    <div class="wrap form-wrap">
+      <h3 class="form-title">Start your free trial</h3>
+      <p class="lead">Create your STARselect account in one step: your name, work email, a password and your company name. Your 30-day trial starts as soon as your account is created.</p>
+      <a href={signUp} class="btn ss-btn start-btn">Start my free trial →</a>
     </div>
   </section>
 </Layout>
@@ -86,6 +111,51 @@ import Layout from '../layouts/Layout.astro';
     color: var(--navy);
     max-width: 540px;
   }
+  .ss-steps {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: step;
+    display: grid;
+    gap: 14px;
+    max-width: 560px;
+  }
+  .ss-steps li {
+    counter-increment: step;
+    position: relative;
+    padding-left: 44px;
+    font-size: 16px;
+    line-height: 1.55;
+    color: var(--navy);
+  }
+  .ss-steps li::before {
+    content: counter(step);
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
+  }
+  .ss-steps strong {
+    color: var(--ink);
+  }
+  /* The step STARselect is built around: the interview itself. */
+  .ss-steps li.key {
+    background: var(--accent-soft);
+    border-radius: 8px;
+    padding: 12px 14px 12px 56px;
+  }
+  .ss-steps li.key::before {
+    left: 14px;
+    top: 12px;
+  }
   .hero-stats {
     flex: 1 1 360px;
     min-width: 280px;
@@ -96,7 +166,7 @@ import Layout from '../layouts/Layout.astro';
     box-shadow: var(--shadow-lg);
   }
   .stat-row {
-    background: var(--white);
+    background: var(--card);
     padding: 26px 28px;
     display: flex;
     justify-content: space-between;
@@ -113,6 +183,16 @@ import Layout from '../layouts/Layout.astro';
     font-size: 32px;
     font-weight: 800;
     color: var(--ink);
+    text-align: right;
+  }
+  .stat-row strong small {
+    display: block;
+    margin-top: 6px;
+    font-family: 'Public Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--navy);
+    text-align: right;
   }
   h2 {
     font-size: clamp(24px, 3.5vw, 30px);
@@ -127,6 +207,68 @@ import Layout from '../layouts/Layout.astro';
   }
   .form-wrap {
     max-width: 640px;
+  }
+  .trial-wrap {
+    max-width: 1040px;
+    margin-bottom: 44px;
+  }
+  .trial-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px 40px;
+    margin-top: 28px;
+  }
+  .trial-grid h3 {
+    font-size: 19px;
+    margin: 0 0 12px;
+  }
+  .trial-list + h3 {
+    margin-top: 22px;
+  }
+  .trial-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 12px;
+  }
+  .trial-list li {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    padding: 14px 16px 14px 44px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    position: relative;
+  }
+  .trial-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 16px;
+    top: 14px;
+    color: var(--accent);
+    font-weight: 700;
+  }
+  .trial-list.paid li::before {
+    content: "+";
+    color: var(--steel);
+  }
+  .trial-list strong {
+    color: var(--ink);
+  }
+  .trial-note {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    margin: 0;
+  }
+  .form-title {
+    font-size: 22px;
+    margin: 0;
+  }
+  .start-btn {
+    margin-top: 22px;
   }
   .form {
     margin-top: 32px;
