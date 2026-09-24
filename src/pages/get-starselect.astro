@@ -2,8 +2,9 @@
 import Layout from '../layouts/Layout.astro';
 
 // Sign-up happens in the STARselect app itself, so details are entered once.
-// Set PUBLIC_STARSELECT_URL to the app's address when the site is deployed.
-const appUrl = (import.meta.env.PUBLIC_STARSELECT_URL || 'http://localhost:3000').replace(/\/+$/, '');
+// The live app is at app.constructeng.com.au; `npm run dev` uses the local
+// app instead. PUBLIC_STARSELECT_URL overrides both.
+const appUrl = (import.meta.env.PUBLIC_STARSELECT_URL || (import.meta.env.DEV ? 'http://localhost:3000' : 'https://app.constructeng.com.au')).replace(/\/+$/, '');
 const signUp = `${appUrl}/starselect/index.html?signup=1`;
 ---
 
