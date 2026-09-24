@@ -170,12 +170,12 @@ img {
 }
 
 .section {
-  padding: 84px 0;
+  padding: 48px 0;
 }
 
 @media (min-width: 900px) {
   .section {
-    padding: 128px 0;
+    padding: 72px 0;
   }
 }
 

@@ -74,18 +74,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     </div>
   </section>
 
-  <!-- Trusted by -->
-  <section class="trusted">
-    <div class="wrap trusted-inner">
-      <span class="eyebrow small">Trusted by</span>
-      <div class="trusted-logos">
-        <span>Sydney Metro</span>
-        <span>Transport for NSW</span>
-        <span>HDI Global</span>
-      </div>
-    </div>
-  </section>
-
   <!-- About teaser -->
   <section class="section">
     <div class="wrap about-teaser">
@@ -279,7 +267,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   /* Less space above so both columns, STARselect's button included, fit on a laptop screen. */
   .section.hero {
-    padding-top: 44px;
+    padding-top: 28px;
   }
   .hero-grid .hero-copy {
     justify-content: center;
@@ -392,27 +380,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     .ss-offer { grid-template-columns: 1fr; }
   }
 
-  .trusted {
-    border-bottom: 1px solid var(--line);
-  }
-  .trusted-inner {
-    padding: 26px 24px;
-    display: flex;
-    align-items: center;
-    gap: 28px;
-    flex-wrap: wrap;
-  }
-  .trusted-logos {
-    display: flex;
-    gap: 36px;
-    flex-wrap: wrap;
-  }
-  .trusted-logos span {
-    font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 16px;
-    color: var(--navy);
-  }
 
   .about-teaser {
     display: flex;
@@ -525,7 +492,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: 32px;
-    margin: 40px 0;
+    margin: 28px 0;
   }
   .employer-stat {
     display: flex;
