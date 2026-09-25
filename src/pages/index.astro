@@ -27,6 +27,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
         </div>
         <span class="ss-kicker">New from ConstructEng</span>
         <h2>Hire on evidence, not instinct.</h2>
+        <p class="ss-motto">Minimum effort, maximum reward.</p>
         <p>Recruitment software built in-house by ConstructEng Australia. Everything for a search, in one place.</p>
         <div class="ss-offer">
           <div class="ss-box">
@@ -316,6 +317,13 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     font-size: clamp(26px, 2.5vw, 32px);
     line-height: 1.1;
     margin: 0;
+  }
+  .ss-card .ss-motto {
+    color: #b8913b;
+    font-size: clamp(18px, 1.7vw, 21px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin: -4px 0 0;
   }
   .ss-card p {
     font-size: 15px;
