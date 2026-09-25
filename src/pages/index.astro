@@ -58,20 +58,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
           <a href="/employers" class="btn btn-outline">Hire Through Us</a>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat-row">
-          <span>Years in executive recruitment</span>
-          <strong>{settings.statYears}</strong>
-        </div>
-        <div class="stat-row">
-          <span>Candidate-submission to offer</span>
-          <strong>{settings.statOfferRatio}</strong>
-        </div>
-        <div class="stat-row">
-          <span>Focused shortlist per role</span>
-          <strong>{settings.statShortlist}</strong>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -224,42 +210,8 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     gap: 14px;
     flex-wrap: wrap;
   }
-  .hero-stats {
-    flex: 1 1 360px;
-    min-width: 280px;
-    display: flex;
-    flex-direction: column;
-    gap: 1px;
-    background: var(--line);
-    box-shadow: var(--shadow-lg);
-  }
-  .stat-row {
-    background: var(--card);
-    padding: 26px 28px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 16px;
-    transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
-  }
-  .stat-row:hover {
-    background: var(--paper);
-    padding-left: 34px;
-  }
-  .stat-row span {
-    font-size: 15px;
-    color: var(--navy);
-    font-weight: 600;
-  }
-  .stat-row strong {
-    font-family: 'Fraunces', serif;
-    font-size: 32px;
-    font-weight: 800;
-    color: var(--ink);
-  }
-
   /* Hero: STARselect on the left, the ConstructEng introduction beside it at
-     the same height, and the three stats in a row underneath. */
+     the same height. */
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -273,14 +225,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .hero-grid .hero-copy {
     justify-content: center;
     min-width: 0;
-  }
-  .hero-grid .hero-stats {
-    grid-column: 1 / -1;
-    flex-direction: row;
-    min-width: 0;
-  }
-  .hero-grid .stat-row {
-    flex: 1;
   }
   /* STARselect keeps its own navy and gold so it reads as a product, not
      another ConstructEng service. */
@@ -393,7 +337,6 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-grid .hero-stats { flex-direction: column; }
     .ss-card { padding: 28px 24px; }
     .ss-offer { grid-template-columns: 1fr; }
   }

@@ -31,8 +31,24 @@ import settings from '../data/settings.json';
             <span>Founded</span>
           </div>
         </div>
-        <a href="/contact" class="btn">Get in Touch With Simon</a>
       </div>
+    </div>
+    <div class="wrap">
+      <div class="about-stats">
+        <div class="stat-row">
+          <span>Years in executive recruitment</span>
+          <strong>{settings.statYears}</strong>
+        </div>
+        <div class="stat-row">
+          <span>Candidate-submission to offer</span>
+          <strong>{settings.statOfferRatio}</strong>
+        </div>
+        <div class="stat-row">
+          <span>Focused shortlist per role</span>
+          <strong>{settings.statShortlist}</strong>
+        </div>
+      </div>
+      <a href="/contact" class="btn about-cta">Get in Touch With Simon</a>
     </div>
   </section>
 </Layout>
@@ -120,5 +136,43 @@ import settings from '../data/settings.json';
   .stat-strip span {
     font-size: 13px;
     color: var(--steel);
+  }
+  .about-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    margin-top: 48px;
+    background: var(--line);
+    box-shadow: var(--shadow-lg);
+  }
+  .stat-row {
+    background: var(--card);
+    padding: 26px 28px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
+  }
+  .stat-row:hover {
+    background: var(--paper);
+    padding-left: 34px;
+  }
+  .stat-row span {
+    font-size: 15px;
+    color: var(--navy);
+    font-weight: 600;
+  }
+  .stat-row strong {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--ink);
+  }
+  .about-cta {
+    margin-top: 32px;
+  }
+  @media (max-width: 900px) {
+    .about-stats { grid-template-columns: 1fr; }
   }
 </style>
