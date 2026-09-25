@@ -74,6 +74,5 @@ collections:
           - { label: "Stat — Years Experience", name: "statYears", widget: "string" }
           - { label: "Stat — Offer Ratio", name: "statOfferRatio", widget: "string" }
           - { label: "Stat — Shortlist Size", name: "statShortlist", widget: "string" }
-          - { label: "Stat — Consultants", name: "statConsultants", widget: "string" }
           - { label: "Stat — LinkedIn Followers", name: "statLinkedIn", widget: "string" }
           - { label: "Stat — Year Founded", name: "statFounded", widget: "string" }
