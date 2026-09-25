@@ -3,6 +3,6 @@ quote: "Simon gets results! Simon recently led executive recruitment for a full 
 name: "Antonietta Cavallo PSM FACRS"
 role: "Director, Road Safety"
 company: "Transport for NSW"
-featured: false
+featured: true
 order: 4
 ---

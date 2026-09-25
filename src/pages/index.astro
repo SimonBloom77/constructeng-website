@@ -32,7 +32,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
         <div class="ss-offer">
           <div class="ss-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg>
-            <div><h3>Applicant tracking</h3><span>Vacancies, pipeline and candidate records, from first contact to offer.</span></div>
+            <div><h3>Applicant tracking</h3><span>Vacancies, pipeline and candidate records, from first contact to offer. Includes intelligent messaging by email and LinkedIn, plus calls and texts from your phone.</span></div>
           </div>
           <div class="ss-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z"/></svg>
@@ -47,7 +47,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
             <div><h3>Import and rank CVs</h3><span>Import the CVs from your job board applications and see every one ranked against the role description, with the reason for each rating. Then generate interview questions for your shortlist.</span></div>
           </div>
         </div>
-        <a href="/get-starselect" class="btn ss-btn">Try STARselect free →</a>
+        <a href="/get-starselect" class="btn ss-btn ss-cta">Try STARselect free for 30 days →</a>
       </aside>
       <div class="hero-copy">
         <span class="eyebrow">Construction, Engineering &amp; Insurance Recruitment</span>
@@ -332,6 +332,16 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     margin: 0;
   }
   /* The four things STARselect does, as boxes. */
+  /* The card's trial button: as wide as the feature boxes above it. */
+  .ss-card .ss-cta {
+    display: flex;
+    justify-content: center;
+    align-self: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 17px;
+    padding: 14px 20px;
+  }
   .ss-offer {
     display: grid;
     grid-template-columns: 1fr 1fr;

@@ -3,6 +3,6 @@ quote: "Simon has invested the time to understanding the Water sector and our re
 name: "National Operations Manager"
 role: "National Operations Manager"
 company: "John Holland"
-featured: true
+featured: false
 order: 6
 ---

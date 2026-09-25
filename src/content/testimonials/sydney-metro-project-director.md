@@ -3,6 +3,6 @@ quote: "Simon is a great talent specialist who has helped me find key resources 
 name: "Angela Jeffery"
 role: "Project Director"
 company: "Sydney Metro"
-featured: false
+featured: true
 order: 2
 ---
