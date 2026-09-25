@@ -19,6 +19,10 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
         <span class="eyebrow">Introducing STARselect</span>
         <h1>Tailored STAR interview questions, straight from the CV and the brief.</h1>
         <p class="ss-motto">Hire on evidence, not instinct. Minimum effort, maximum reward.</p>
+        <div class="top-cta">
+          <a href={signUp} class="btn ss-btn">Start my free trial →</a>
+          <span>30 days free. No card needed.</span>
+        </div>
         <p class="hero-sub">One workspace for the whole search. Here's how STARselect takes a role from brief to interview:</p>
         <ol class="ss-steps">
           <li><strong>Upload the role description.</strong> STARselect sets up the brief from it.</li>
@@ -359,6 +363,18 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   .start-btn {
     margin-top: 22px;
+  }
+  /* A second "Start my free trial" at the top, so it's there without scrolling. */
+  .top-cta {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin: 2px 0 4px;
+  }
+  .top-cta span {
+    font-size: 14px;
+    color: #5b6576;
   }
   .form {
     margin-top: 32px;
