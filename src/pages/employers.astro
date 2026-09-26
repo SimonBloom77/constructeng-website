@@ -75,12 +75,12 @@ const aiSteps = [
   {
     n: '01',
     title: 'AI-powered market mapping',
-    desc: 'AI tools integrated with LinkedIn Recruiter help us map the market and build talent pools faster, surfacing candidates a manual search could miss.',
+    desc: 'Our own STARselect software works with LinkedIn Recruiter to map the market and build talent pools faster, surfacing candidates a manual search could miss.',
   },
   {
     n: '02',
     title: 'AI-assisted shortlisting',
-    desc: 'AI helps us triage and prioritise applications at volume, so more of our time goes to the candidates genuinely worth a conversation.',
+    desc: 'STARselect ranks every application against your brief, with the reason for each rating, so more of our time goes to the candidates genuinely worth a conversation.',
   },
   {
     n: '03',
@@ -97,12 +97,13 @@ const discretionPoints = [
 ];
 ---
 
-<Layout title="For Employers" description="ConstructEng Australia's recruitment philosophy and process: a focused shortlist, a 90% submission-to-offer ratio, structured evidence-based screening, and an ethical no re-approach guarantee.">
+<Layout title="For Employers" description="ConstructEng Australia's recruitment philosophy and process: AI-powered market mapping and applicant ranking with our own STARselect software, a focused shortlist, a 90% submission-to-offer ratio, structured evidence-based screening, and an ethical no re-approach guarantee.">
   <section class="section">
     <div class="wrap">
       <span class="eyebrow">For Employers</span>
       <h1>Hire on evidence, not instinct.</h1>
       <p class="lead">Are you looking to recruit a new team member? We're here to help.</p>
+      <p class="lead ai-lead">We combine {settings.statYears} years of recruitment experience with AI. Our own STARselect software maps the market, ranks every applicant against your brief and helps prepare structured interviews, so every shortlist is backed by evidence. <a href="/get-starselect">About STARselect →</a></p>
     </div>
   </section>
 
@@ -149,6 +150,7 @@ const discretionPoints = [
           <h3 class="on-dark">Advertise &amp; Attract</h3>
           <ul>
             <li>High-volume job boards for maximum reach and stronger shortlisting control</li>
+            <li>Every applicant ranked against your brief with our own STARselect software</li>
             <li>Careers page promotion shared across professional networks</li>
             <li>Best for well-defined roles with a strong likely applicant pool</li>
           </ul>
@@ -157,8 +159,9 @@ const discretionPoints = [
           <span class="eyebrow">Proactive</span>
           <h3>Search &amp; Headhunt</h3>
           <ul>
-            <li>Direct market mapping and targeted search via professional networks</li>
+            <li>AI-powered market mapping and targeted search, with our own STARselect software</li>
             <li>Warm outreach to passive candidates who aren't actively looking</li>
+            <li>Option of an NDA for confidential, discreet roles</li>
             <li>Best for senior, niche, or historically hard-to-fill roles</li>
           </ul>
         </div>
@@ -395,6 +398,14 @@ const discretionPoints = [
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 19px;
     margin-top: 22px;
+  }
+  .ai-lead {
+    margin-top: 10px;
+  }
+  .ai-lead a {
+    color: var(--accent-dark);
+    font-weight: 600;
+    white-space: nowrap;
   }
   .path-card {
     background: var(--card-bg);
