@@ -321,8 +321,7 @@ const discretionPoints = [
 
   .grid {
     display: grid;
-    gap: 1px;
-    background: var(--line);
+    gap: 14px;
     margin-top: 22px;
   }
   .grid-4 {
@@ -336,19 +335,20 @@ const discretionPoints = [
   }
 
   .card {
-    background: var(--card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 22px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
-  }
-  .section-paper .card {
-    background: var(--paper);
+    position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
     z-index: 1;
   }
   .card-num {
@@ -367,32 +367,27 @@ const discretionPoints = [
   }
 
   .tile {
-    background: var(--card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 22px 19px;
     font-size: 14px;
     color: var(--navy);
     display: flex;
     align-items: center;
-    transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
-  }
-  .section-paper .tile {
-    background: var(--paper);
+    position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .tile:hover {
-    background: var(--paper);
-    padding-left: 24px;
-  }
-  .section-paper .tile:hover {
-    background: var(--card);
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+    z-index: 1;
   }
   .tile-dark {
-    background: rgba(251, 248, 241, 0.5);
     color: var(--on-band);
     font-weight: 600;
     font-size: 13px;
-  }
-  .tile-dark:hover {
-    background: rgba(251, 248, 241, 0.8);
   }
 
   .path-grid {
@@ -402,16 +397,21 @@ const discretionPoints = [
     margin-top: 22px;
   }
   .path-card {
-    background: var(--card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 29px;
     display: flex;
     flex-direction: column;
     gap: 14px;
-    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .path-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+    z-index: 1;
   }
   .path-dark {
     background: var(--band);
@@ -481,12 +481,17 @@ const discretionPoints = [
     display: flex;
     gap: 16px;
     padding: 20px;
-    background: var(--paper);
-    transition: background 0.3s var(--ease), transform 0.3s var(--ease);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .stack-item:hover {
-    background: var(--accent-soft);
-    transform: translateX(4px);
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+    z-index: 1;
   }
   .stack-num {
     font-family: 'Fraunces', serif;

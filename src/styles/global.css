@@ -24,6 +24,14 @@
   --shadow-sm: 0 1px 2px rgba(20, 24, 29, 0.06);
   --shadow-md: 0 12px 32px -12px rgba(20, 24, 29, 0.18);
   --shadow-lg: 0 24px 60px -20px rgba(20, 24, 29, 0.28);
+  /* Cards: one style across the site. */
+  --card-bg: var(--card);
+  --card-line: var(--line);
+  --card-radius: 10px;
+  --card-t: 0.3s var(--ease);
+  --card-lift: translateY(-6px);
+  --card-shadow-hover: 0 22px 40px -20px rgba(20, 24, 29, 0.4);
+  --card-line-hover: rgba(184, 145, 59, 0.75);
 }
 
 * {
@@ -188,6 +196,9 @@ img {
   background: var(--band);
   color: var(--on-band);
   --muted-on-dark: var(--on-band-muted);
+  /* Cards on camel: a soft ivory, not stark white. */
+  --card-bg: rgba(251, 248, 241, 0.45);
+  --card-line: var(--line-band);
 }
 
 

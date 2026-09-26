@@ -46,19 +46,19 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
   .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1px;
-    background: var(--line);
+    gap: 14px;
     margin-top: 22px;
-    border: 1px solid var(--line);
   }
   .card {
-    background: var(--card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 29px 26px 26px;
     display: flex;
     flex-direction: column;
     gap: 18px;
     position: relative;
-    transition: background 0.35s var(--ease), transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .card::before {
     content: "\201C";
@@ -71,8 +71,9 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
     left: 24px;
   }
   .card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-md);
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
     z-index: 1;
   }
   .card p {

@@ -235,10 +235,10 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   .ext-steps li {
     counter-increment: ext;
     position: relative;
-    /* Soft ivory on the camel, like the trial cards on paper, not stark white. */
-    background: rgba(251, 248, 241, 0.45);
-    border: 1px solid var(--line-band);
-    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
     padding: 14px 16px 14px 56px;
     font-size: 14px;
     line-height: 1.5;
@@ -403,10 +403,11 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   .ss-steps li {
     counter-increment: step;
     position: relative;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 12px 14px 12px 45px;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
     font-size: 15px;
     line-height: 1.55;
     color: var(--navy);
@@ -426,6 +427,14 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     line-height: 28px;
     text-align: center;
   }
+  .ss-steps li:hover,
+  .trial-list li:hover,
+  .ext-steps li:hover {
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+    z-index: 1;
+  }
   .ss-steps strong {
     color: var(--ink);
   }
@@ -436,7 +445,9 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     flex-direction: column;
     gap: 1px;
     background: var(--line);
-    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    overflow: hidden;
   }
   .stat-row {
     background: var(--card);
@@ -511,10 +522,11 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     line-height: 1.5;
     color: var(--navy);
     padding: 14px 16px 14px 35px;
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 8px;
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .trial-list li::before {
     content: "✓";

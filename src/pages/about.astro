@@ -140,23 +140,26 @@ import settings from '../data/settings.json';
   .about-stats {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 1px;
+    gap: 14px;
     margin-top: 38px;
-    background: var(--line);
-    box-shadow: var(--shadow-lg);
   }
   .stat-row {
-    background: var(--card);
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
     padding: 21px 22px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 16px;
-    transition: background 0.3s var(--ease), padding-left 0.3s var(--ease);
+    position: relative;
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t), background var(--card-t);
   }
   .stat-row:hover {
-    background: var(--paper);
-    padding-left: 27px;
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+    z-index: 1;
   }
   .stat-row span {
     font-size: 14px;
