@@ -16,10 +16,6 @@ import settings from '../data/settings.json';
         <p>We are preferred suppliers to a selection of prominent international and local Australian companies, partnering with these firms to recruit their strategic, hard-to-fill positions.</p>
         <p>{settings.aboutBio}</p>
       </div>
-      <div class="photo-caption">
-        <strong>{settings.founderName}</strong>
-        <span>{settings.founderTitle}</span>
-      </div>
       <div class="stat-strip">
           <div>
             <strong>{settings.statLinkedIn}</strong>
@@ -52,11 +48,12 @@ import settings from '../data/settings.json';
 </Layout>
 
 <style>
-  /* Photo beside the text; the name and title sit on the same row as the figures. */
+  /* Photo beside the text, with the figures under the photo; their bottom lines up with the end of the text. */
   .about-grid {
     display: grid;
     grid-template-columns: 220px minmax(0, 1fr);
-    grid-template-areas: "photo copy" "caption stats";
+    grid-template-rows: auto 1fr;
+    grid-template-areas: "photo copy" "stats copy";
     column-gap: 51px;
     row-gap: 22px;
     align-items: start;
@@ -86,20 +83,6 @@ import settings from '../data/settings.json';
     font-size: 13px;
     color: var(--steel);
   }
-  .photo-caption {
-    grid-area: caption;
-    display: flex;
-    flex-direction: column;
-  }
-  .photo-caption strong {
-    font-family: 'Fraunces', serif;
-    font-weight: 800;
-    font-size: 19px;
-  }
-  .photo-caption span {
-    font-size: 13px;
-    color: var(--steel);
-  }
   .copy-col {
     grid-area: copy;
     display: flex;
@@ -116,6 +99,8 @@ import settings from '../data/settings.json';
   }
   .stat-strip {
     grid-area: stats;
+    align-self: end;
+    margin-bottom: 1.5px; /* baseline level with the last line of text */
     display: flex;
     gap: 22px;
     flex-wrap: wrap;
@@ -177,7 +162,8 @@ import settings from '../data/settings.json';
   @media (max-width: 640px) {
     .about-grid {
       grid-template-columns: 1fr;
-      grid-template-areas: "photo" "caption" "copy" "stats";
+      grid-template-rows: auto;
+      grid-template-areas: "photo" "stats" "copy";
     }
     .photo-frame { width: 180px; }
   }
