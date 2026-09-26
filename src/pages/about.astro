@@ -6,14 +6,8 @@ import settings from '../data/settings.json';
 <Layout title="About Us" description="ConstructEng Australia was founded by Simon Bloom in 2009 — 25+ years placing technical and executive talent across construction and engineering.">
   <section class="section">
     <div class="wrap about-grid">
-      <div class="photo-col">
-        <div class="photo-frame">
-          <img src="/images/simon-bloom.jpg" alt={settings.founderName} onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',textContent:'Photo — Simon Bloom'}))" />
-        </div>
-        <div class="photo-caption">
-          <span class="p-name">{settings.founderName}</span>
-          <span class="p-title">{settings.founderTitle}</span>
-        </div>
+      <div class="photo-frame">
+        <img src="/images/simon-bloom.jpg" alt={settings.founderName} onerror="this.replaceWith(Object.assign(document.createElement('div'),{className:'photo-placeholder',textContent:'Photo — Simon Bloom'}))" />
       </div>
       <div class="copy-col">
         <span class="eyebrow">About Us</span>
@@ -21,7 +15,12 @@ import settings from '../data/settings.json';
         <p>ConstructEng Australia specialises in the recruitment of technical staff within construction and engineering, offering notable roles on Australia's largest building and civil developments — for both permanent and contract positions.</p>
         <p>We are preferred suppliers to a selection of prominent international and local Australian companies, partnering with these firms to recruit their strategic, hard-to-fill positions.</p>
         <p>{settings.aboutBio}</p>
-        <div class="stat-strip">
+      </div>
+      <div class="photo-caption">
+        <strong>{settings.founderName}</strong>
+        <span>{settings.founderTitle}</span>
+      </div>
+      <div class="stat-strip">
           <div>
             <strong>{settings.statLinkedIn}</strong>
             <span>LinkedIn network</span>
@@ -30,7 +29,6 @@ import settings from '../data/settings.json';
             <strong>{settings.statFounded}</strong>
             <span>Founded</span>
           </div>
-        </div>
       </div>
     </div>
     <div class="wrap">
@@ -54,20 +52,17 @@ import settings from '../data/settings.json';
 </Layout>
 
 <style>
+  /* Photo beside the text; the name and title sit on the same row as the figures. */
   .about-grid {
-    display: flex;
-    gap: 51px;
-    align-items: flex-start;
-    flex-wrap: wrap;
-  }
-  .photo-col {
-    flex: 1 1 280px;
-    min-width: 240px;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    grid-template-areas: "photo copy" "caption stats";
+    column-gap: 51px;
+    row-gap: 22px;
+    align-items: start;
   }
   .photo-frame {
+    grid-area: photo;
     width: 100%;
     aspect-ratio: 4 / 5;
     background: var(--paper-2);
@@ -92,21 +87,21 @@ import settings from '../data/settings.json';
     color: var(--steel);
   }
   .photo-caption {
+    grid-area: caption;
     display: flex;
     flex-direction: column;
   }
-  .p-name {
+  .photo-caption strong {
     font-family: 'Fraunces', serif;
-    font-weight: 700;
-    font-size: 15px;
+    font-weight: 800;
+    font-size: 19px;
   }
-  .p-title {
+  .photo-caption span {
     font-size: 13px;
     color: var(--steel);
   }
   .copy-col {
-    flex: 1.6 1 480px;
-    min-width: 300px;
+    grid-area: copy;
     display: flex;
     flex-direction: column;
     gap: 22px;
@@ -120,6 +115,7 @@ import settings from '../data/settings.json';
     color: var(--navy);
   }
   .stat-strip {
+    grid-area: stats;
     display: flex;
     gap: 22px;
     flex-wrap: wrap;
@@ -177,5 +173,12 @@ import settings from '../data/settings.json';
   }
   @media (max-width: 900px) {
     .about-stats { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    .about-grid {
+      grid-template-columns: 1fr;
+      grid-template-areas: "photo" "caption" "copy" "stats";
+    }
+    .photo-frame { width: 180px; }
   }
 </style>
