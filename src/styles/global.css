@@ -287,8 +287,9 @@ img {
 .section-ink .ss-wm {
   color: #1e3461;
 }
+/* "select" is always STARselect gold, on camel too. */
 .section-ink .ss-wm i {
-  color: #fbf8f1;
+  color: #b8913b;
 }
 /* On orange buttons navy and gold wouldn't show, so it matches the button text. */
 .btn-accent .ss-wm,
