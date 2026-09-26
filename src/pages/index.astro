@@ -24,26 +24,27 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
         <span class="ss-kicker">New from ConstructEng</span>
         <h2>Hire on evidence, not instinct.</h2>
         <p class="ss-motto">Minimum effort, maximum reward.</p>
-        <p>Recruitment software built in-house by ConstructEng Australia. Everything for a search, in one place.</p>
+        <p>Recruitment software built in-house by ConstructEng Australia. Everything for a search in one place, from applicant tracking and messaging to the interview.</p>
         <div class="ss-offer">
           <div class="ss-box">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5h8v2M3 12h18"/></svg>
-            <div><h3>Applicant tracking</h3><span>Vacancies, pipeline and candidate records, from first contact to offer. Includes intelligent messaging by email and LinkedIn, calls and texts from your phone, and licences and registrations with expiry reminders.</span></div>
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h4V9H4zM10 18h4V5h-4zM16 18h4v-6h-4z"/></svg>
+            <div><h3>Rank applicants where they applied</h3><span>The browser extension ranks applicants inside SEEK, Indeed, LinkedIn or any ATS, or import their CVs. Each is graded against the brief, with the reason for every rating.</span></div>
+          </div>
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5M8 11l2 2 4-4"/></svg>
+            <div><h3>Evidence check and pre-screen</h3><span>See how well each CV or LinkedIn profile backs up its claims, and send pre-screen questions candidates answer online, summarised for your call.</span></div>
+          </div>
+          <div class="ss-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3"/><path d="M3 19c0-3.3 2.7-5 6-5s6 1.7 6 5M16 5a3 3 0 010 6M18 14c2 .6 3 2.2 3 5"/></svg>
+            <div><h3>LinkedIn market maps</h3><span>Searches run on your own LinkedIn, with everyone graded against the brief and messaged when you're ready.</span></div>
           </div>
           <div class="ss-box">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l2.6 5.6L20 9.3l-4 4 1 5.7-5-2.8-5 2.8 1-5.7-4-4 5.4-.7z"/></svg>
-            <div><h3>Tailored interview guides</h3><span>Scans the CV and your role description, then writes the questions worth asking: STAR questions that test each claim against the role, with follow-up prompts and a scorecard.</span></div>
-          </div>
-          <div class="ss-box">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M21 21l-5-5"/></svg>
-            <div><h3>LinkedIn market mapping</h3><span>Searches run on your own LinkedIn, with everyone graded against the brief and messaged when you're ready.</span></div>
-          </div>
-          <div class="ss-box">
-            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 18h4V9H4zM10 18h4V5h-4zM16 18h4v-6h-4z"/></svg>
-            <div><h3>Import, integrate and rank CVs</h3><span>Let STARselect review your applications right inside SEEK, Indeed or any ATS you use, with its browser extension. Or import the CVs from your job board. Each one is ranked against the role description, with the reasons, and an evidence check shows how well each CV or LinkedIn profile backs up its claims.</span></div>
+            <div><h3>Tailored STAR interviews</h3><span>STAR questions that test what each CV claims, with prompts and a scorecard, plus a record of how every ranking was made.</span></div>
           </div>
         </div>
         <a href="/get-starselect" class="btn ss-btn ss-cta">Try STARselect free for 30 days →</a>
+        <a href="/starselect-check" class="ss-seeker">Looking for work? Check your own CV and LinkedIn profile with STARselect Check →</a>
       </aside>
       <div class="hero-copy">
         <span class="eyebrow">Construction, Engineering &amp; Insurance Recruitment</span>
@@ -296,6 +297,16 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     font-size: 12px;
     line-height: 1.45;
     color: #3a4659;
+  }
+  .ss-seeker {
+    display: block;
+    text-align: center;
+    font-size: 12.5px;
+    color: #3a4659;
+    margin-top: 8px;
+  }
+  .ss-seeker:hover {
+    color: #284278;
   }
   /* The trial button's look is shared site-wide (.ss-btn in global.css). */
   .ss-card .ss-btn {

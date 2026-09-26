@@ -28,11 +28,17 @@ const { Content } = await render(vacancy);
         <Content />
       </div>
       <a href="/contact#cv" class="btn">Apply — Send Your CV</a>
+      <p class="check-note">Want to check your CV against this role first? <a href="/starselect-check">Try STARselect Check</a>: your first 3 checks are free.</p>
     </div>
   </section>
 </Layout>
 
 <style>
+  .check-note {
+    font-size: 14px;
+    color: var(--steel);
+    margin-top: 14px;
+  }
   .detail {
     max-width: 720px;
   }

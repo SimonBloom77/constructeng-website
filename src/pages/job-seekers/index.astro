@@ -14,6 +14,8 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
       <h1>Current vacancies.</h1>
       <p class="lead">Welcome — here are the roles we're actively recruiting for. Don't see the right fit? Send us your CV anyway; many of our best placements come from candidates already known to us.</p>
 
+      <a href="/starselect-check" class="check-band"><strong>Before you apply:</strong> check your CV and LinkedIn profile against the role with STARselect Check. Your first 3 checks are free. <span>Find out more →</span></a>
+
       <div class="vacancy-list">
         {vacancies.map((v) => (
           <a href={`/job-seekers/${v.id}`} class="vacancy-row">
@@ -51,6 +53,26 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     color: var(--navy);
     max-width: 640px;
     margin-top: 14px;
+  }
+  .check-band {
+    display: block;
+    margin-top: 22px;
+    background: var(--band);
+    border-radius: var(--card-radius);
+    padding: 12px 16px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--on-band);
+    text-decoration: none;
+    max-width: 760px;
+  }
+  .check-band span {
+    color: var(--on-band-accent);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .check-band:hover span {
+    text-decoration: underline;
   }
   .vacancy-list {
     display: flex;

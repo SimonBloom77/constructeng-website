@@ -1,0 +1,199 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// STARselect Check: job seekers check their own CV and LinkedIn profile.
+// The account and the checks are in the STARselect app, at /check.
+const appUrl = (import.meta.env.PUBLIC_STARSELECT_URL || (import.meta.env.DEV ? 'http://localhost:3000' : 'https://app.constructeng.com.au')).replace(/\/+$/, '');
+const start = `${appUrl}/check`;
+
+const what = [
+  {
+    title: 'Evidence check of your CV',
+    desc: "See what's backed by real detail and what's vague, and anything a recruiter would query, like overlapping dates or a qualification without a year. For each vague claim, the questions to answer to make it specific.",
+  },
+  {
+    title: 'Evidence check of your LinkedIn profile',
+    desc: 'The same check for your LinkedIn profile, with tips on the headline, the About section and roles with no description. Save your profile as a PDF on LinkedIn, or copy and paste it.',
+  },
+  {
+    title: 'Your CV against the job',
+    desc: "Add a job ad or role description and see which of its requirements your CV shows, which it only mentions, and which are missing, with what to add if you have that experience.",
+  },
+];
+---
+
+<Layout
+  title="STARselect Check: check your CV and LinkedIn profile"
+  description="STARselect Check: check the evidence in your CV and LinkedIn profile, and check your CV against the job you want. Your first 3 checks are free."
+>
+  <section class="section section-paper">
+    <div class="wrap ck-hero">
+      <div>
+        <span class="eyebrow">For job seekers</span>
+        <h1>STARselect Check</h1>
+        <p class="ck-tag">Check the evidence in your CV and LinkedIn profile, and check your CV against the job you want.</p>
+        <p class="ck-lead">Recruiters look for evidence: projects, numbers, your own part and the result. STARselect Check reads your CV or LinkedIn profile the way a recruiter does, shows you where it's specific and where it's vague, and asks the questions whose answers make it stronger.</p>
+        <div class="ck-cta">
+          <a href={start} class="btn ss-btn">Start free: 3 checks →</a>
+          <span>No card needed.</span>
+        </div>
+      </div>
+      <div class="ck-price">
+        <h2>Price</h2>
+        <p><strong>3 checks free.</strong> Then $9 a month including GST, for 30 checks a month.</p>
+        <p class="ck-small">Each CV or LinkedIn profile you check counts as one check, with or without a job ad.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-ink">
+    <div class="wrap">
+      <h2 class="ck-h2">What it checks</h2>
+      <ul class="ck-cards">
+        {what.map((w) => (
+          <li><strong>{w.title}.</strong> {w.desc}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section-paper">
+    <div class="wrap ck-two">
+      <div>
+        <h2 class="ck-h2">Your words, not ours</h2>
+        <p>STARselect Check never writes experience for you. It points to where the detail is missing and asks for it, so what you add to your CV is what you really did.</p>
+      </div>
+      <div>
+        <h2 class="ck-h2">Your CV stays yours</h2>
+        <p>STARselect doesn't save your CV, your LinkedIn profile or the feedback: it's checked, and the feedback is shown to you. See the <a href={`${appUrl}/privacy.html`} target="_blank" rel="noopener">Privacy Policy</a>.</p>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="ck-band">
+        <div><strong>Recruiters and employers:</strong> STARselect Check is built into STARselect, so you can give candidates specific feedback on their CV or LinkedIn profile.</div>
+        <a href="/get-starselect" class="btn ss-btn">About STARselect</a>
+      </div>
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .ck-hero {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 36px;
+    align-items: start;
+  }
+  h1 {
+    font-size: clamp(30px, 4vw, 42px);
+    margin: 10px 0 6px;
+  }
+  .ck-tag {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.4;
+    margin: 0 0 12px;
+  }
+  .ck-lead {
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--navy);
+    margin: 0 0 18px;
+  }
+  .ck-cta {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .ck-cta span {
+    font-size: 14px;
+    color: var(--steel);
+  }
+  .ck-price {
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    padding: 18px 20px;
+  }
+  .ck-price h2 {
+    font-size: 20px;
+    margin: 0 0 8px;
+  }
+  .ck-price p {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--navy);
+    margin: 0 0 8px;
+  }
+  .ck-small {
+    font-size: 13px !important;
+    color: var(--steel) !important;
+  }
+  .ck-h2 {
+    font-size: clamp(21px, 2.4vw, 26px);
+    margin: 0 0 12px;
+  }
+  .ck-cards {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+  .ck-cards li {
+    background: var(--card-bg);
+    border: 1px solid var(--card-line);
+    border-radius: var(--card-radius);
+    padding: 14px 16px;
+    font-size: 14.5px;
+    line-height: 1.55;
+    color: var(--navy);
+    transition: transform var(--card-t), box-shadow var(--card-t), border-color var(--card-t);
+  }
+  .ck-cards li:hover {
+    transform: var(--card-lift);
+    box-shadow: var(--card-shadow-hover);
+    border-color: var(--card-line-hover);
+  }
+  .ck-cards strong {
+    display: block;
+    color: var(--ink);
+    font-size: 15.5px;
+    margin-bottom: 4px;
+  }
+  .ck-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 36px;
+  }
+  .ck-two p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+    margin: 0;
+  }
+  .ck-band {
+    margin-top: 28px;
+    background: var(--band);
+    border-radius: var(--card-radius);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 20px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--on-band);
+  }
+  @media (max-width: 900px) {
+    .ck-hero,
+    .ck-two,
+    .ck-cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
