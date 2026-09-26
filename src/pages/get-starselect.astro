@@ -46,15 +46,15 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
       </div>
     </div>
     <div class="wrap ss-how">
-      <p class="hero-sub">One workspace for the whole search, from brief to interview:</p>
-      <ol class="ss-steps">
-        <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
-        <li><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
-        <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map.</li>
-        <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
-        <li><strong>STARselect makes contact.</strong> Personalised messages by LinkedIn or from your own email, follow-ups if there's no reply, a polite “no” for those who aren't a fit, and interview times candidates can book themselves.</li>
-        <li><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
-      </ol>
+      <p class="hero-sub">One workspace for the whole search, from brief to interview:</p>
+      <ol class="ss-steps">
+        <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
+        <li><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
+        <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map.</li>
+        <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
+        <li><strong>STARselect makes contact.</strong> Personalised messages by LinkedIn or from your own email, follow-ups if there's no reply, a polite “no” for those who aren't a fit, and interview times candidates can book themselves.</li>
+        <li><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
+      </ol>
       <p class="hero-sub">Built in-house by ConstructEng Australia. Your data belongs to your organisation: we don't look at your records, and we never sell your data or use it for our own recruitment business. Try it free for 30 days: see what the trial includes below.</p>
     </div>
   </section>
@@ -370,6 +370,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   .ss-how .ss-steps + .hero-sub {
     margin: 12px 0 0;
+    font-size: 14px;
   }
   @media (max-width: 900px) {
     .ss-how .ss-steps {
@@ -493,7 +494,8 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     font-size: 17px;
     margin: 0 0 12px;
   }
-  .trial-list + h3 {
+  .trial-list + h3,
+  .trial-note + h3 {
     margin-top: 22px;
   }
   .trial-list {
