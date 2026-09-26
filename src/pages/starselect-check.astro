@@ -8,31 +8,31 @@ const start = `${appUrl}/check`;
 
 const what = [
   {
-    title: 'Evidence check of your CV',
-    desc: "See what's backed by real detail and what's vague, and anything a recruiter would query, like overlapping dates or a qualification without a year. For each vague claim, the questions to answer to make it specific.",
-  },
-  {
-    title: 'Evidence check of your LinkedIn profile',
-    desc: 'The same check for your LinkedIn profile, with tips on the headline, the About section and roles with no description. Save your profile as a PDF on LinkedIn, or copy and paste it.',
-  },
-  {
     title: 'Your CV against the job',
-    desc: "Add a job ad or role description and see which of its requirements your CV shows, which it only mentions, and which are missing, with what to add if you have that experience.",
+    desc: "Add the job ad or role description for a match rating out of 5, with which of its requirements your CV shows, which it only mentions, and which are missing, and what to add if you have that experience.",
+  },
+  {
+    title: 'Your CV checked',
+    desc: "Errors and inconsistencies a recruiter would query, like overlapping dates or a qualification without a year, and vague claims, with the questions to answer to make each one specific.",
+  },
+  {
+    title: 'Your LinkedIn profile checked',
+    desc: 'The same check for your LinkedIn profile, with tips on the headline, the About section and roles with no description. Save your profile as a PDF on LinkedIn, or copy and paste it.',
   },
 ];
 ---
 
 <Layout
-  title="STARselect Check: check your CV and LinkedIn profile"
-  description="STARselect Check: check the evidence in your CV and LinkedIn profile, and check your CV against the job you want. Your first 3 checks are free."
+  title="STARselect Check: check your CV against a job before you apply"
+  description="STARselect Check, for job seekers: compare your CV or LinkedIn profile with a job you're thinking of applying for, and see what to strengthen before you apply. Your first 3 checks are free."
 >
   <section class="section section-paper">
     <div class="wrap ck-hero">
       <div>
         <span class="eyebrow">For job seekers</span>
         <h1>STARselect Check</h1>
-        <p class="ck-tag">Check the evidence in your CV and LinkedIn profile, and check your CV against the job you want.</p>
-        <p class="ck-lead">Recruiters look for evidence: projects, numbers, your own part and the result. STARselect Check reads your CV or LinkedIn profile the way a recruiter does, shows you where it's specific and where it's vague, and asks the questions whose answers make it stronger.</p>
+        <p class="ck-tag">Thinking of applying for a job? Check your CV against the role before you apply.</p>
+        <p class="ck-lead">It does two things. It checks your CV against the job: download the job ad or role description, and get a match rating out of 5, with which of the role's requirements your CV shows and which are missing. And it checks your CV itself, the way a recruiter reads it: errors and inconsistencies, and vague claims, with the questions whose answers make them specific.</p>
         <div class="ck-cta">
           <a href={start} class="btn ss-btn">Start free: 3 checks →</a>
           <span>No card needed.</span>
@@ -66,12 +66,6 @@ const what = [
       <div>
         <h2 class="ck-h2">Your CV stays yours</h2>
         <p>STARselect doesn't save your CV, your LinkedIn profile or the feedback: it's checked, and the feedback is shown to you. See the <a href={`${appUrl}/privacy.html`} target="_blank" rel="noopener">Privacy Policy</a>.</p>
-      </div>
-    </div>
-    <div class="wrap">
-      <div class="ck-band">
-        <div><strong>Recruiters and employers:</strong> STARselect Check is built into STARselect, so you can give candidates specific feedback on their CV or LinkedIn profile.</div>
-        <a href="/get-starselect" class="btn ss-btn">About STARselect</a>
       </div>
     </div>
   </section>
@@ -174,20 +168,6 @@ const what = [
     line-height: 1.6;
     color: var(--navy);
     margin: 0;
-  }
-  .ck-band {
-    margin-top: 28px;
-    background: var(--band);
-    border-radius: var(--card-radius);
-    padding: 14px 18px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px 20px;
-    flex-wrap: wrap;
-    font-size: 15px;
-    line-height: 1.5;
-    color: var(--on-band);
   }
   @media (max-width: 900px) {
     .ck-hero,
