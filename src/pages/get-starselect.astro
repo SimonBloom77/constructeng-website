@@ -231,24 +231,32 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     padding: 0;
     margin: 0 0 22px;
   }
+  /* Cards like the steps above and the free trial list. */
   .ext-steps li {
     counter-increment: ext;
+    position: relative;
     background: var(--card);
-    border-top: 3px solid var(--accent);
-    box-shadow: var(--shadow-md);
-    padding: 20px 20px 22px;
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 14px 16px 14px 56px;
     font-size: 14px;
     line-height: 1.5;
     color: var(--navy);
   }
   .ext-steps li::before {
     content: counter(ext);
-    display: block;
-    font-family: "Fraunces", serif;
-    font-size: 25px;
-    font-weight: 800;
-    color: var(--accent);
-    margin-bottom: 6px;
+    position: absolute;
+    left: 14px;
+    top: 14px;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 28px;
+    text-align: center;
   }
   .ext-steps strong {
     display: block;
