@@ -5,7 +5,7 @@ import settings from '../data/settings.json';
 
 const featuredTestimonials = (await getCollection('testimonials', ({ data }) => data.featured))
   .sort((a, b) => a.data.order - b.data.order)
-  .slice(0, 4);
+  .slice(0, 6);
 ---
 
 <Layout
@@ -106,10 +106,10 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
               {t.data.name !== t.data.role ? (
                 <>
                   <span class="t-name">{t.data.name}</span>
-                  <span class="t-company">{t.data.role}, {t.data.company}</span>
+                  <span class="t-company">{[t.data.role, t.data.company].filter(Boolean).join(', ')}</span>
                 </>
               ) : (
-                <span class="t-name">{t.data.role}, {t.data.company}</span>
+                <span class="t-name">{[t.data.role, t.data.company].filter(Boolean).join(', ')}</span>
               )}
             </div>
           </div>
@@ -388,9 +388,10 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     color: var(--muted-on-dark);
   }
 
+  /* Six testimonials: two rows of three on a computer, one column on a phone. */
   .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 14px;
     margin-top: 29px;
   }
@@ -441,6 +442,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     color: var(--steel);
   }
 
+  @media (max-width: 900px) {
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+  }
   .split-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

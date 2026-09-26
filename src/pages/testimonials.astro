@@ -20,10 +20,10 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
               {t.data.name !== t.data.role ? (
                 <>
                   <span class="t-role">{t.data.name}</span>
-                  <span class="t-company">{t.data.role}, {t.data.company}</span>
+                  <span class="t-company">{[t.data.role, t.data.company].filter(Boolean).join(', ')}</span>
                 </>
               ) : (
-                <span class="t-role">{t.data.role}, {t.data.company}</span>
+                <span class="t-role">{[t.data.role, t.data.company].filter(Boolean).join(', ')}</span>
               )}
             </div>
           </div>
