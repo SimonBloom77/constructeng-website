@@ -10,7 +10,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
 
 <Layout
   title="STARselect — STAR Interview Questions, Market Maps and CV Ranking"
-  description="STARselect writes structured STAR interview questions from any CV and role description, builds ranked market maps from LinkedIn, ranks every applicant against the brief and handles the outreach. Register for free access — built in-house by ConstructEng Australia."
+  description="STARselect reviews your applications right inside your job board or ATS with its browser extension, ranks every applicant against the brief, builds ranked market maps from LinkedIn, handles the outreach and writes STAR interview questions from each CV. Try it free for 30 days."
 >
   <section class="section hero">
     <div class="wrap hero-inner">
@@ -25,8 +25,9 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
         </div>
         <p class="hero-sub">One workspace for the whole search. Here's how STARselect takes a role from brief to interview:</p>
         <ol class="ss-steps">
-          <li><strong>Upload the role description.</strong> STARselect sets up the brief from it.</li>
-          <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map. Or drop in the CVs your job ads have brought in.</li>
+          <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
+          <li class="key"><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs. <a href="#browser-extension">See how it works</a></li>
+          <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map.</li>
           <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
           <li><strong>STARselect makes contact.</strong> Personalised messages by LinkedIn or from your own email, follow-ups if there's no reply, a polite “no” for those who aren't a fit, and interview times candidates can book themselves.</li>
           <li class="key"><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
@@ -54,6 +55,33 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     </div>
   </section>
 
+  <section class="section section-ink ext-sec" id="browser-extension">
+    <div class="wrap">
+      <span class="eyebrow">New: the STARselect browser extension</span>
+      <h2>Let STARselect review your applications, right inside your job board or ATS.</h2>
+      <p class="ext-lead">Add STARselect to Chrome or Edge and it works inside SEEK, Indeed, LinkedIn and any ATS you use in your browser. No downloading CVs, no uploading, no switching between systems.</p>
+      <ol class="ext-steps">
+        <li><strong>Open your job ad.</strong> Press Add role description to STARselect. It reads the ad and sets up the vacancy: the must-haves, the nice-to-haves and the employer.</li>
+        <li><strong>Open an applicant.</strong> Right-click the page and choose Rank this page with STARselect. It reads their CV and ranks them against the role straight away.</li>
+        <li><strong>See who to call first.</strong> Every applicant is scored against the must-haves, with the reason for each rating, and added to your STARselect pipeline, ready for outreach and interview questions.</li>
+      </ol>
+      <div class="ext-ctas">
+        <a href={signUp} class="btn ss-btn">Start my free trial →</a>
+        <a href={`${appUrl}/extension/starselect-extension.zip`} class="btn btn-outline" download>Download the extension</a>
+      </div>
+      <p class="ext-note">Included in the free trial. For Chrome and Edge on a computer.</p>
+      <details class="ext-how">
+        <summary>How to install it</summary>
+        <ol>
+          <li>Download the extension and unzip it. On Windows, right-click the file and choose Extract All.</li>
+          <li>In Chrome, go to chrome://extensions (in Edge, edge://extensions) and turn on Developer mode.</li>
+          <li>Click Load unpacked and choose the unzipped starselect-extension folder.</li>
+          <li>Click the puzzle-piece icon in the toolbar and pin STARselect. Sign in to STARselect in the same browser, and you're ready.</li>
+        </ol>
+      </details>
+    </div>
+  </section>
+
   <section class="section section-paper">
     <div class="wrap trial-wrap">
       <span class="eyebrow">Free Trial</span>
@@ -66,7 +94,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
           <ul class="trial-list">
             <li><strong>30 days, for up to 3 people.</strong> Your trial starts when your account is set up and runs for 30 days. Invite up to two colleagues to share vacancies, candidates and interview guides with you, and the allowances below.</li>
             <li><strong>40 tailored interview guides.</strong> Upload a candidate's CV and the role description, and STARselect writes a complete interview guide for that person: STAR questions (Situation, Task, Action, Result) based on what their CV claims, follow-up prompts for each question, and a scorecard your interview panel can print or fill in on screen.</li>
-            <li><strong>500 CVs ranked or scored against your brief.</strong> Drop in the CVs you've received, for example downloaded from a job board or your applicant tracking system, and STARselect ranks each one against the role's must-haves and nice-to-haves, showing the reason for every rating.</li>
+            <li><strong>500 CVs ranked or scored against your brief.</strong> Let the STARselect browser extension review your applications right inside your job board or ATS, or drop in the CVs you've received. STARselect ranks each one against the role's must-haves and nice-to-haves, showing the reason for every rating.</li>
             <li><strong>LinkedIn market maps, up to 1,000 people.</strong> Connect your own LinkedIn or LinkedIn Recruiter account and STARselect searches LinkedIn for you, grades everyone it finds against the role and builds a ranked market map you can download to Excel. Your trial covers up to 1,000 people added to your market maps, across as many searches as you like. People the search finds who don't fit the role aren't counted.</li>
             <li><strong>Messaging candidates.</strong> Personalised messages sent on your behalf by LinkedIn, or by email from your own mailbox, with automatic follow-ups when someone hasn't replied and a polite “no” for unsuccessful applicants. STARselect marks people as Replied when they answer. On the trial, one LinkedIn account and one mailbox can be connected for your workspace, and each LinkedIn account can be used for one free trial.</li>
             <li><strong>Interview invitations.</strong> Invitations sent from your own mailbox with a calendar file attached, including a choice of times candidates can book themselves.</li>
@@ -175,6 +203,88 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   .enq-status:empty {
     display: none;
+  }
+  /* The browser extension: a full-width feature section in the site's camel
+  (.section-ink), with ivory cards and the brown accent. */
+  .ext-sec h2 {
+    font-size: clamp(26px, 3.2vw, 38px);
+    max-width: 820px;
+    margin: 10px 0 14px;
+  }
+  .ext-lead {
+    font-size: 18px;
+    line-height: 1.6;
+    color: var(--on-band-muted);
+    max-width: 760px;
+    margin: 0 0 28px;
+  }
+  .ext-steps {
+    list-style: none;
+    counter-reset: ext;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 18px;
+    padding: 0;
+    margin: 0 0 28px;
+  }
+  .ext-steps li {
+    counter-increment: ext;
+    background: var(--card);
+    border-top: 3px solid var(--accent);
+    box-shadow: var(--shadow-md);
+    padding: 20px 20px 22px;
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--navy);
+  }
+  .ext-steps li::before {
+    content: counter(ext);
+    display: block;
+    font-family: "Fraunces", serif;
+    font-size: 28px;
+    font-weight: 800;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .ext-steps strong {
+    display: block;
+    color: var(--ink);
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  /* On the ivory cards the wordmark is its usual navy and gold. */
+  .ext-steps li :global(.ss-wm i) {
+    color: #b8913b;
+  }
+  .ext-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    align-items: center;
+  }
+  .ext-note {
+    font-size: 14px;
+    color: var(--on-band-muted);
+    margin: 12px 0 0;
+  }
+  .ext-how {
+    margin-top: 14px;
+    font-size: 14px;
+    color: var(--on-band-muted);
+    max-width: 760px;
+  }
+  .ext-how summary {
+    cursor: pointer;
+    color: var(--on-band-accent);
+    font-weight: 600;
+  }
+  .ext-how ol {
+    margin: 10px 0 0;
+    padding-left: 20px;
+    line-height: 1.7;
+  }
+  @media (max-width: 900px) {
+    .ext-steps { grid-template-columns: 1fr; }
   }
   .ss-motto {
     color: #b8913b;
