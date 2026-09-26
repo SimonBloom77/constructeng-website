@@ -8,6 +8,7 @@ const nav = [
   { href: '/employers', label: 'Employers' },
   { href: '/testimonials', label: 'Testimonials' },
   { href: '/get-starselect', label: 'STARselect' },
+  { href: '/starselect-check', label: 'STARselect Check' },
   { href: '/contact', label: 'Contact' },
 ];
 // The page you're on stays highlighted (and its sub-pages, such as a single vacancy).
@@ -180,6 +181,28 @@ const isHere = (href: string) => here === href || here.startsWith(href + '/') ||
     }
     .cta-desktop {
       display: inline-flex;
+    }
+  }
+
+  @media (min-width: 960px) and (max-width: 1279px) {
+    .header-inner {
+      gap: 12px;
+    }
+    .brand img {
+      height: 64px;
+    }
+    .site-nav {
+      gap: 5px;
+      flex-wrap: nowrap;
+    }
+    .site-nav a {
+      padding: 6px 8px;
+      font-size: 12.5px;
+      white-space: nowrap;
+    }
+    .cta-desktop {
+      padding: 10px 14px;
+      font-size: 13px;
     }
   }
 
