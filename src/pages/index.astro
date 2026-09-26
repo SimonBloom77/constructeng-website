@@ -47,7 +47,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
         <a href="/get-starselect" class="btn ss-btn ss-cta">Try STARselect free for 30 days →</a>
       </aside>
       <a href="/starselect-check" class="ss-seek">
-        <span class="ss-seek-k">STARselect Check</span>
+        <span class="ss-seek-k"><b>STAR</b><em>select</em> Check</span>
         <span class="ss-seek-t"><strong>Thinking of applying for a job?</strong> Check your CV against the role before you apply. →</span>
       </a>
       </div>
@@ -332,13 +332,16 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     border-color: var(--card-line-hover);
     border-left-color: #b8913b;
   }
+  /* A heading like the STARselect name in the card above: navy, with "select" in gold. */
   .ss-seek-k {
-    font-size: 11px;
+    font-size: 20px;
     font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #b8913b;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+    color: #284278;
   }
+  .ss-seek-k b { font-weight: 700; color: #284278; }
+  .ss-seek-k em { font-style: normal; font-weight: 700; color: #b8913b; }
   .ss-seek-t {
     font-size: 13px;
     line-height: 1.45;
