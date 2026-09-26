@@ -235,8 +235,9 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   .ext-steps li {
     counter-increment: ext;
     position: relative;
-    background: var(--card);
-    border: 1px solid var(--line);
+    /* Soft ivory on the camel, like the trial cards on paper, not stark white. */
+    background: rgba(251, 248, 241, 0.45);
+    border: 1px solid var(--line-band);
     border-radius: 8px;
     padding: 14px 16px 14px 56px;
     font-size: 14px;
