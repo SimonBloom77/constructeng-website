@@ -317,13 +317,16 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     list-style: none;
     counter-reset: step;
     display: grid;
-    gap: 14px;
+    gap: 6px;
     max-width: 560px;
   }
+  /* Every step has the same box, so the numbers and text line up; the
+     shaded ones only add the colour. */
   .ss-steps li {
     counter-increment: step;
     position: relative;
-    padding-left: 44px;
+    border-radius: 8px;
+    padding: 12px 14px 12px 56px;
     font-size: 16px;
     line-height: 1.55;
     color: var(--navy);
@@ -331,8 +334,8 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   .ss-steps li::before {
     content: counter(step);
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 14px;
+    top: 12px;
     width: 28px;
     height: 28px;
     border-radius: 50%;
@@ -346,15 +349,8 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   .ss-steps strong {
     color: var(--ink);
   }
-  /* The step STARselect is built around: the interview itself. */
   .ss-steps li.key {
     background: var(--accent-soft);
-    border-radius: 8px;
-    padding: 12px 14px 12px 56px;
-  }
-  .ss-steps li.key::before {
-    left: 14px;
-    top: 12px;
   }
   .hero-stats {
     flex: 1 1 360px;
