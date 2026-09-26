@@ -3,10 +3,11 @@
 
 <div class="app-banner" id="app-banner">
   <div class="wrap app-banner-inner">
-    <p>
+    <!-- The whole banner leads to the STARselect page. -->
+    <a class="app-banner-main" href="/get-starselect">
       <span class="app-banner-tag">New</span>
       <span class="app-banner-copy"><span class="app-banner-brand"><svg class="app-banner-mark ss-twinkle" viewBox="-32 -32 64 64" width="16" height="16" aria-hidden="true"><path d="M0,-32 L7,-7 L0,0 L-7,-7 Z" fill="#1E3461"/><path d="M32,0 L7,7 L0,0 L7,-7 Z" fill="#B8913B"/><path d="M0,32 L-7,7 L0,0 L7,7 Z" fill="#1E3461"/><path d="M-32,0 L-7,-7 L0,0 L-7,7 Z" fill="#B8913B"/></svg><span><b>STAR</b><em>select</em></span></span> Tailored STAR interviews from any CV, and every applicant ranked against your brief.</span>
-    </p>
+    </a>
     <div class="app-banner-actions">
       <a href="/get-starselect">Start a free trial →</a>
       <button type="button" id="app-banner-close" aria-label="Dismiss">&times;</button>
@@ -65,12 +66,18 @@
     flex-wrap: wrap;
     gap: 10px;
   }
-  .app-banner-inner p {
+  .app-banner-main {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     gap: 10px;
     margin: 0;
+    color: inherit;
+    text-decoration: none;
+  }
+  .app-banner-main:hover .app-banner-copy {
+    text-decoration: underline;
+    text-underline-offset: 3px;
   }
   .app-banner-tag {
     font-size: 11px;
