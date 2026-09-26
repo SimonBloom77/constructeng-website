@@ -6,7 +6,7 @@
 <title>StarSelect</title>
 <meta name="description" content="Turn any CV and role description into structured, evidence-based STAR interview questions — choose or tailor, interview, score and print. By ConstructEng Australia.">
 <link rel="manifest" href="manifest.webmanifest">
-<meta name="theme-color" content="#1E3461">
+<meta name="theme-color" content="#284278">
 <link rel="icon" href="icons/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -19,8 +19,8 @@
 <style>
 :root{
   --bg:#F4F6F9;--surface:#FFFFFF;--soft:#EBEFF5;--line:#D9DFE8;--text:#172033;--muted:#5A6477;
-  --nav:#1E3461;--nav-text:#E6EBF5;--nav-muted:#9FB0CF;--gold:#B8913B;--gold-soft:#F3EAD6;
-  --primary:#1E3461;--on-primary:#FFFFFF;--good:#2E7A56;--warn:#9A6410;--bad:#AA3E2B;--shadow:0 10px 30px rgba(20,32,60,.18);
+  --nav:#284278;--nav-text:#E6EBF5;--nav-muted:#9FB0CF;--gold:#B8913B;--gold-soft:#F3EAD6;
+  --primary:#284278;--on-primary:#FFFFFF;--good:#2E7A56;--warn:#9A6410;--bad:#AA3E2B;--shadow:0 10px 30px rgba(20,32,60,.18);
   box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme: dark){
@@ -1093,13 +1093,13 @@ function guideHTML(r,a){
   const pan=panelOf(r);
   const sec=a?pan.map(([k,n])=>{const m=(a.int&&a.int[k])||{};return`<h2>${esc(n)}</h2>${qs.map((q,i)=>{const x=(m.q&&m.q[q.id])||{};return`<div class="q"><b>Question ${i+1}: ${esc(q.s)}</b><p>${esc(q.t)}</p><p class="n">${esc(x.n||"")}</p><p>Rating: <b>${x.r||"not rated"}</b></p></div>`;}).join("")}<p><b>Communication and team fit:</b> ${esc(m.fit||"")}</p><p><b>Key strengths:</b> ${esc(m.str||"")}</p><p><b>Areas of concern:</b> ${esc(m.con||"")}</p><p><b>Recommendation:</b> ${esc(m.rec||"")}</p><p><b>Average:</b> ${f1(memAvg(a,k,r))}</p>`;}).join("")+`<h2>Evidence summary</h2><p>CV screen ${f1(cvAvg(a))||"n/a"}, phone screen ${f1(scrAvg(a))||"n/a"}, interview ${f1(intAvg(a))||"n/a"}</p>`
   :qs.map((q,i)=>`<div class="q"><b>Question ${i+1}: ${esc(q.s)}</b><p>${esc(q.t)}</p><div class="box">Notes (S / T / A / R)</div><p>Rating: 1 &nbsp; 2 &nbsp; 3 &nbsp; 4 &nbsp; 5</p></div>`).join("")+`<h2>Summary and recommendation</h2><div class="box">Communication and team fit</div><div class="box">Key strengths</div><div class="box">Constructive feedback or areas of concern</div><p>Overall score: ______ &nbsp;&nbsp; Strong hire &#9744; &nbsp; Hire &#9744; &nbsp; Borderline &#9744; &nbsp; No hire &#9744;</p>`;
-  return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>${esc(a?"Scorecard":"Interview guide")}: ${esc(roleTitle(r))}</title><style>body{font:14px/1.5 Arial,sans-serif;max-width:780px;margin:30px auto;padding:0 20px;color:#172033}h1{color:#1E3461}h2{color:#1E3461;border-bottom:2px solid #B8913B;padding-bottom:4px;margin-top:28px}.q{border:1px solid #D9DFE8;border-radius:6px;padding:10px 14px;margin:12px 0;page-break-inside:avoid}.box{border:1px solid #D9DFE8;min-height:80px;padding:6px;color:#5A6477;margin:8px 0}.n{white-space:pre-wrap;background:#F4F6F9;padding:8px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #D9DFE8;padding:6px;text-align:left}</style></head><body>
+  return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>${esc(a?"Scorecard":"Interview guide")}: ${esc(roleTitle(r))}</title><style>body{font:14px/1.5 Arial,sans-serif;max-width:780px;margin:30px auto;padding:0 20px;color:#172033}h1{color:#284278}h2{color:#284278;border-bottom:2px solid #B8913B;padding-bottom:4px;margin-top:28px}.q{border:1px solid #D9DFE8;border-radius:6px;padding:10px 14px;margin:12px 0;page-break-inside:avoid}.box{border:1px solid #D9DFE8;min-height:80px;padding:6px;color:#5A6477;margin:8px 0}.n{white-space:pre-wrap;background:#F4F6F9;padding:8px}table{border-collapse:collapse;width:100%}td,th{border:1px solid #D9DFE8;padding:6px;text-align:left}</style></head><body>
   <h1>${a?"Interview scorecard":"Interview guide and scorecard"}</h1><p><b>Role:</b> ${esc(roleTitle(r))}${roleOrg(r)&&!r.confidential?", "+esc(roleOrg(r)):""}<br><b>Candidate:</b> ${esc(c?candName(c):"")}<br><b>Date and panel:</b> ${esc(a&&a.interviewAt?fmtDT(a.interviewAt):"")} ${esc(pan.map(p=>p[1]).join(", "))}</p>
   <h2>The 1 to 5 competency scale</h2><table>${SCALE.map(([n,t])=>`<tr><th>${n}</th><td>${esc(t)}</td></tr>`).join("")}</table>
   ${a?"":`<h2>Running order</h2><ol><li>Introduction (5 min)</li><li>Role and team overview (5 to 10 min)</li><li>STAR capability questions (30 to 40 min)</li><li>Candidate questions (10 min)</li><li>Close and next steps (5 min)</li></ol><h2>STAR questions</h2>`}${sec}</body></html>`;
 }
 function briefHTML(r){const b=r.brief||{};const secs=BRIEF_A.concat(r.briefMode==="full"?BRIEF_B:[]);
-  return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>Job brief: ${esc(roleTitle(r))}</title><style>body{font:14px/1.5 Arial,sans-serif;max-width:780px;margin:30px auto;padding:0 20px;color:#172033}h1,h2{color:#1E3461}h2{border-bottom:2px solid #B8913B;padding-bottom:4px;margin-top:26px}dt{font-weight:bold;margin-top:10px}dd{margin:2px 0 0;white-space:pre-wrap}</style></head><body><h1>Job brief: ${esc(roleTitle(r))}</h1><p>${esc(roleOrg(r))}. ${r.briefMode==="full"?"Full brief":"Concise brief"}. Sourcing: ${esc(STRAT[stratOf(r)])}.</p>${secs.map(([h,f])=>`<h2>${esc(h)}</h2><dl>${f.map(([k,l])=>`<dt>${esc(l)}</dt><dd>${esc(b[k]||"")}</dd>`).join("")}</dl>`).join("")}</body></html>`;}
+  return`<!doctype html><html lang="en-AU"><head><meta charset="utf-8"><title>Job brief: ${esc(roleTitle(r))}</title><style>body{font:14px/1.5 Arial,sans-serif;max-width:780px;margin:30px auto;padding:0 20px;color:#172033}h1,h2{color:#284278}h2{border-bottom:2px solid #B8913B;padding-bottom:4px;margin-top:26px}dt{font-weight:bold;margin-top:10px}dd{margin:2px 0 0;white-space:pre-wrap}</style></head><body><h1>Job brief: ${esc(roleTitle(r))}</h1><p>${esc(roleOrg(r))}. ${r.briefMode==="full"?"Full brief":"Concise brief"}. Sourcing: ${esc(STRAT[stratOf(r)])}.</p>${secs.map(([h,f])=>`<h2>${esc(h)}</h2><dl>${f.map(([k,l])=>`<dt>${esc(l)}</dt><dd>${esc(b[k]||"")}</dd>`).join("")}</dl>`).join("")}</body></html>`;}
 
 const ACT={
  nav:el=>{R={v:el.dataset.v};UI.editQ=null;render();window.scrollTo(0,0);},
@@ -1420,13 +1420,13 @@ function newScreenModal(){const roles=Object.values(S.roles).filter(r=>r.status=
 
 /* ---------- Printing ---------- */
 const PCSS=`@page{size:A4;margin:14mm}*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}.pb{break-before:page;page-break-before:always}body{font:10.5pt/1.45 Arial,Helvetica,sans-serif;color:#172033;margin:0 auto;max-width:182mm;padding:6mm 0}
-.brand{font-size:9pt;letter-spacing:.2em;color:#B8913B;font-weight:bold;text-transform:uppercase}h1{font-size:21pt;color:#1E3461;margin:1mm 0 1mm}.sub{color:#5A6477;margin:0 0 4mm}
-h2{font-size:12.5pt;color:#1E3461;border-bottom:2px solid #B8913B;padding-bottom:1.2mm;margin:7mm 0 3mm;break-after:avoid}h3{font-size:11pt;color:#1E3461;margin:4mm 0 1.5mm}
+.brand{font-size:9pt;letter-spacing:.2em;color:#B8913B;font-weight:bold;text-transform:uppercase}h1{font-size:21pt;color:#284278;margin:1mm 0 1mm}.sub{color:#5A6477;margin:0 0 4mm}
+h2{font-size:12.5pt;color:#284278;border-bottom:2px solid #B8913B;padding-bottom:1.2mm;margin:7mm 0 3mm;break-after:avoid}h3{font-size:11pt;color:#284278;margin:4mm 0 1.5mm}
 table{border-collapse:collapse;width:100%;margin:1mm 0 3mm}td,th{border:1px solid #C3CAD6;padding:1.8mm 2.2mm;vertical-align:top;text-align:left}th{background:#EEF1F6;font-size:9.5pt}
 td.c{text-align:center;width:9mm}.lbl{font-weight:bold;font-size:9.5pt;margin-top:2.5mm}.box{border:1px solid #C3CAD6;min-height:11mm;padding:2mm;white-space:pre-wrap;margin:1mm 0 2.5mm}.box.md{min-height:24mm}.box.lg{min-height:62mm}
-.q{border:1px solid #C3CAD6;border-radius:2mm;padding:3mm 4mm;margin:4mm 0;break-inside:avoid;page-break-inside:avoid}.q .cap{font-size:9pt;color:#5A6477;font-weight:bold;text-transform:uppercase;letter-spacing:.04em}.capline{font-size:9.5pt;margin:1mm 0 1.5mm;color:#1E3461}.q .qt{font-size:11.5pt;margin:1.5mm 0 2mm}
-.probe{font-size:9pt;color:#5A6477;margin:0 0 2mm;padding-left:5mm}.rate{margin-top:2mm;font-weight:bold}.o{display:inline-block;width:7mm;height:7mm;border:1.2px solid #1E3461;border-radius:50%;text-align:center;line-height:6.6mm;margin-left:2.5mm;font-weight:bold;font-size:9.5pt}.o.on{background:#1E3461;color:#fff}
-.ck{margin-right:7mm;white-space:nowrap}.script{font-style:italic;color:#44506A}.band{background:#1E3461;color:#fff;padding:2mm 3mm;font-weight:bold;margin:6mm 0 2mm}.small{font-size:9pt;color:#5A6477}
+.q{border:1px solid #C3CAD6;border-radius:2mm;padding:3mm 4mm;margin:4mm 0;break-inside:avoid;page-break-inside:avoid}.q .cap{font-size:9pt;color:#5A6477;font-weight:bold;text-transform:uppercase;letter-spacing:.04em}.capline{font-size:9.5pt;margin:1mm 0 1.5mm;color:#284278}.q .qt{font-size:11.5pt;margin:1.5mm 0 2mm}
+.probe{font-size:9pt;color:#5A6477;margin:0 0 2mm;padding-left:5mm}.rate{margin-top:2mm;font-weight:bold}.o{display:inline-block;width:7mm;height:7mm;border:1.2px solid #284278;border-radius:50%;text-align:center;line-height:6.6mm;margin-left:2.5mm;font-weight:bold;font-size:9.5pt}.o.on{background:#284278;color:#fff}
+.ck{margin-right:7mm;white-space:nowrap}.script{font-style:italic;color:#44506A}.band{background:#284278;color:#fff;padding:2mm 3mm;font-weight:bold;margin:6mm 0 2mm}.small{font-size:9pt;color:#5A6477}
 @media screen{body{padding:10mm 4mm}}`;
 const circles=(v)=>[1,2,3,4,5].map(n=>`<span class="o${v===n?" on":""}">${n}</span>`).join("");
 const tick=(on,l)=>`<span class="ck">${on?"&#9746;":"&#9744;"} ${esc(l)}</span>`;
@@ -1439,7 +1439,7 @@ function guidePrint(g,mode){
     const q=g.qs[k]||{};const nt=(g.notes&&g.notes[k])||{};
     return`<div class="q"><div class="cap">Question ${i+1}</div><div class="capline"><b>Capability group:</b> ${esc(q.g||"")} &nbsp;&nbsp; <b>Sub-capability:</b> ${esc(q.s||"General")}</div><div class="qt">${esc(q.t)}</div>${q.probes&&q.probes.length?`<div class="probe">Follow up prompts: ${q.probes.map(esc).join(" &nbsp;|&nbsp; ")}</div>`:""}<div class="lbl">Notes (S / T / A / R):</div>${box(filled?nt.n:"","lg")}<div class="rate">Rating: ${circles(filled?nt.r:0)}</div></div>`;}).join("");
   const s=(filled&&g.sum)||{};const rec=["Strong hire","Hire","Borderline","No hire"];
-  return pdoc("Interview guide and scorecard",`${blank||!gRef(g)?"":`<div style="float:right;border:1.5px solid #1E3461;border-radius:2mm;padding:1mm 3mm;font-weight:bold;font-size:10pt;margin-top:-5mm">Ref ${gRef(g)}</div>`}<h1>Interview Guide &amp; Scorecard</h1><div class="sub">Panel interview structure: STAR based and evidence scored</div>
+  return pdoc("Interview guide and scorecard",`${blank||!gRef(g)?"":`<div style="float:right;border:1.5px solid #284278;border-radius:2mm;padding:1mm 3mm;font-weight:bold;font-size:10pt;margin-top:-5mm">Ref ${gRef(g)}</div>`}<h1>Interview Guide &amp; Scorecard</h1><div class="sub">Panel interview structure: STAR based and evidence scored</div>
   <h2>Interview Details</h2><table><tr><th style="width:45mm">Candidate name</th><td>${blank?"":esc(g.cand)}</td></tr><tr><th>Role</th><td>${blank?"":esc(g.role)}</td></tr><tr><th>Date / panel members</th><td>${blank?"":esc([g.date?fmtDT(g.date):"",g.panel].filter(Boolean).join(". "))}</td></tr></table>
   <h2>The 1 to 5 Competency Scale</h2>${scaleTable()}
   <h2>Running Order</h2><table><tr><td><b>1. Introduction (5 min)</b><br>Welcome, interview format and itinerary, introduce panel.</td></tr><tr><td><b>2. Role and Team Overview (5 to 10 min)</b><br>Hiring manager gives a fuller picture of the role, team and context.</td></tr><tr><td><b>3. STAR Capability Questions (30 to 40 min)</b><br>${blank?"Select 4 to 5 questions from the STAR Question Bank, matched to the capabilities that matter most for this role and calibrated to seniority.":plural(ord.length,"question")+" below, tailored to this role and candidate."}</td></tr><tr><td><b>4. Candidate Questions (10 min)</b><br>Always leave time: their questions are evidence too.${filled&&g.cq?`<div class="box">${esc(g.cq)}</div>`:""}</td></tr><tr><td><b>5. Close and Next Steps (5 min)</b></td></tr></table>
@@ -1898,7 +1898,7 @@ function migrateText(){const nt=id=>(QB.find(q=>q.id===id)||{}).t;
   migrateText();if(!S.settings.mode)S.settings.mode="agency";if(!CAP.sample)CAP.sample=apiSample();render();
   if("serviceWorker" in navigator&&/^https?:$/.test(location.protocol)){navigator.serviceWorker.register("sw.js").catch(()=>{});}
   if(Store.kind==="server"){startSync();const b=new URLSearchParams(location.search).get("billing");if(b){history.replaceState(null,"","/");toast(b==="success"?"Thank you. Your plan is being updated.":"Checkout cancelled. Your plan hasn't changed.");if(b==="success")setTimeout(async()=>{try{applySrvMeta(await api("/api/data"));render();}catch(e){}},4000);}
-    try{const m=document.createElement("link");m.rel="manifest";m.href="/manifest.webmanifest";document.head.appendChild(m);const ai=document.createElement("link");ai.rel="apple-touch-icon";ai.href="/apple-touch-icon.png";document.head.appendChild(ai);const tc=document.createElement("meta");tc.name="theme-color";tc.content="#1E3461";document.head.appendChild(tc);if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js").catch(()=>{});}catch(e){}}
+    try{const m=document.createElement("link");m.rel="manifest";m.href="/manifest.webmanifest";document.head.appendChild(m);const ai=document.createElement("link");ai.rel="apple-touch-icon";ai.href="/apple-touch-icon.png";document.head.appendChild(ai);const tc=document.createElement("meta");tc.name="theme-color";tc.content="#284278";document.head.appendChild(tc);if("serviceWorker" in navigator)navigator.serviceWorker.register("/sw.js").catch(()=>{});}catch(e){}}
 })();
 function applySrvMeta(j){SV.org=j.org;SV.usage=j.usage;SV.role=j.role;SV.plans=j.plans||SV.plans;}
 </script>

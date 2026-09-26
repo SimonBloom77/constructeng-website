@@ -282,14 +282,14 @@ img {
   font-weight: 700;
   white-space: nowrap;
   text-transform: none;
-  color: #1e3461;
+  color: #284278;
 }
 .ss-wm i {
   font-style: normal;
   color: #b8913b;
 }
 .section-ink .ss-wm {
-  color: #1e3461;
+  color: #284278;
 }
 /* "select" is always STARselect gold, on camel too. */
 .section-ink .ss-wm i {
@@ -307,8 +307,8 @@ img {
 .ss-btn {
   background: var(--card-bg);
   border: 1px solid var(--card-line);
-  color: #1e3461;
-  box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12);
+  color: #284278;
+  box-shadow: 0 2px 6px rgba(40, 66, 120, 0.12);
   animation: ss-pulse 2.4s ease-in-out infinite;
   transition: transform var(--card-t), box-shadow var(--card-t), background var(--card-t), border-color var(--card-t);
 }
@@ -318,16 +318,16 @@ img {
   animation: none;
   background: var(--card-bg);
   border-color: var(--card-line-hover);
-  color: #1e3461;
+  color: #284278;
   transform: translateY(-5px) scale(1.05);
   box-shadow: var(--card-shadow-hover), 0 0 0 4px rgba(184, 145, 59, 0.22);
 }
-.ss-btn .ss-wm { color: #1e3461; }
+.ss-btn .ss-wm { color: #284278; }
 .ss-btn .ss-wm i { color: #b8913b; }
 @keyframes ss-pulse {
-  0% { transform: scale(1); box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12), 0 0 0 0 rgba(184, 145, 59, 0.45); }
-  50% { transform: scale(1.035); box-shadow: 0 4px 10px rgba(30, 52, 97, 0.16), 0 0 0 10px rgba(184, 145, 59, 0); }
-  100% { transform: scale(1); box-shadow: 0 2px 6px rgba(30, 52, 97, 0.12), 0 0 0 0 rgba(184, 145, 59, 0); }
+  0% { transform: scale(1); box-shadow: 0 2px 6px rgba(40, 66, 120, 0.12), 0 0 0 0 rgba(184, 145, 59, 0.45); }
+  50% { transform: scale(1.035); box-shadow: 0 4px 10px rgba(40, 66, 120, 0.16), 0 0 0 10px rgba(184, 145, 59, 0); }
+  100% { transform: scale(1); box-shadow: 0 2px 6px rgba(40, 66, 120, 0.12), 0 0 0 0 rgba(184, 145, 59, 0); }
 }
 @media (prefers-reduced-motion: reduce) {
   .ss-btn { animation: none; }
