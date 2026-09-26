@@ -12,18 +12,20 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   title="STARselect — STAR Interview Questions, Market Maps and CV Ranking"
   description="STARselect reviews your applications right inside your job board or ATS with its browser extension, ranks every applicant against the brief, builds ranked market maps from LinkedIn, handles the outreach and writes STAR interview questions from each CV. Try it free for 30 days."
 >
-  <section class="section hero">
+  <section class="section hero ss-hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
-        <img src="/starselect-logo.svg" alt="STARselect" width="250" height="64" style="display:block;height:56px;width:auto;margin:0 0 18px;align-self:flex-start" />
-        <span class="eyebrow">Introducing STARselect</span>
+        <div class="ss-intro">
+          <img src="/starselect-logo.svg" alt="STARselect" width="250" height="64" />
+          <span class="eyebrow">Introducing STARselect</span>
+        </div>
         <h1>Tailored STAR interview questions, straight from the CV and the brief.</h1>
         <p class="ss-motto">Hire on evidence, not instinct. Minimum effort, maximum reward.</p>
         <div class="top-cta">
           <a href={signUp} class="btn ss-btn">Start my free trial →</a>
           <span>30 days free. No card needed.</span>
         </div>
-        <p class="hero-sub">One workspace for the whole search. Here's how STARselect takes a role from brief to interview:</p>
+        <p class="hero-sub">One workspace for the whole search, from brief to interview:</p>
         <ol class="ss-steps">
           <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
           <li class="key"><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
@@ -303,7 +305,36 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     gap: 22px;
   }
   h1 {
-    font-size: clamp(21px, 2.6vw, 30px);
+    font-size: clamp(20px, 2vw, 25px);
+    line-height: 1.15;
+  }
+  /* A compact top, so the steps start in the top half of the screen. */
+  .ss-hero {
+    padding-top: 12px;
+  }
+  .ss-hero .hero-copy {
+    gap: 10px;
+  }
+  .ss-intro {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px 16px;
+  }
+  .ss-intro img {
+    display: block;
+    height: 34px;
+    width: auto;
+  }
+  .ss-hero .ss-motto {
+    font-size: 15px;
+    margin: 0;
+  }
+  .ss-hero .top-cta {
+    margin: 0;
+  }
+  .ss-hero .top-cta .btn {
+    padding: 11px 18px;
   }
   .hero-sub {
     font-size: 15px;

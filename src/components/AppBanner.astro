@@ -1,6 +1,9 @@
 ---
+// Not on the STARselect pages themselves, which it would only point back to.
+const onStarselect = Astro.url.pathname.startsWith("/get-starselect");
 ---
 
+{!onStarselect && (
 <div class="app-banner" id="app-banner">
   <div class="wrap app-banner-inner">
     <!-- The whole banner leads to the STARselect page. -->
@@ -14,6 +17,7 @@
     </div>
   </div>
 </div>
+)}
 
 <script>
   const KEY = 'starselect-banner-dismissed';
