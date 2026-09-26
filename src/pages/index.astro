@@ -48,9 +48,10 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
       </aside>
       <a href="/starselect-check" class="ss-seek">
         <span class="ss-seek-k"><b>STAR</b><em>select</em> Check</span>
-        <span class="ss-seek-t"><strong>Thinking of applying for a job?</strong> Check your CV against the role before you apply. →</span>
+        <span class="ss-seek-t"><strong>Thinking of applying for a job?</strong> Check your CV and LinkedIn profile against the role before you apply. →</span>
       </a>
       </div>
+      <div class="hero-right">
       <div class="hero-copy">
         <span class="eyebrow">Construction, Engineering &amp; Insurance Recruitment</span>
         <h1>{settings.heroHeading}</h1>
@@ -60,17 +61,13 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
           <a href="/employers" class="btn btn-outline">Hire Through Us</a>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- About teaser -->
-  <section class="section">
-    <div class="wrap about-teaser">
+      <!-- About us, under the introduction: it ends level with the STARselect Check box. -->
       <div class="about-copy">
         <span class="eyebrow">About Us</span>
         <h2>25+ years of placing the people who build Australia.</h2>
         <p>{settings.aboutBio}</p>
         <a href="/about" class="link-underline">Read more about ConstructEng →</a>
+      </div>
       </div>
     </div>
   </section>
@@ -193,8 +190,35 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     padding-top: 12px;
   }
   .hero-grid .hero-copy {
-    justify-content: center;
     min-width: 0;
+    flex: none;
+    gap: 14px;
+  }
+  /* The right-hand column: the introduction from the top of the STARselect card,
+     About us ending level with the bottom of the STARselect Check box. */
+  .hero-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 22px;
+    min-width: 0;
+    padding-top: 4px;
+  }
+  .hero-right h1 {
+    font-size: clamp(25px, 2.6vw, 33px);
+  }
+  .hero-right .about-copy {
+    gap: 10px;
+    max-width: none;
+    padding-top: 18px;
+    border-top: 1px solid var(--line);
+  }
+  .hero-right .about-copy h2 {
+    font-size: clamp(21px, 2vw, 24px);
+  }
+  .hero-right .about-copy p {
+    font-size: 14.5px;
+    line-height: 1.55;
   }
   /* STARselect keeps its own navy and gold so it reads as a product, not
      another ConstructEng service. */
