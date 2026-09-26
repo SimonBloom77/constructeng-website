@@ -35,11 +35,11 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
 
 <style>
   h1 {
-    font-size: clamp(28px, 4vw, 34px);
+    font-size: clamp(25px, 3.5vw, 30px);
     margin-top: 12px;
   }
   .lead {
-    font-size: 16px;
+    font-size: 15px;
     color: var(--navy);
     margin-top: 14px;
   }
@@ -48,12 +48,12 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 1px;
     background: var(--line);
-    margin-top: 28px;
+    margin-top: 22px;
     border: 1px solid var(--line);
   }
   .card {
     background: var(--card);
-    padding: 36px 32px 32px;
+    padding: 29px 26px 26px;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -63,7 +63,7 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
   .card::before {
     content: "\201C";
     font-family: 'Fraunces', serif;
-    font-size: 64px;
+    font-size: 56px;
     line-height: 1;
     color: var(--accent-soft);
     position: absolute;
@@ -76,8 +76,8 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
     z-index: 1;
   }
   .card p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--navy);
     position: relative;
   }
@@ -87,7 +87,7 @@ const testimonials = (await getCollection('testimonials')).sort((a, b) => a.data
   }
   .t-role {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--ink);
   }
   .t-company {

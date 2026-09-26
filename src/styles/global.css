@@ -42,7 +42,7 @@ html {
 
 body {
   font-family: "Public Sans", sans-serif;
-  font-size: 16.5px;
+  font-size: 15.5px;
   line-height: 1.5;
   color: var(--ink);
   background: var(--ivory);
@@ -121,10 +121,10 @@ img {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: -0.005em;
-  padding: 15px 26px;
+  padding: 15px 21px;
   border: 1.5px solid var(--ink);
   background: var(--ink);
   color: #fff;
@@ -170,12 +170,12 @@ img {
 }
 
 .section {
-  padding: 48px 0;
+  padding: 38px 0;
 }
 
 @media (min-width: 900px) {
   .section {
-    padding: 72px 0;
+    padding: 58px 0;
   }
 }
 
@@ -207,7 +207,7 @@ img {
 .field select,
 .field textarea {
   font-family: inherit;
-  font-size: 15px;
+  font-size: 14px;
   padding: 12px 14px;
   border: 1px solid var(--line);
   background: var(--card);

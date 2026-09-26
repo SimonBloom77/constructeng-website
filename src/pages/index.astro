@@ -176,7 +176,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
 <style>
   .hero-inner {
     display: flex;
-    gap: 56px;
+    gap: 45px;
     align-items: center;
     flex-wrap: wrap;
   }
@@ -197,11 +197,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     background: var(--on-band-accent);
   }
   h1 {
-    font-size: clamp(28px, 3.6vw, 42px);
+    font-size: clamp(25px, 3.2vw, 37px);
   }
   .hero-sub {
-    font-size: 17px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
     color: var(--navy);
     max-width: 540px;
   }
@@ -215,12 +215,12 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    gap: 32px;
     align-items: stretch;
   }
   /* Less space above so both columns, STARselect's button included, fit on a laptop screen. */
   .section.hero {
-    padding-top: 28px;
+    padding-top: 22px;
   }
   .hero-grid .hero-copy {
     justify-content: center;
@@ -232,7 +232,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .ss-card {
     background: #fffdf9;
     color: #1e3461;
-    padding: 22px 26px 24px;
+    padding: 22px 21px 19px;
     display: flex;
     flex-direction: column;
     gap: 9px;
@@ -246,7 +246,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-size: 30px;
+    font-size: 26px;
     letter-spacing: -0.01em;
   }
   .ss-logo b { font-weight: 700; color: #1e3461; }
@@ -260,19 +260,19 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .ss-card h2 {
     color: #1e3461;
-    font-size: clamp(26px, 2.5vw, 32px);
+    font-size: clamp(23px, 2.2vw, 28px);
     line-height: 1.1;
     margin: 0;
   }
   .ss-card .ss-motto {
     color: #b8913b;
-    font-size: clamp(18px, 1.7vw, 21px);
+    font-size: clamp(16px, 1.5vw, 18px);
     font-weight: 700;
     line-height: 1.2;
     margin: -4px 0 0;
   }
   .ss-card p {
-    font-size: 15px;
+    font-size: 14px;
     line-height: 1.58;
     color: #3a4659;
     margin: 0;
@@ -285,7 +285,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     align-self: stretch;
     width: 100%;
     box-sizing: border-box;
-    font-size: 17px;
+    font-size: 15px;
     padding: 14px 20px;
   }
   .ss-offer {
@@ -320,7 +320,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .ss-box h3 {
     font-family: "Public Sans", sans-serif;
-    font-size: 14.5px;
+    font-size: 13.5px;
     font-weight: 700;
     color: #1e3461;
     margin: 0 0 3px;
@@ -339,7 +339,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .ss-card { padding: 28px 24px; }
+    .ss-card { padding: 22px 19px; }
     .ss-offer { grid-template-columns: 1fr; }
   }
 
@@ -354,15 +354,15 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     max-width: 720px;
   }
   .about-copy h2 {
-    font-size: clamp(26px, 3.5vw, 34px);
+    font-size: clamp(23px, 3.1vw, 30px);
   }
   .about-copy p {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     color: var(--navy);
   }
   .link-underline {
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 700;
     color: var(--ink);
     text-decoration: none;
@@ -377,7 +377,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     align-items: flex-end;
     gap: 20px;
     flex-wrap: wrap;
-    margin-bottom: 36px;
+    margin-bottom: 29px;
   }
   .no-vacancies {
     display: flex;
@@ -387,11 +387,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     max-width: 560px;
   }
   .no-vacancies h2 {
-    font-size: clamp(26px, 3.5vw, 34px);
+    font-size: clamp(23px, 3.1vw, 30px);
     margin-top: 8px;
   }
   .section-head h2 {
-    font-size: clamp(26px, 3.5vw, 34px);
+    font-size: clamp(23px, 3.1vw, 30px);
     margin-top: 12px;
   }
 
@@ -413,7 +413,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .vacancy-row:hover {
     background: var(--paper);
-    padding-left: 28px;
+    padding-left: 22px;
     padding-right: 12px;
   }
   .vacancy-row:hover .vacancy-link {
@@ -422,11 +422,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .vacancy-title {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
     color: var(--ink);
   }
   .vacancy-link {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--accent-dark);
     white-space: nowrap;
@@ -438,7 +438,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
 
   .on-dark {
     color: var(--on-band);
-    font-size: clamp(26px, 3.5vw, 34px);
+    font-size: clamp(23px, 3.1vw, 30px);
     margin-top: 14px;
     max-width: 620px;
   }
@@ -446,16 +446,16 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     color: var(--muted-on-dark);
   }
   .lead {
-    font-size: 16px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
     max-width: 620px;
     margin-top: 18px;
   }
   .employer-stats {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 32px;
-    margin: 28px 0;
+    gap: 26px;
+    margin: 22px 0;
   }
   .employer-stat {
     display: flex;
@@ -467,11 +467,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .employer-stat strong {
     font-family: 'Fraunces', serif;
     font-weight: 800;
-    font-size: 28px;
+    font-size: 25px;
     color: var(--on-band);
   }
   .stat-label {
-    font-size: 14px;
+    font-size: 13px;
     color: var(--muted-on-dark);
   }
 
@@ -480,11 +480,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
     gap: 1px;
     background: var(--line);
-    margin-top: 36px;
+    margin-top: 29px;
   }
   .testimonial-card {
     background: var(--card);
-    padding: 36px 32px 32px;
+    padding: 29px 26px 26px;
     display: flex;
     flex-direction: column;
     gap: 18px;
@@ -494,7 +494,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   .testimonial-card::before {
     content: "\201C";
     font-family: 'Fraunces', serif;
-    font-size: 64px;
+    font-size: 56px;
     line-height: 1;
     color: var(--accent-soft);
     position: absolute;
@@ -508,8 +508,8 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .testimonial-card p {
     position: relative;
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--navy);
   }
   .testimonial-attr {
@@ -518,7 +518,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .t-name {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 13px;
     color: var(--ink);
   }
   .t-company {
@@ -535,7 +535,7 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
   }
   .split-card {
     background: var(--card);
-    padding: 40px;
+    padding: 32px;
     display: flex;
     flex-direction: column;
     gap: 16px;
@@ -548,11 +548,11 @@ const featuredTestimonials = (await getCollection('testimonials', ({ data }) => 
     z-index: 1;
   }
   .split-card h3 {
-    font-size: 24px;
+    font-size: 21px;
   }
   .split-card p {
-    font-size: 15px;
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.5;
     color: var(--navy);
   }
 </style>

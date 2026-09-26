@@ -42,12 +42,12 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
 
 <style>
   h1 {
-    font-size: clamp(28px, 4vw, 34px);
+    font-size: clamp(25px, 3.5vw, 30px);
     margin-top: 12px;
   }
   .lead {
-    font-size: 16px;
-    line-height: 1.6;
+    font-size: 15px;
+    line-height: 1.5;
     color: var(--navy);
     max-width: 640px;
     margin-top: 14px;
@@ -56,13 +56,13 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     display: flex;
     flex-direction: column;
     border-top: 1px solid var(--line);
-    margin-top: 44px;
+    margin-top: 35px;
   }
   .vacancy-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 24px 20px;
+    padding: 19px 20px;
     margin: 0 -20px;
     border-bottom: 1px solid var(--line);
     gap: 16px;
@@ -72,7 +72,7 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
   }
   .vacancy-row:hover {
     background: var(--paper);
-    padding-left: 28px;
+    padding-left: 22px;
   }
   .vacancy-row:hover .tag {
     border-color: var(--accent);
@@ -86,7 +86,7 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
   .vacancy-title {
     font-family: 'Fraunces', serif;
     font-weight: 700;
-    font-size: 17px;
+    font-size: 15px;
     color: var(--ink);
   }
   .vacancy-tags {
@@ -102,12 +102,12 @@ const vacancies = (await getCollection('vacancies', ({ data }) => data.active)).
     transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
   }
   .vacancy-link {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 700;
     color: var(--accent-dark);
     white-space: nowrap;
   }
   .cta-row {
-    margin-top: 48px;
+    margin-top: 38px;
   }
 </style>
