@@ -20,6 +20,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
           <span class="eyebrow">Introducing STARselect</span>
         </div>
         <h1>Tailored STAR interview questions, straight from the CV and the brief.</h1>
+        <p class="ss-star">Every question draws out a real example: the Situation, the Task, the Action they took and the Result.</p>
         <p class="ss-motto">Hire on evidence, not instinct. Minimum effort, maximum reward.</p>
         <div class="top-cta">
           <a href={signUp} class="btn ss-btn">Start my free trial →</a>
@@ -27,29 +28,11 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
           <span>30 days free. No card needed.</span>
         </div>
       </div>
-      <div class="hero-stats">
-        <div class="stat-row">
-          <span>From CV and brief to</span>
-          <strong>Questions</strong>
-        </div>
-        <div class="stat-row">
-          <span>Interview method</span>
-          <strong>STAR<small>Situation, Task, Action, Result</small></strong>
-        </div>
-        <div class="stat-row">
-          <span>Market maps from</span>
-          <strong>LinkedIn</strong>
-        </div>
-        <div class="stat-row">
-          <span>Free trial</span>
-          <strong>30 days</strong>
-        </div>
-      </div>
     </div>
     <div class="wrap ss-how">
-      <p class="hero-sub">One workspace for the whole search, from brief to interview:</p>
+      <p class="hero-sub">One workspace for the whole hiring process, from brief to interview:</p>
       <ol class="ss-steps">
-        <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
+        <li><strong>Add the role description.</strong> Upload it, or add it straight from your job advert with the STARselect browser extension. STARselect sets up the brief from it.</li>
         <li><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
         <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map.</li>
         <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
@@ -79,7 +62,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
       <h2>Let STARselect review your applications, right inside your job board or ATS.</h2>
       <p class="ext-lead">Add STARselect to Chrome or Edge and it works inside SEEK, Indeed, LinkedIn and any ATS you use in your browser. No downloading CVs, no uploading, no switching between systems.</p>
       <ol class="ext-steps">
-        <li><strong>Open your job ad.</strong> Press Add role description to STARselect. It reads the ad and sets up the vacancy: the must-haves, the nice-to-haves and the employer.</li>
+        <li><strong>Open your job advert.</strong> Press Add role description to STARselect. It reads the advert and sets up the vacancy: the must-haves, the nice-to-haves and the employer.</li>
         <li><strong>Open an applicant.</strong> Right-click the page and choose Rank this page with STARselect. It reads their CV and ranks them against the role straight away.</li>
         <li><strong>See who to call first.</strong> Every applicant is scored against the must-haves, with the reason for each rating, and added to your STARselect pipeline, ready for outreach and interview questions.</li>
       </ol>
@@ -314,6 +297,12 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   @media (max-width: 900px) {
     .ext-steps { grid-template-columns: 1fr; }
+  }
+  .ss-star {
+    font-size: 16px;
+    font-weight: 700;
+    color: #284278;
+    margin: -4px 0 0;
   }
   .ss-motto {
     color: #b8913b;
