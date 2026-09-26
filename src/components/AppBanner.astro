@@ -13,28 +13,11 @@ const onStarselect = Astro.url.pathname.startsWith("/get-starselect");
     </a>
     <div class="app-banner-actions">
       <a href="/get-starselect">Start a free trial →</a>
-      <button type="button" id="app-banner-close" aria-label="Dismiss">&times;</button>
     </div>
   </div>
 </div>
 )}
 
-<script>
-  const KEY = 'starselect-banner-dismissed';
-  const banner = document.getElementById('app-banner');
-  if (banner) {
-    if (localStorage.getItem(KEY)) {
-      banner.remove();
-    } else {
-      document.getElementById('app-banner-close')?.addEventListener('click', () => {
-        try {
-          localStorage.setItem(KEY, '1');
-        } catch {}
-        banner.remove();
-      });
-    }
-  }
-</script>
 
 <style>
   .app-banner {
@@ -118,18 +101,5 @@ const onStarselect = Astro.url.pathname.startsWith("/get-starselect");
   .app-banner-actions a:hover {
     color: #1e3461;
     border-color: #1e3461;
-  }
-  #app-banner-close {
-    background: none;
-    border: none;
-    cursor: pointer;
-    font-size: 18px;
-    line-height: 1;
-    color: var(--on-band);
-    padding: 0;
-    opacity: 0.7;
-  }
-  #app-banner-close:hover {
-    opacity: 1;
   }
 </style>
