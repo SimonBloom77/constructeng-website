@@ -12,7 +12,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   title="STARselect — STAR Interview Questions, Market Maps and CV Ranking"
   description="STARselect reviews your applications right inside your job board or ATS with its browser extension, ranks every applicant against the brief, builds ranked market maps from LinkedIn, handles the outreach and writes STAR interview questions from each CV. Try it free for 30 days."
 >
-  <section class="section hero ss-hero">
+  <section class="section section-paper hero ss-hero">
     <div class="wrap hero-inner">
       <div class="hero-copy">
         <div class="ss-intro">
@@ -49,11 +49,11 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
       <p class="hero-sub">One workspace for the whole search, from brief to interview:</p>
       <ol class="ss-steps">
         <li><strong>Add the role description.</strong> Upload it, or add it straight from your job ad with the STARselect browser extension. STARselect sets up the brief from it.</li>
-        <li class="key"><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
+        <li><strong>STARselect reviews your applicants live, inside your job board or ATS.</strong> With the STARselect browser extension, open an applicant in SEEK, Indeed or any ATS you use in your browser, and STARselect reads their CV and ranks them against the role on the spot. No downloading or uploading CVs, and everything is saved automatically in your STARselect account. <a href="#browser-extension">See how it works</a></li>
         <li><strong>STARselect searches your LinkedIn.</strong> Connect your LinkedIn or LinkedIn Recruiter account and STARselect runs the searches and builds your market map.</li>
-        <li class="key"><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
+        <li><strong>STARselect ranks everyone.</strong> Each person is graded against the brief, with the reason shown for each criterion, and the strongest sit at the top.</li>
         <li><strong>STARselect makes contact.</strong> Personalised messages by LinkedIn or from your own email, follow-ups if there's no reply, a polite “no” for those who aren't a fit, and interview times candidates can book themselves.</li>
-        <li class="key"><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
+        <li><strong>STARselect writes each candidate's interview.</strong> It reads the candidate's CV against the role description and writes STAR questions specific to that person, testing exactly what their CV claims. Your panel gets follow-up prompts and a scorecard to print or fill in on screen.</li>
       </ol>
       <p class="hero-sub">Built in-house by ConstructEng Australia. Try it free for 30 days: see what the trial includes below.</p>
     </div>
@@ -388,11 +388,13 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
     gap: 6px;
     max-width: 560px;
   }
-  /* Every step has the same box, so the numbers and text line up; the
-     shaded ones only add the colour. */
+  /* Every step is a card like the free trial list: the same box, so the
+     numbers and text line up. */
   .ss-steps li {
     counter-increment: step;
     position: relative;
+    background: var(--card);
+    border: 1px solid var(--line);
     border-radius: 8px;
     padding: 12px 14px 12px 45px;
     font-size: 15px;
@@ -416,9 +418,6 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   .ss-steps strong {
     color: var(--ink);
-  }
-  .ss-steps li.key {
-    background: var(--accent-soft);
   }
   .hero-stats {
     flex: 0 0 350px;
