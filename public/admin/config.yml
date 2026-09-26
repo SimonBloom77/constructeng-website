@@ -76,3 +76,4 @@ collections:
           - { label: "Stat — Shortlist Size", name: "statShortlist", widget: "string" }
           - { label: "Stat — LinkedIn Followers", name: "statLinkedIn", widget: "string" }
           - { label: "Stat — Year Founded", name: "statFounded", widget: "string" }
+          - { label: "Google Analytics measurement ID (G-...)", name: "gaId", widget: "string", required: false }

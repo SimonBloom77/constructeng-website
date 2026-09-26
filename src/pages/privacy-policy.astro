@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import settings from '../data/settings.json';
+const analytics = /^G-[A-Z0-9]+$/.test(String((settings as { gaId?: string }).gaId || '').trim());
 ---
 
 <Layout title="Privacy Policy">
@@ -13,6 +14,12 @@ import settings from '../data/settings.json';
       <p>When you submit your CV or brief us on a role, we collect the information you provide — including your name, contact details, employment history and any other details included in your CV or message.</p>
       <h2>How we use it</h2>
       <p>We use this information solely to provide recruitment services: matching candidates to relevant roles, and connecting employers with suitable candidates. We do not sell your information to third parties.</p>
+      {analytics && (
+        <>
+          <h2>Website analytics</h2>
+          <p>We use Google Analytics to understand how visitors use this website, such as which pages are viewed and how people arrive here. It uses cookies and collects information such as your device, browser, approximate location and the pages you visit. It doesn't tell us who you are. The information is processed by Google, including outside Australia. You can stop it by blocking cookies in your browser or with <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google's opt-out add-on</a>.</p>
+        </>
+      )}
       <h2>Contact</h2>
       <p>For any questions about how your information is handled, contact {settings.founderName} at <a href={`mailto:${settings.email}`}>{settings.email}</a>.</p>
     </div>

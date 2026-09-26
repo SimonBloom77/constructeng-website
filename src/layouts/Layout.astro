@@ -3,6 +3,11 @@ import AppBanner from '../components/AppBanner.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import '../styles/global.css';
+import settings from '../data/settings.json';
+
+// Google Analytics, on the live site only, once a measurement ID is set.
+const gaId = String((settings as { gaId?: string }).gaId || '').trim();
+const analytics = import.meta.env.PROD && /^G-[A-Z0-9]+$/.test(gaId);
 
 interface Props {
   title: string;
@@ -34,6 +39,17 @@ const {
     <script is:inline>
       document.documentElement.classList.add('js');
     </script>
+    {analytics && <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}></script>}
+    {analytics && (
+      <script is:inline define:vars={{ gaId }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', gaId);
+      </script>
+    )}
   </head>
   <body>
     <AppBanner />
