@@ -9,7 +9,7 @@ const onStarselect = Astro.url.pathname.startsWith("/get-starselect");
     <!-- The whole banner leads to the STARselect page. -->
     <a class="app-banner-main" href="/get-starselect">
       <span class="app-banner-tag">New</span>
-      <span class="app-banner-copy"><span class="app-banner-brand"><svg class="app-banner-mark ss-twinkle" viewBox="-32 -32 64 64" width="16" height="16" aria-hidden="true"><path d="M0,-32 L7,-7 L0,0 L-7,-7 Z" fill="#284278"/><path d="M32,0 L7,7 L0,0 L7,-7 Z" fill="#B8913B"/><path d="M0,32 L-7,7 L0,0 L7,7 Z" fill="#284278"/><path d="M-32,0 L-7,-7 L0,0 L-7,7 Z" fill="#B8913B"/></svg><span><b>STAR</b><em>select</em></span></span> Tailored STAR interviews from any CV, and every applicant ranked against your brief.</span>
+      <span class="app-banner-copy"><span class="app-banner-brand"><svg class="app-banner-mark ss-twinkle" viewBox="-32 -32 64 64" width="16" height="16" aria-hidden="true"><path d="M0,-32 L7,-7 L0,0 L-7,-7 Z" fill="#284278"/><path d="M32,0 L7,7 L0,0 L7,-7 Z" fill="#B8913B"/><path d="M0,32 L-7,7 L0,0 L7,7 Z" fill="#284278"/><path d="M-32,0 L-7,-7 L0,0 L-7,7 Z" fill="#B8913B"/></svg><span><b>STAR</b><em>select</em></span></span> <span class="ab-long">Every applicant ranked inside your job board or ATS, LinkedIn market maps, evidence checks, pre-screens and tailored STAR interviews.</span><span class="ab-short">Applicants ranked in your job board, evidence checks and tailored STAR interviews.</span></span>
     </a>
     <div class="app-banner-actions">
       <a href="/get-starselect">Start a free trial →</a>
@@ -23,6 +23,37 @@ const onStarselect = Astro.url.pathname.startsWith("/get-starselect");
   .app-banner {
     background: var(--band);
     border-bottom: 1px solid var(--line-band);
+    position: relative;
+    overflow: hidden;
+  }
+  /* A gentle ripple: a soft band of light sweeps across every few seconds. */
+  .app-banner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: -40%;
+    width: 40%;
+    background: linear-gradient(100deg, rgba(255, 253, 249, 0) 0%, rgba(255, 253, 249, 0.55) 50%, rgba(255, 253, 249, 0) 100%);
+    animation: app-banner-ripple 7s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes app-banner-ripple {
+    0% { transform: translateX(0); }
+    45%, 100% { transform: translateX(360%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .app-banner::after { display: none; }
+  }
+  .app-banner-inner {
+    position: relative;
+    z-index: 1;
+  }
+  /* The full list on wide screens; a shorter line on laptops and phones, so the banner stays small. */
+  .ab-short { display: none; }
+  @media (max-width: 1279px) {
+    .ab-long { display: none; }
+    .ab-short { display: inline; }
   }
   /* STARselect's own navy and gold, on a small ivory badge so they read on camel. */
   .app-banner-brand {
