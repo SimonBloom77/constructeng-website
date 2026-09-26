@@ -23,6 +23,7 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
         <p class="ss-motto">Hire on evidence, not instinct. Minimum effort, maximum reward.</p>
         <div class="top-cta">
           <a href={signUp} class="btn ss-btn">Start my free trial →</a>
+          <a href="/starselect-brochure.pdf" class="btn ss-btn" download="STARselect brochure.pdf">Download our brochure</a>
           <span>30 days free. No card needed.</span>
         </div>
       </div>
@@ -64,6 +65,10 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
         <li><strong>Talk to STARselect.</strong> Press Talk to me and say or type what you want: open a vacancy or a candidate, add must-haves or search keywords, move someone to the next stage or run a LinkedIn search.</li>
         <li><strong>A search plan you can change.</strong> Edit a market map's search plan before you search: the job titles, the search strings, what each person is graded on and what rules someone out.</li>
       </ul>
+      <div class="ss-brochure" id="brochure">
+        <div><strong>Download our brochure.</strong> Everything STARselect does and what it costs, on one page: to read later or share with your team.</div>
+        <a href="/starselect-brochure.pdf" class="btn ss-btn" download="STARselect brochure.pdf">Download the brochure (PDF)</a>
+      </div>
       <p class="hero-sub">Built in-house by ConstructEng Australia. Your data belongs to your organisation: we don't look at your records, and we never sell your data or use it for our own recruitment business. Try it free for 30 days: see what the trial includes below.</p>
     </div>
   </section>
@@ -116,12 +121,16 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
           </ul>
         </div>
         <div>
-          <h3>On a paid plan</h3>
+          <h3>Plans and prices</h3>
           <ul class="trial-list paid">
-            <li><strong>Larger monthly allowances.</strong> Interview guides, CVs ranked and LinkedIn people added to market maps, with a Plus option for three times as many.</li>
-            <li><strong>Your whole team.</strong> Professional is for one recruiter, Team is for 2 to 10 people, and Enterprise is for larger teams.</li>
+            <li><strong>Professional: $59 a month, or $49 a month billed yearly.</strong> For one recruiter. Each month: 40 interview guides, 500 CVs ranked or scored and 1,000 LinkedIn people added to market maps.</li>
+            <li><strong>Professional Plus: $99 a month, or $79 a month billed yearly.</strong> Three times the allowances: 120 interview guides, 1,500 CVs and 3,000 LinkedIn people a month.</li>
+            <li><strong>Team: $49 per user a month, or $39 billed yearly.</strong> For 2 to 10 people, with Professional's allowances for each person, shared across the team.</li>
+            <li><strong>Team Plus: $85 per user a month, or $69 billed yearly.</strong> Three times the allowances for each person, shared across the team.</li>
+            <li><strong>Enterprise: priced for your team.</strong> For larger teams.</li>
             <li><strong>LinkedIn and email connected for everyone</strong> on your team.</li>
           </ul>
+          <p class="trial-note">Prices in AUD, excluding GST. Every plan includes every feature.</p>
           <h3>When your trial ends</h3>
           <p class="trial-note">Everything you've saved stays in your account. STARselect's AI features, including writing interview guides, ranking CVs and searching LinkedIn, and messaging candidates, pause until you choose a plan. If you connected your LinkedIn or email during the trial, STARselect disconnects them when the trial ends, unless you've already chosen a plan. The accounts themselves aren't affected, and you can connect them again at any time on a paid plan.</p>
           <h3>Your data</h3>
@@ -473,6 +482,23 @@ const signUp = `${appUrl}/starselect/index.html?signup=1`;
   }
   @media (max-width: 640px) {
     .ss-more { grid-template-columns: 1fr; }
+  }
+  .ss-brochure {
+    margin: 14px 0 0;
+    background: var(--band);
+    border-radius: var(--card-radius);
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px 20px;
+    flex-wrap: wrap;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--on-band);
+  }
+  .ss-brochure strong {
+    color: var(--ink);
   }
   .ext-extra {
     font-size: 15px;
